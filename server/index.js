@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3001"],
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -98,5 +98,5 @@ app.post("/login", (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log("Running Server on ");
+  console.log("The server is running ");
 });
