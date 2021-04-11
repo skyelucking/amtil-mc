@@ -14,7 +14,7 @@ export default function Registration() {
   Axios.defaults.withCredentials = true;
 
   const register = () => {
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("/register", {
       username: usernameReg,
       password: passwordReg,
     }).then((response) => {
@@ -23,7 +23,7 @@ export default function Registration() {
   };
 
   const login = () => {
-    Axios.post("http://localhost:3001/login", {
+    Axios.post("/login", {
       username: username,
       password: password,
     }).then((response) => {
@@ -36,7 +36,7 @@ export default function Registration() {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response) => {
+    Axios.get("/login").then((response) => {
       if (response.data.loggedIn === true) {
         setLoginStatus(response.data.user[0].username);
       }
