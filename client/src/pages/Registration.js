@@ -5,6 +5,10 @@ import "../App.css";
 export default function Registration() {
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
+  const [emailReg, setEmailReg] = useState("");
+  const [fNameReg, setfNameReg] = useState("");
+  const [lNameReg, setlNameReg] = useState("");
+  const [titleReg, setlTitleReg] = useState("");
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,6 +21,11 @@ export default function Registration() {
     Axios.post("/register", {
       username: usernameReg,
       password: passwordReg,
+      fName: fNameReg,
+      lName: lNameReg,
+      title: titleReg,
+      email: emailReg,
+
     }).then((response) => {
       console.log(response);
     });
@@ -47,6 +56,34 @@ export default function Registration() {
     <div className="App">
       <div className="registration">
         <h1>Registration</h1>
+        <label>Email</label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setEmailReg(e.target.value);
+          }}
+        />
+        <label>First Name</label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setfNameReg(e.target.value);
+          }}
+        />
+        <label>Last Name</label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setlNameReg(e.target.value);
+          }}
+        />
+        <label>Title</label>
+        <input
+          type="text"
+          onChange={(e) => {
+            setlTitleReg(e.target.value);
+          }}
+        />
         <label>Username</label>
         <input
           type="text"
@@ -63,6 +100,8 @@ export default function Registration() {
         />
         <button onClick={register}> Register </button>
       </div>
+
+
 
       <div className="login">
         <h1>Login</h1>

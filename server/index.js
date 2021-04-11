@@ -12,13 +12,13 @@ const saltRounds = 10;
 const app = express();
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["http://localhost:3001"],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3001"],
+//     methods: ["GET", "POST"],
+//     credentials: true,
+//   })
+// );
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,6 +44,10 @@ const db = mysql.createConnection({
 app.post("/register", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  const fName = req.body.fName;
+  const lName = req.body.lName;
+  const title = req.body.title;
+  const email = req.body.email;
 
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
@@ -51,8 +55,8 @@ app.post("/register", (req, res) => {
     }
 
     db.query(
-      "INSERT INTO users (username, password) VALUES (?,?)",
-      [username, hash],
+      "INSERT INTO users (username, password, fName, lName, title, email) VALUES (?,?,?,?,?, ?)",
+      [username, hash, fName, lName, title, email ],
       (err, result) => {
         console.log(err);
       }
