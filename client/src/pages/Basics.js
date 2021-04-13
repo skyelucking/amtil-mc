@@ -18,19 +18,6 @@ export default function Basics() {
   const [description, setdescription] = useState("");
 
 
- 
-  // function MyApp() {
-  //   const [value, onChange] = useState(new Date());
-  
-  //   return (
-  //     <div>
-  //       <DatePicker
-  //         onChange={onChange}
-  //         value={value}
-  //       />
-  //     </div>
-  //   );
-  // }
 
   const mission_basics = () => {
     Axios.post("/basics", {
