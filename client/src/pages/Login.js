@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "../App.css";
+import Logo from  "../Images/transp_amtilogo.png";
+
 
 export default function Login() {
   
@@ -26,7 +28,8 @@ export default function Login() {
   useEffect(() => {
     Axios.get("/login").then((response) => {
       if (response.data.loggedIn === true) {
-        setLoginStatus(response.data.user[0].username);
+        setLoginStatus(response.data.user[0].username)
+        // window.location.href = "#/menu";
       }
     });
   }, []);
@@ -35,7 +38,9 @@ export default function Login() {
   return (
 
 <div className="App">
+ 
       <div className="login">
+        <img src={Logo} alt="amtil logo"></img>
         <h1>Login</h1>
         <input
           type="text"
@@ -55,7 +60,7 @@ export default function Login() {
       </div>
       <div><a href="/registration">Need to register?</a> </div>
 
-      <h1>Hello there, {loginStatus}!</h1>
+      <h1> {loginStatus}!</h1>
     </div>
   );
 }

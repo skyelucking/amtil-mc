@@ -31,27 +31,7 @@ export default function Registration() {
     });
   };
 
-  // const login = () => {
-  //   Axios.post("/login", {
-  //     username: username,
-  //     password: password,
-  //   }).then((response) => {
-  //     if (response.data.message) {
-  //       setLoginStatus(response.data.message);
-  //     } else {
-  //       setLoginStatus(response.data[0].username);
-  //     }
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   Axios.get("/login").then((response) => {
-  //     if (response.data.loggedIn === true) {
-  //       setLoginStatus(response.data.user[0].username);
-  //     }
-  //   });
-  // }, []);
-
+  
   return (
     <div className="App">
       <div className="registration">

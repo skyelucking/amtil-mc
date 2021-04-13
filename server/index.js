@@ -12,13 +12,7 @@ const saltRounds = 10;
 const app = express();
 
 app.use(express.json());
-// app.use(
-//   cors({
-//     origin: ["http://localhost:3001"],
-//     methods: ["GET", "POST"],
-//     credentials: true,
-//   })
-// );
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -41,6 +35,35 @@ const db = mysql.createConnection({
   database: "missions_db",
 });
 
+//POST FOR mission_basics
+app.post("/basics", (req, res) => {
+  const status = req.body.status;
+  const name = req.body.name;
+  const category = req.body.category;
+  const summary = req.body.summary;
+  const notes = req.body.notes;
+  //need to convert this to datetime at some point
+  const start_date = req.body.start_date;
+  //need to convert this to datetime at some point
+  const end_date = req.body.end_date;
+  const cover_img = req.body.cover_img;
+  const description = req.body.description;
+
+      db.query(
+      "INSERT INTO mission_basics (status, name, category, summary, notes, start_date, end_date, cover_img, description  ) VALUES (?,?,?,?,?,?,?,?,?)",
+      [status, name, category, summary, notes, start_date, end_date, cover_img, description],
+      (err, result) => {
+        console.log(err);
+      }
+    );
+  });
+
+
+
+
+
+
+//POST FOR REGISTRATION INFO
 app.post("/register", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
