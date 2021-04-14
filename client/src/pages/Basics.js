@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "../App.css";
 import DatePicker from 'react-date-picker';
+import ShowBasics from "../pages/ShowBasics";
 
 Axios.defaults.withCredentials = true;
 
@@ -17,9 +18,7 @@ export default function Basics() {
   const [cover_img, setCoverImg] = useState("");
   const [description, setdescription] = useState("");
 
-
-
-  const mission_basics = () => {
+    const mission_basics = () => {
     Axios.post("/basics", {
       status: status,
       name: name,
@@ -107,6 +106,8 @@ export default function Basics() {
         />
         <button onClick={mission_basics}> Save</button>
       </div>
+      <hr></hr>
+      <div><ShowBasics /> </div>
       
     </div>
   );

@@ -17,10 +17,14 @@ export default function Navbar() {
 
   return (
     <div className="navbar-header">
-     Username: {loginStatus}     | Built Pages:{" "}
-      <Link to="/">Login </Link>and{" "}
-      <Link to="#/registration">Registration</Link> | WIPS:{" "}
-      <Link to="/basics">Mission Basics</Link>
+      <b>Username:</b> {loginStatus} |<Link to="/menu"> Main Menu </Link> |{" "}
+      <b>Add Data:</b> <Link to="/">Login </Link>|{" "}
+      <Link to="/registration">Registration |</Link>{" "}
+      <Link to="/equipdetails">Equipment Details | </Link>
+      <Link to="/tooldetails">Tool Details | </Link>
+      <Link to="/stagedetails">Stage Details </Link>|{" "}
+      <Link to="/basics">Mission Basics | </Link>
+      <b>Display Data:</b>{" "}
     </div>
   );
 }

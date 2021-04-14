@@ -6,6 +6,10 @@ import Login from "./pages/Login";
 import Menu from "./pages/Menu";
 import Navbar from "./components/Navbar";
 import Registration from "./pages/Registration";
+import EquipDetails from "./pages/EquipDetails";
+import ToolDetails from "./pages/ToolDetails";
+import StageDetails from "./pages/StageDetails";
+import ShowBasics from "./pages/ShowBasics";
 
 function App() {
   return (
@@ -16,6 +20,10 @@ function App() {
       <Route path="/" exact render={(props) => <Login />} />
       <Route path="/menu" exact render={(props) => <Menu />} />
       <Route path="/basics" exact render={(props) => <Basics />} />
+      <Route path="/equipdetails" exact render={(props) => <EquipDetails />} />
+      <Route path="/tooldetails" exact render={(props) => <ToolDetails />} />
+      <Route path="/stagedetails" exact render={(props) => <StageDetails />} />
+      <Route path="/showbasics" exact render={(props) => <ShowBasics />} />
     </Router>
   );
 }
