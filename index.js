@@ -1,3 +1,4 @@
+const db2 = require("./models");
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -32,14 +33,32 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+require("./routes/api-routes.js")(app);
 
-
-const db = mysql.createConnection({
+const db = mysql.createConnection(
+  // {
+  //   "development": {
+  //     "username": "root",
+  //     "password": "NewLife2021!",
+  //     "database": "missions_db",
+  //     "host": "localhost",
+  //     "dialect": "mysql"
+  //   },
+  //   "production": {
+  //     "use_env_variable": "JAWSDB_URL",
+  //     "dialect": "mysql"
+  //   }
+  // }
+ 
+   {
   user: "root",
   host: "localhost",
   password: "NewLife2021!",
   database: "missions_db",
-});
+}
+
+
+);
 
 //// POSTS TO DB //////
 
@@ -184,15 +203,15 @@ app.post("/login", (req, res) => {
 //// GETS FROM DB //////
 
 //Get from mission_basics
-app.get("/basics", (req, res) => {
-  db.query("SELECT * FROM mission_basics", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
-});
+// app.get("/basics", (req, res) => {
+//   db.query("SELECT * FROM mission_basics", (err, result) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.send(result);
+//     }
+//   });
+// });
 
 //Get from equipment_details
 app.get("/equipdetails", (req, res) => {
@@ -252,7 +271,9 @@ app.get("*", function(req, res) {
 
 
 const PORT = process.env.PORT || 3001
-
-app.listen(PORT, () => {
+db2.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
   console.log("The server is running ");
 });
+})
+

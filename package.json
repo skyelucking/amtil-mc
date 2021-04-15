@@ -8,7 +8,6 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
-
   },
   "author": "Pedro Henrique Machado",
   "license": "ISC",
@@ -23,7 +22,9 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mysql": "^2.18.1",
-    "react-date-picker": "^8.1.1"
+    "mysql2": "^2.2.5",
+    "react-date-picker": "^8.1.1",
+    "sequelize": "^5.8.6"
   },
   "devDependencies": {},
   "description": ""
