@@ -13,6 +13,8 @@ const ShowBasics = () => {
   return (
     <div>
       <Container>
+      <div style={{textAlign: "center"}}>
+      <b>Mission Basics Table</b></div>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>

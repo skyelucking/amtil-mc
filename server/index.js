@@ -143,17 +143,7 @@ app.post("/register", (req, res) => {
   });
 });
 
-//// GETS FROM DB //////
 
-app.get("/basics", (req, res) => {
-  db.query("SELECT * FROM mission_basics", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
-});
 
 
 app.post("/login", (req, res) => {
@@ -184,6 +174,73 @@ app.post("/login", (req, res) => {
     }
   );
 });
+
+//// GETS FROM DB //////
+
+//Get from mission_basics
+app.get("/basics", (req, res) => {
+  db.query("SELECT * FROM mission_basics", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+//Get from equipment_details
+app.get("/equipdetails", (req, res) => {
+  db.query("SELECT * FROM equipment_details", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+//Get from tool_details
+app.get("/tooldetails", (req, res) => {
+  db.query("SELECT * FROM tool_details", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+//Get from stage_details
+app.get("/stagedetails", (req, res) => {
+  db.query("SELECT * FROM stage_details", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+//Get from stage_details
+app.get("/register", (req, res) => {
+  db.query("SELECT * FROM users", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.get("/login", (req, res) => {
+  if (req.session.user) {
+    res.send({ loggedIn: true, user: req.session.user });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
+
+
 
 app.listen(3001, () => {
   console.log("The server is running ");

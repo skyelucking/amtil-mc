@@ -25,6 +25,7 @@ export default function Navbar() {
       <Link to="/stagedetails">Stage Details </Link>|{" "}
       <Link to="/basics">Mission Basics | </Link>
       <b>Display Data:</b>{" "}
+      <Link to="/alltables"> All Tables | </Link>
     </div>
   );
 }

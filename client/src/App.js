@@ -5,6 +5,8 @@ import Basics from "./pages/Basics";
 import Login from "./pages/Login";
 import Menu from "./pages/Menu";
 import Navbar from "./components/Navbar";
+import AllTables from "./components/AllTables";
+import ShowEquip from "./components/ShowEquip";
 import Registration from "./pages/Registration";
 import EquipDetails from "./pages/EquipDetails";
 import ToolDetails from "./pages/ToolDetails";
@@ -24,6 +26,8 @@ function App() {
       <Route path="/tooldetails" exact render={(props) => <ToolDetails />} />
       <Route path="/stagedetails" exact render={(props) => <StageDetails />} />
       <Route path="/showbasics" exact render={(props) => <ShowBasics />} />
+      <Route path="/showequip" exact render={(props) => <ShowEquip/>} />
+      <Route path="/alltables" exact render={(props) => <AllTables />} />
     </Router>
   );
 }

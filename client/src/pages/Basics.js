@@ -107,8 +107,9 @@ export default function Basics() {
         <button onClick={mission_basics}> Save</button>
       </div>
       <hr></hr>
+     
       <div><ShowBasics /> </div>
-      
+      <hr></hr>
     </div>
   );
 }
