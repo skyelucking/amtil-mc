@@ -28,6 +28,12 @@ app.use(
   })
 );
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+
+
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
@@ -238,6 +244,10 @@ app.get("/login", (req, res) => {
   } else {
     res.send({ loggedIn: false });
   }
+});
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 
