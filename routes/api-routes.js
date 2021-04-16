@@ -2,6 +2,7 @@
 const db = require("../models");
 
 module.exports = function (app) {
+  ////////Paths for mission_basics /////////
   //Get from mission_basics
   app.get("/basics", (req, res) => {
     // console.log(db);
@@ -10,7 +11,7 @@ module.exports = function (app) {
     });
   });
 
-  //Get from mission_basics
+  //Post to mission_basics
   app.post("/basics", (req, res) => {
     console.log(req);
     db.mission_basics
@@ -30,148 +31,102 @@ module.exports = function (app) {
         res.json(m_basics);
       });
   });
+
+  ////////Paths for registration to users table /////////
+
+  //Get from users
+  app.get("/register", (req, res) => {
+    db.users.findAll({}).then(function (users) {
+      res.json(users);
+    });
+  });
+
+  //Post to users
+  app.post("/register", (req, res) => {
+    console.log(req);
+    db.users
+      .create({
+        username: req.body.username,
+        password: req.body.password,
+        fName: req.body.fName,
+        lName: req.body.lName,
+        title: req.body.title,
+        email: req.body.email,
+      })
+      .then(function (users) {
+        console.log(users);
+        res.json(users);
+      });
+  });
+
+  ////////Paths for equipment_details table /////////
+  //Get from equipment_details
+  app.get("/equipdetails", (req, res) => {
+    db.equipment_details.findAll({}).then(function (equipment_details) {
+      res.json(equipment_details);
+    });
+  });
+
+  //Post to equipment_details
+  app.post("/equipdetails", (req, res) => {
+    console.log(req);
+    db.equipment_details
+      .create({
+        equip_name: req.body.equip_name,
+        equip_category: req.body.equip_category,
+        equip_description: req.body.equip_description,
+        equip_img: req.body.equip_img,
+      })
+      .then(function (equipment_details) {
+        console.log(equipment_details);
+        res.json(equipment_details);
+      });
+  });
+
+  ////////Paths for tool_details table /////////
+  //Get from tool_details
+  app.get("/tooldetails", (req, res) => {
+    db.tool_details.findAll({}).then(function (tool_details) {
+      res.json(tool_details);
+    });
+  });
+
+  //Post to tool_details
+  app.post("/tooldetails", (req, res) => {
+    console.log(req);
+    db.tool_details
+      .create({
+        tool_name: req.body.tool_name,
+        tool_category: req.body.tool_category,
+        tool_description: req.body.tool_description,
+        tool_img: req.body.tool_img,
+      })
+      .then(function (tool_details) {
+        console.log(tool_details);
+        res.json(tool_details);
+      });
+  });
+
+  ////////Paths for stage_details table /////////
+  //Get from stage_details
+  app.get("/stagedetails", (req, res) => {
+    db.stage_details.findAll({}).then(function (stage_details) {
+      res.json(stage_details);
+    });
+  });
+
+  //Post to stage_details
+  app.post("/stagedetails", (req, res) => {
+    console.log(req);
+    db.stage_details
+      .create({
+        stage_name: req.body.stage_name,
+        stage_desc: req.body.stage_desc,
+        stage_img: req.body.stage_img,
+      })
+      .then(function (stage_details) {
+        console.log(stage_details);
+        res.json(stage_details);
+      });
+  });
 };
-
-// //Get from users
-// app.get("/users", (req, res) => {
-//     console.log(db);
-//     db.users.findAll({}).then(function (users) {
-//         res.json(users);
-//       });
-//   });
-
-// Route for signing up a user.
-//   app.post("/api/register", (req, res) => {
-//     db.User.create({
-//       email: req.body.email,
-//       password: req.body.password,
-//       fName: req.body.fName,
-//       lName: req.body.lName
-//     })
-//       .catch(err => {
-//         console.log(err);
-//         res.status(401).json(err);
-//       });
-//   });
-
-// Route for logging user out
-//   app.get("/logout", (req, res) => {
-//     req.logout();
-//     res.redirect("/");
-//   });
-
-// Route for getting some data about our user to be used client side
-//   app.get("/api/user_data", (req, res) => {
-//     if (!req.user) {
-//       res.json({});
-//     } else {
-//       res.json({
-//         email: req.user.email,
-//         id: req.user.id,
-//         fName: req.user.fName
-//       });
-//     }
-//   });
-//   // Route to get all the habits in the database
-//   app.get("/api/all/", function (req, res) {
-//     db.habits_selected.findAll({}).then(function (habit) {
-//       res.json(habit);
-//     });
-//   });
-
-//   // Route to create habits to send to database
-//   app.post("/api/add_habit", (req, res) => {
-//     console.log(req.body);
-//     db.habits_selected
-//       .create({
-//         habitID: req.body.habitID,
-//         habitName: req.body.habitName,
-//         categoryID: req.body.categoryID,
-//         userID: req.body.userID,
-//         Monday: req.body.Monday,
-//         Tuesday: req.body.Tuesday,
-//         Wednesday: req.body.Wednesday,
-//         Thursday: req.body.Thursday,
-//         Friday: req.body.Friday,
-//         Saturday: req.body.Saturday,
-//         Sunday: req.body.Sunday,
-//       })
-//       .then(() => {
-//         res.send(200);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         res.status(401).json(err);
-//       });
-//   });
-
-//   app.delete("/api/delete_habit", (req, res) => {
-//     console.log(req.body);
-//     db.habits_selected
-//       .destroy({
-//         where: { habitID: req.body.habitID },
-//       })
-//       .then(() => {
-
-//         res.send(200);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         res.status(401).json(err);
-//       });
-//   });
-
-//   app.put("/api/refresh_week", function (req, res) {
-//     console.log(req.body);
-//     db.habits_selected
-//       .update({
-
-//         Monday: "false",
-//         Tuesday: "false",
-//         Wednesday: "false",
-//         Thursday: "false",
-//         Friday: "false",
-//         Saturday: "false",
-//         Sunday: "false"
-//       },
-//       {
-//         where: {
-//           userID: req.body.userID
-//         }})
-//       .then(() => {
-//         // console.log(res);
-
-//         res.send(200);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         res.status(401).json(err);
-//       });
-//   });
-
-//    // Route to Update habits to send to database
-//    app.put("/api/update_habit/", function (req, res) {
-//       console.log(req.body.weekday);
-//         console.log(req.body.checked);
-//         console.log(req.body.habitID);
-//     // console.log(req.body.weekday);
-//     db.habits_selected.update({
-//       [req.body.weekday]: req.body.checked
-
-//       },
-//       {
-//       where: {
-//         habitID: req.body.habitID
-//         }
-//     })
-//       .then(() => {
-
-//         res.sendStatus(200);
-//       })
-//       .catch(err => {
-//         console.log(err);
-//         res.status(401).json(err);
-//       });
-//   });
-
-// end of export

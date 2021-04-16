@@ -3,39 +3,39 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Container, Table } from "react-bootstrap";
 
-const ShowEquip = () => {
-  Axios.get("/equipdetails").then((response) => {
-    setEquipList(response.data);
+const ShowTools = () => {
+  Axios.get("/tooldetails").then((response) => {
+    setToolList(response.data);
   });
 
-  const [equipList, setEquipList] = useState([]);
+  const [toolList, setToolList] = useState([]);
 
   return (
     <div>
       <Container>
         <div style={{ textAlign: "center" }}>
-          <b>Mission Equipment Table</b>
+          <b>Mission Tools Table</b>
         </div>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Equipment_id</th>
+              <th>Tool_id</th>
               <th>Name</th>
               <th>Category</th>
               <th>Description</th>
-              <th>Cover_img</th>
+              <th>Image</th>
               <th>Last Updated</th>
               <th>Last User</th>
             </tr>
           </thead>
           <tbody>
-            {equipList.map((data, index) => (
-              <tr key={data.equip_id}>
-                <td>{data.equip_id}</td>
-                <td>{data.equip_name}</td>
-                <td>{data.equip_category}</td>
-                <td>{data.equip_description}</td>
-                <td>{data.equip_img}</td>
+            {toolList.map((data, index) => (
+              <tr key={data.tool_id}>
+                <td>{data.tool_id}</td>
+                <td>{data.tool_name}</td>
+                <td>{data.tool_category}</td>
+                <td>{data.tool_description}</td>
+                <td>{data.tool_img}</td>
                 <td>{data.last_updated}</td>
                 <td>{data.last_user}</td>
             
@@ -48,4 +48,4 @@ const ShowEquip = () => {
   );
 };
 
-export default ShowEquip;
+export default ShowTools;

@@ -35,97 +35,6 @@ if (process.env.NODE_ENV === "production") {
 
 require("./routes/api-routes.js")(app);
 
-// const db = mysql.createConnection(
-  // {
-  //   "development": {
-  //     "username": "root",
-  //     "password": "NewLife2021!",
-  //     "database": "missions_db",
-  //     "host": "localhost",
-  //     "dialect": "mysql"
-  //   },
-  //   "production": {
-  //     "use_env_variable": "JAWSDB_URL",
-  //     "dialect": "mysql"
-  //   }
-  // }
- 
-//    {
-//   user: "root",
-//   host: "localhost",
-//   password: "NewLife2021!",
-//   database: "missions_db",
-// }
-
-
-// );
-
-//// POSTS TO DB //////
-
-//POST FOR mission_basics //
-// app.post("/basics", (req, res) => {
-//   const status = req.body.status;
-//   const name = req.body.name;
-//   const category = req.body.category;
-//   const summary = req.body.summary;
-//   const notes = req.body.notes;
-  
-//   const start_date = req.body.start_date;
-
-//   const end_date = req.body.end_date;
-//   const cover_img = req.body.cover_img;
-//   const description = req.body.description;
-
-//   db.query(
-//     "INSERT INTO mission_basics (status, name, category, summary, notes, start_date, end_date, cover_img, description  ) VALUES (?,?,?,?,?,?,?,?,?)",
-//     [
-//       status,
-//       name,
-//       category,
-//       summary,
-//       notes,
-//       start_date,
-//       end_date,
-//       cover_img,
-//       description,
-//     ],
-//     (err, result) => {
-//       console.log(err);
-//     }
-//   );
-// });
-
-// //POST FOR equipment_details
-// app.post("/equipdetails", (req, res) => {
-//   const equip_name = req.body.equip_name;
-//   const equip_category = req.body.equip_category;
-//   const equip_description = req.body.equip_description;
-//   const equip_img = req.body.equip_img;
-
-//   db.query(
-//     "INSERT INTO equipment_details (equip_name, equip_category, equip_description, equip_img  ) VALUES (?,?,?,?)",
-//     [equip_name, equip_category, equip_description, equip_img],
-//     (err, result) => {
-//       console.log(err);
-//     }
-//   );
-// });
-
-// //POST FOR tool_details
-// app.post("/tooldetails", (req, res) => {
-//   const tool_name = req.body.tool_name;
-//   const tool_category = req.body.tool_category;
-//   const tool_description = req.body.tool_description;
-//   const tool_img = req.body.tool_img;
-
-//   db.query(
-//     "INSERT INTO tool_details (tool_name, tool_category, tool_description, tool_img  ) VALUES (?,?,?,?)",
-//     [tool_name, tool_category, tool_description, tool_img],
-//     (err, result) => {
-//       console.log(err);
-//     }
-//   );
-// });
 
 // //POST FOR stage_details
 // app.post("/stagedetails", (req, res) => {
@@ -141,35 +50,6 @@ require("./routes/api-routes.js")(app);
 //     }
 //   );
 // });
-
-
-
-// //POST FOR REGISTRATION INFO
-// app.post("/register", (req, res) => {
-//   const username = req.body.username;
-//   const password = req.body.password;
-//   const fName = req.body.fName;
-//   const lName = req.body.lName;
-//   const title = req.body.title;
-//   const email = req.body.email;
-
-//   bcrypt.hash(password, saltRounds, (err, hash) => {
-//     if (err) {
-//       console.log(err);
-//     }
-
-//     db.query(
-//       "INSERT INTO users (username, password, fName, lName, title, email) VALUES (?,?,?,?,?, ?)",
-//       [username, hash, fName, lName, title, email],
-//       (err, result) => {
-//         console.log(err);
-//       }
-//     );
-//   });
-// });
-
-
-
 
 // app.post("/login", (req, res) => {
 //   const username = req.body.username;
@@ -202,38 +82,7 @@ require("./routes/api-routes.js")(app);
 
 //// GETS FROM DB //////
 
-//Get from mission_basics
-// app.get("/basics", (req, res) => {
-//   db.query("SELECT * FROM mission_basics", (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
 
-// //Get from equipment_details
-// app.get("/equipdetails", (req, res) => {
-//   db.query("SELECT * FROM equipment_details", (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
-
-// //Get from tool_details
-// app.get("/tooldetails", (req, res) => {
-//   db.query("SELECT * FROM tool_details", (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
 
 // //Get from stage_details
 // app.get("/stagedetails", (req, res) => {
@@ -246,16 +95,6 @@ require("./routes/api-routes.js")(app);
 //   });
 // });
 
-// //Get from stage_details
-// app.get("/register", (req, res) => {
-//   db.query("SELECT * FROM users", (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
 
 // app.get("/login", (req, res) => {
 //   if (req.session.user) {
@@ -265,9 +104,9 @@ require("./routes/api-routes.js")(app);
 //   }
 // });
 
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 
 const PORT = process.env.PORT || 3001

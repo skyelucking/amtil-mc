@@ -3,39 +3,38 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Container, Table } from "react-bootstrap";
 
-const ShowEquip = () => {
-  Axios.get("/equipdetails").then((response) => {
-    setEquipList(response.data);
+const ShowStage = () => {
+  Axios.get("/stagedetails").then((response) => {
+    setStageList(response.data);
   });
 
-  const [equipList, setEquipList] = useState([]);
+  const [stageList, setStageList] = useState([]);
 
   return (
     <div>
       <Container>
         <div style={{ textAlign: "center" }}>
-          <b>Mission Equipment Table</b>
+          <b>Mission Stage Table</b>
         </div>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Equipment_id</th>
+              <th>Stage ID</th>
               <th>Name</th>
-              <th>Category</th>
               <th>Description</th>
-              <th>Cover_img</th>
+              <th>Image</th>
               <th>Last Updated</th>
               <th>Last User</th>
             </tr>
           </thead>
           <tbody>
-            {equipList.map((data, index) => (
-              <tr key={data.equip_id}>
-                <td>{data.equip_id}</td>
-                <td>{data.equip_name}</td>
-                <td>{data.equip_category}</td>
-                <td>{data.equip_description}</td>
-                <td>{data.equip_img}</td>
+            {stageList.map((data, index) => (
+              <tr key={data.stage_id}>
+                <td>{data.stage_id}</td>
+                <td>{data.stage_name}</td>
+               
+                <td>{data.stage_desc}</td>
+                <td>{data.stage_img}</td>
                 <td>{data.last_updated}</td>
                 <td>{data.last_user}</td>
             
@@ -48,4 +47,4 @@ const ShowEquip = () => {
   );
 };
 
-export default ShowEquip;
+export default ShowStage;
