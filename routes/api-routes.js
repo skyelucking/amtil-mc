@@ -2,45 +2,45 @@
 const db = require("../models");
 
 module.exports = function (app) {
-//Get from mission_basics
-app.get("/basics", (req, res) => {
-    console.log(db);
+  //Get from mission_basics
+  app.get("/basics", (req, res) => {
+    // console.log(db);
     db.mission_basics.findAll({}).then(function (m_basics) {
+      res.json(m_basics);
+    });
+  });
+
+  //Get from mission_basics
+  app.post("/basics", (req, res) => {
+    console.log(req);
+    db.mission_basics
+      .create({
+        status: req.body.status,
+        name: req.body.name,
+        category: req.body.category,
+        summary: req.body.summary,
+        notes: req.body.notes,
+        start_date: req.body.start_date,
+        end_date: req.body.end_date,
+        cover_img: req.body.cover_img,
+        description: req.body.description,
+      })
+      .then(function (m_basics) {
+        console.log(m_basics);
         res.json(m_basics);
       });
   });
 };
 
-//Get from users
-app.get("/users", (req, res) => {
-    console.log(db);
-    db.users.findAll({}).then(function (users) {
-        res.json(users);
-      });
-  });
+// //Get from users
+// app.get("/users", (req, res) => {
+//     console.log(db);
+//     db.users.findAll({}).then(function (users) {
+//         res.json(users);
+//       });
+//   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Route for signing up a user. 
+// Route for signing up a user.
 //   app.post("/api/register", (req, res) => {
 //     db.User.create({
 //       email: req.body.email,
@@ -54,13 +54,13 @@ app.get("/users", (req, res) => {
 //       });
 //   });
 
-  // Route for logging user out
+// Route for logging user out
 //   app.get("/logout", (req, res) => {
 //     req.logout();
 //     res.redirect("/");
 //   });
 
-  // Route for getting some data about our user to be used client side
+// Route for getting some data about our user to be used client side
 //   app.get("/api/user_data", (req, res) => {
 //     if (!req.user) {
 //       res.json({});
@@ -121,18 +121,17 @@ app.get("/users", (req, res) => {
 //       });
 //   });
 
-
 //   app.put("/api/refresh_week", function (req, res) {
 //     console.log(req.body);
 //     db.habits_selected
 //       .update({
-        
-//         Monday: "false", 
-//         Tuesday: "false", 
-//         Wednesday: "false", 
-//         Thursday: "false", 
-//         Friday: "false", 
-//         Saturday: "false", 
+
+//         Monday: "false",
+//         Tuesday: "false",
+//         Wednesday: "false",
+//         Thursday: "false",
+//         Friday: "false",
+//         Saturday: "false",
 //         Sunday: "false"
 //       },
 //       {
@@ -141,7 +140,7 @@ app.get("/users", (req, res) => {
 //         }})
 //       .then(() => {
 //         // console.log(res);
-        
+
 //         res.send(200);
 //       })
 //       .catch(err => {
@@ -157,8 +156,8 @@ app.get("/users", (req, res) => {
 //         console.log(req.body.habitID);
 //     // console.log(req.body.weekday);
 //     db.habits_selected.update({
-//       [req.body.weekday]: req.body.checked 
-      
+//       [req.body.weekday]: req.body.checked
+
 //       },
 //       {
 //       where: {
@@ -166,7 +165,7 @@ app.get("/users", (req, res) => {
 //         }
 //     })
 //       .then(() => {
-       
+
 //         res.sendStatus(200);
 //       })
 //       .catch(err => {
@@ -175,4 +174,4 @@ app.get("/users", (req, res) => {
 //       });
 //   });
 
-// end of export 
+// end of export
