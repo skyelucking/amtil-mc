@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import "../App.css";
 import Logo from  "../Images/transp_amtilogo.png";
@@ -13,6 +13,7 @@ export default function Login() {
   Axios.defaults.withCredentials = true;
 
   const login = () => {
+    console.log(username, password)
     Axios.post("/login", {
       username: username,
       password: password,
@@ -20,20 +21,13 @@ export default function Login() {
       if (response.data.message) {
         setLoginStatus(response.data.message);
       } else {
-        setLoginStatus(response.data[0].username);
+        setLoginStatus(response.data.username);
+        console.log(response.data)
       }
     });
   };
 
-  useEffect(() => {
-    Axios.get("/login").then((response) => {
-      if (response.data.loggedIn === true) {
-        setLoginStatus(response.data.user[0].username)
-       }
-    });
-  }, []);
-
-  
+   
   return (
 
 <div className="App">
@@ -59,7 +53,7 @@ export default function Login() {
       </div>
       <div><a href="/registration">Need to register?</a> </div>
 
-      <h1> {loginStatus}!</h1>
+      <h1> {loginStatus} !</h1>
     </div>
   );
 }

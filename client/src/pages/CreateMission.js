@@ -9,7 +9,7 @@ import EquipDetails from "./EquipDetails";
 function CreateMission() {
   return (
 	  <>
-      <h1 className="MenuBtn" style={{marginBottom: 10}}>Create a Mission</h1>
+      <h1 className="PageHead" style={{marginBottom: 10}}>Create a Mission</h1>
 	 <Container style={{width: "95%"}}>
 		
     

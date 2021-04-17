@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Axios from "axios";
 import "../App.css";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  const [loginStatus, setLoginStatus] = useState("");
+  
   Axios.defaults.withCredentials = true;
 
-  useEffect(() => {
-    Axios.get("/login").then((response) => {
-      if (response.data.loggedIn === true) {
-        setLoginStatus(response.data.user[0].username);
-      }
-    });
-  }, []);
-
+  
   return (
     <div className="navbar-header">
-      <b>Username:</b> {loginStatus} |<Link to="/menu"> Main Menu </Link> |{" "}
+      <Link to="/menu"> Main Menu </Link> |{" "}
       <b>Add Data:</b> <Link to="/">Login </Link>|{" "}
       <Link to="/registration">Registration |</Link>{" "}
       <Link to="/equipdetails">Equipment Details | </Link>

@@ -13,7 +13,7 @@ module.exports = function (app) {
 
   //Post to mission_basics
   app.post("/basics", (req, res) => {
-    console.log(req);
+    
     db.mission_basics
       .create({
         status: req.body.status,
@@ -36,27 +36,45 @@ module.exports = function (app) {
 
   //Get from users
   app.get("/register", (req, res) => {
-    db.users.findAll({}).then(function (users) {
+    db.User.findAll({}).then(function (users) {
       res.json(users);
+    });
+  });
+
+  app.post("/login", (req, res) => {
+    console.log(req.body);
+    db.User.findOne({
+      username: req.body.username,
+    }).then(function (user) {
+      if (user) {
+        const response = user.validPassword(req.body.password)
+          if (response) {
+            res.json(user);
+          } else {
+            res.send({ message: "Wrong username/password combination!" });
+          }
+        
+      } else {
+        res.send({ message: "User doesn't exist" });
+      }
+      console.log(user);
     });
   });
 
   //Post to users
   app.post("/register", (req, res) => {
-    console.log(req);
-    db.users
-      .create({
-        username: req.body.username,
-        password: req.body.password,
-        fName: req.body.fName,
-        lName: req.body.lName,
-        title: req.body.title,
-        email: req.body.email,
-      })
-      .then(function (users) {
-        console.log(users);
-        res.json(users);
-      });
+    console.log(req.body);
+    db.User.create({
+      username: req.body.username,
+      password: req.body.password,
+      fName: req.body.fName,
+      lName: req.body.lName,
+      title: req.body.title,
+      email: req.body.email,
+    }).then(function (users) {
+      // console.log(users);
+      res.json(users);
+    });
   });
 
   ////////Paths for equipment_details table /////////
@@ -69,7 +87,7 @@ module.exports = function (app) {
 
   //Post to equipment_details
   app.post("/equipdetails", (req, res) => {
-    console.log(req);
+    
     db.equipment_details
       .create({
         equip_name: req.body.equip_name,
@@ -78,7 +96,7 @@ module.exports = function (app) {
         equip_img: req.body.equip_img,
       })
       .then(function (equipment_details) {
-        console.log(equipment_details);
+        
         res.json(equipment_details);
       });
   });
@@ -93,7 +111,7 @@ module.exports = function (app) {
 
   //Post to tool_details
   app.post("/tooldetails", (req, res) => {
-    console.log(req);
+    
     db.tool_details
       .create({
         tool_name: req.body.tool_name,
@@ -102,7 +120,7 @@ module.exports = function (app) {
         tool_img: req.body.tool_img,
       })
       .then(function (tool_details) {
-        console.log(tool_details);
+       
         res.json(tool_details);
       });
   });
@@ -117,7 +135,7 @@ module.exports = function (app) {
 
   //Post to stage_details
   app.post("/stagedetails", (req, res) => {
-    console.log(req);
+    
     db.stage_details
       .create({
         stage_name: req.body.stage_name,
@@ -125,14 +143,14 @@ module.exports = function (app) {
         stage_img: req.body.stage_img,
       })
       .then(function (stage_details) {
-        console.log(stage_details);
+        
         res.json(stage_details);
       });
   });
 };
 
- ////////Paths for Login /////////
-  //Get from User table
+////////Paths for Login /////////
+//Get from User table
 
 //   app.get("/login", (req, res) => {
 //   if (req.session.user) {
@@ -143,30 +161,13 @@ module.exports = function (app) {
 // });
 
 //   app.get("/login", (req, res) => {
-//     db.users.findAll({}).then(function (users) {
+//     db.User.findAll({}).then(function (users) {
 //       res.json(users);
 //     });
 //   });
-  
 
-  // //Post to stage_details
-  // app.post("/login", (req, res) => {
-  //   // console.log(req);
-  //   db.users
-  //     .get({
-  //       stage_name: req.body.stage_name,
-  //       stage_desc: req.body.stage_desc,
-  //       stage_img: req.body.stage_img,
-  //     })
-  //     .then(function (stage_details) {
-  //       console.log(stage_details);
-  //       res.json(stage_details);
-  //     });
-  // });
+//Post to stage_details
 
 //   app.get("*", function(req, res) {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
-
-
-

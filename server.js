@@ -36,40 +36,6 @@ if (process.env.NODE_ENV === "production") {
 require("./routes/api-routes")(app);
 
 
-
-// app.post("/login", (req, res) => {
-//   const username = req.body.username;
-//   const password = req.body.password;
-
-//   db.query(
-//     "SELECT * FROM users WHERE username = ?;",
-//     username,
-//     (err, result) => {
-//       if (err) {
-//         res.send({ err: err });
-//       }
-
-//       if (result.length > 0) {
-//         bcrypt.compare(password, result[0].password, (error, response) => {
-//           if (response) {
-//             req.session.user = result;
-//             console.log(req.session.user);
-//             res.send(result);
-//           } else {
-//             res.send({ message: "Wrong username/password combination!" });
-//           }
-//         });
-//       } else {
-//         res.send({ message: "User doesn't exist" });
-//       }
-//     }
-//   );
-// });
-
-//// GETS FROM DB //////
-
-
-
 // app.get("/login", (req, res) => {
 //   if (req.session.user) {
 //     res.send({ loggedIn: true, user: req.session.user });

@@ -27,7 +27,7 @@ export default function Registration() {
       email: emailReg,
 
     }).then((response) => {
-      console.log(response);
+      // console.log(response);
     });
   };
 
@@ -38,6 +38,7 @@ export default function Registration() {
         <h1>Registration</h1>
         <label>Email</label>
         <input
+        value={emailReg}
           type="text"
           onChange={(e) => {
             setEmailReg(e.target.value);
@@ -45,6 +46,7 @@ export default function Registration() {
         />
         <label>First Name</label>
         <input
+        value={fNameReg}
           type="text"
           onChange={(e) => {
             setfNameReg(e.target.value);
@@ -52,6 +54,7 @@ export default function Registration() {
         />
         <label>Last Name</label>
         <input
+        value={lNameReg}
           type="text"
           onChange={(e) => {
             setlNameReg(e.target.value);
@@ -59,6 +62,7 @@ export default function Registration() {
         />
         <label>Title</label>
         <input
+        value={titleReg}
           type="text"
           onChange={(e) => {
             setlTitleReg(e.target.value);
@@ -66,6 +70,7 @@ export default function Registration() {
         />
         <label>Username</label>
         <input
+        value={usernameReg}
           type="text"
           onChange={(e) => {
             setUsernameReg(e.target.value);
@@ -74,6 +79,7 @@ export default function Registration() {
         <label>Password</label>
         <input
           type="text"
+          value={passwordReg}
           onChange={(e) => {
             setPasswordReg(e.target.value);
           }}
