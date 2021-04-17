@@ -130,3 +130,43 @@ module.exports = function (app) {
       });
   });
 };
+
+ ////////Paths for Login /////////
+  //Get from User table
+
+//   app.get("/login", (req, res) => {
+//   if (req.session.user) {
+//     res.send({ loggedIn: true, user: req.session.user });
+//   } else {
+//     res.send({ loggedIn: false });
+//   }
+// });
+
+//   app.get("/login", (req, res) => {
+//     db.users.findAll({}).then(function (users) {
+//       res.json(users);
+//     });
+//   });
+  
+
+  // //Post to stage_details
+  // app.post("/login", (req, res) => {
+  //   // console.log(req);
+  //   db.users
+  //     .get({
+  //       stage_name: req.body.stage_name,
+  //       stage_desc: req.body.stage_desc,
+  //       stage_img: req.body.stage_img,
+  //     })
+  //     .then(function (stage_details) {
+  //       console.log(stage_details);
+  //       res.json(stage_details);
+  //     });
+  // });
+
+//   app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
+
+
+

@@ -12,6 +12,8 @@ import EquipDetails from "./pages/EquipDetails";
 import ToolDetails from "./pages/ToolDetails";
 import StageDetails from "./pages/StageDetails";
 import ShowBasics from "./pages/ShowBasics";
+import CreateMission from "./pages/CreateMission";
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
       <Route path="/showbasics" exact render={(props) => <ShowBasics />} />
       <Route path="/showequip" exact render={(props) => <ShowEquip/>} />
       <Route path="/alltables" exact render={(props) => <AllTables />} />
+      <Route path="/createmission" exact render={(props) => <CreateMission />} />
     </Router>
   );
 }

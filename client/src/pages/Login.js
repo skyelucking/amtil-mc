@@ -29,8 +29,7 @@ export default function Login() {
     Axios.get("/login").then((response) => {
       if (response.data.loggedIn === true) {
         setLoginStatus(response.data.user[0].username)
-        // window.location.href = "#/menu";
-      }
+       }
     });
   }, []);
 

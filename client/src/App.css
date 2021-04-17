@@ -13,21 +13,27 @@ input {
   width: 250px;
   height: 30px;
   background-color: rgb(238, 238, 238);
+  margin: 15px;
+  padding: 5px;
 }
 thead{
   font-size: 12px;
 }
 
 .MenuBtn{
-  width: 15em;
+  width: 10em;
     background-color: #4AB8DF;
     color: rgb(255, 255, 255);
-    /* border-radius: 55%; */
-    font-size: 1.5em;
-    margin: 5px;
+    border-radius: 5%;
+    font-size: 2em;
+    margin: auto;
     border-style: ridge;
     border-color: white;
-    padding: .3em;
+    padding: .02em;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    vertical-align: middle;
 }
 
 .navbar-header{
@@ -36,7 +42,7 @@ thead{
   max-height: 30px;
   width: 100%;
   background-color: #4AB8DF;
-  margin-bottom:50px ;
+  margin-bottom:30px ;
 }
 
 .navbar-header a {
@@ -59,4 +65,65 @@ thead{
   justify-content: center;
   width: 50%;
   align-items: center;
+  margin: auto;
+  background-color: #dbf4fd;
+  box-shadow: 10px 10px 5px grey;
+}
+
+/* Tabbed Headers*/
+.tabs{
+  border-color: #ccc;
+  border-width: 0px;
+  border-style: solid; 
+  border-top: 0;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
+}
+.tab-list {  
+  border: 1px solid #ccc;
+  min-width: 100%;
+  padding: 0;
+  border-bottom: 0px;
+  
+  
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  background-color: #dbf4fd;
+   border-left: 1px solid #ccc;
+   border-top: 0px solid #ccc;
+   border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.tab-list-active {
+  background-color: white;
+  /* border: solid #ccc; */
+  box-shadow: 5px 5px 5px grey;
+  font-weight: bold;
+  /* border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 2px solid #ccc;
+  border-bottom: 0px solid #ccc; */
+}
+
+.TabbedContainer{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* border: solid #224e5e;
+  border-width: 1px 1px 1px 1px; */
+  /* border-top: 0px; */
+  background-color: rgb(255, 255, 255);
+  width: 75%;
+  margin: auto;
+  margin-bottom: 50px;
+  
+
 }

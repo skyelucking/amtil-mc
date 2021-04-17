@@ -33,23 +33,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-require("./routes/api-routes.js")(app);
+require("./routes/api-routes")(app);
 
 
-// //POST FOR stage_details
-// app.post("/stagedetails", (req, res) => {
-//   const stage_name = req.body.stage_name;
-//   const stage_desc = req.body.stage_desc;
-//   const stage_img = req.body.stage_img;
-
-//   db.query(
-//     "INSERT INTO stage_details (stage_name, stage_desc, stage_img  ) VALUES (?,?,?)",
-//     [stage_name, stage_desc, stage_img],
-//     (err, result) => {
-//       console.log(err);
-//     }
-//   );
-// });
 
 // app.post("/login", (req, res) => {
 //   const username = req.body.username;
@@ -82,18 +68,6 @@ require("./routes/api-routes.js")(app);
 
 //// GETS FROM DB //////
 
-
-
-// //Get from stage_details
-// app.get("/stagedetails", (req, res) => {
-//   db.query("SELECT * FROM stage_details", (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
-// });
 
 
 // app.get("/login", (req, res) => {

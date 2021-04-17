@@ -23,6 +23,7 @@ export default function Navbar() {
       <Link to="/equipdetails">Equipment Details | </Link>
       <Link to="/tooldetails">Tool Details | </Link>
       <Link to="/stagedetails">Stage Details </Link>|{" "}
+      <Link to="/createmission">Create Mission </Link>|{" "}
       <Link to="/basics">Mission Basics | </Link>
       <b>Display Data:</b>{" "}
       <Link to="/alltables"> All Tables | </Link>
