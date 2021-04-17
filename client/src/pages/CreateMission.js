@@ -1,4 +1,5 @@
 import React from "react";
+import Container from 'react-bootstrap/Container';
 import Tabs from "../components/Tabs";
 import "../App.css";
 import Basics from "./Basics";
@@ -9,8 +10,7 @@ function CreateMission() {
   return (
 	  <>
       <h1 className="MenuBtn" style={{marginBottom: 10}}>Create a Mission</h1>
-	 <container className="TabbedContainer">
-	
+	 <Container style={{width: "95%"}}>
 		
     
 	  	<div>
@@ -53,7 +53,7 @@ function CreateMission() {
       </Tabs>
 	  
     </div>
-	</container>
+	</Container>
 	</>
   );
 }

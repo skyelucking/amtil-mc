@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "../App.css";
 import DatePicker from 'react-date-picker';
-import ShowBasics from "../pages/ShowBasics";
+// import ShowBasics from "../pages/ShowBasics";
 
 Axios.defaults.withCredentials = true;
 
