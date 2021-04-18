@@ -16,14 +16,18 @@ function CreateMission() {
 	  	<div>
 			  
       <Tabs>
-	  <div label="All Info">
+	  {/* <div label="All Info">
 		  <div><Basics /><ToolDetails /><EquipDetails /></div> 
-         
-		 
-		 
-        </div>
+         	 
+        </div> */}
         <div label="Basics">
          <Basics />
+        </div>
+        <div label="Tools/Equipment">
+		<ToolDetails /><EquipDetails />
+		        </div>
+            <div label="Stage">
+          <em>Stage</em>
         </div>
         <div label="Team">
           <em>Team</em>
@@ -37,10 +41,7 @@ function CreateMission() {
 		<div label="Quiz Questions">
          <Basics />
         </div>
-		<div label="Tools/Equipment">
-		<ToolDetails /><EquipDetails />
 		
-        </div>
 		<div label="Styles/Color">
          <Basics />
         </div>

@@ -168,6 +168,6 @@ module.exports = function (app) {
 
 //Post to stage_details
 
-//   app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  // app.get("*", function(req, res) {
+  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });

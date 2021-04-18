@@ -13,6 +13,9 @@ import ToolDetails from "./pages/ToolDetails";
 import StageDetails from "./pages/StageDetails";
 import ShowBasics from "./pages/ShowBasics";
 import CreateMission from "./pages/CreateMission";
+import AddElements from "./pages/AddElements";
+import Cloudinary from "./pages/Cloudinary";
+import ImgUpload from "./pages/ImgUpload";
 
 
 function App() {
@@ -31,6 +34,9 @@ function App() {
       <Route path="/showequip" exact render={(props) => <ShowEquip/>} />
       <Route path="/alltables" exact render={(props) => <AllTables />} />
       <Route path="/createmission" exact render={(props) => <CreateMission />} />
+      <Route path="/addelements" exact render={(props) => <AddElements />} />
+      <Route path="/cloudinary" exact render={(props) => <Cloudinary />} />
+      <Route path="/imgupload" exact render={(props) => <ImgUpload />} />
     </Router>
   );
 }

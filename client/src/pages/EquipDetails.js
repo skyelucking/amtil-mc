@@ -32,33 +32,41 @@ export default function EquipDetails() {
     return (
     <div className="container">
       <div className="inputBox">
-        <h1>Add Equipment</h1>
+        <h3>Add New Equipment</h3>
         
-        <label>Equipment Name</label>
+        
         <input
+        className="addElement"
+        placeholder="Equipment Name"
           type="text"
           onChange={(e) => {
             setEquipName(e.target.value);
           }}
         />
         
-        <label>Equipment Category</label>
+       
         <input
+        className="addElement"
+        placeholder="Equipment Category"
           type="text"
           onChange={(e) => {
             setEquipCategory(e.target.value);
           }}
         />
-        <label>Equipment Description</label>
+       
         <input
+        className="addElement"
+        placeholder="Equipment Description"
           type="text"
           onChange={(e) => {
             setEquipDesc(e.target.value);
           }}
         />
         
-        <label>Equipment Image</label>
+        
         <input
+        className="addElement"
+        placeholder="Equipment Image"
           type="text"
           onChange={(e) => {
             setEquipImg(e.target.value);

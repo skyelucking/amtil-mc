@@ -30,26 +30,32 @@ export default function StageDetails() {
     return (
     <div className="container">
       <div className="inputBox">
-        <h1>Add Stage</h1>
+        <h3>Add A New Stage/Setting</h3>
         
-        <label>Stage Name</label>
+      
         <input
+        className="addElement"
+        placeholder="Stage Name"
           type="text"
           onChange={(e) => {
             setStageName(e.target.value);
           }}
         />
         
-        <label>Stage Description</label>
+       
         <input
+        className="addElement"
+        placeholder="Stage Description"
           type="text"
           onChange={(e) => {
             setStageDesc(e.target.value);
           }}
         />
         
-        <label>Stage Image</label>
+       
         <input
+        className="addElement"
+        placeholder="Stage Image"
           type="text"
           onChange={(e) => {
             setStageImg(e.target.value);
