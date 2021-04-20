@@ -29,16 +29,16 @@ thead{
     display: flex;
     vertical-align: middle;
     box-shadow: 10px 10px 5px grey;
-    margin-bottom: 100px;
+    margin-bottom: 25px;
 }
 .MainMenuBtn{
-  width: 10em;
+  width: 12em;
     background-color: #4AB8DF;
     color: rgb(255, 255, 255);
     border-radius: 4%;
-    font-size: 2em;
+    font-size: 1.9em;
     margin: auto;
-       padding: 0em;
+    padding: .2em;
     justify-content: center;
     text-align: center;
     display: flex;
@@ -79,6 +79,7 @@ thead{
   margin: auto;
   background-color: #dbf4fd;
   box-shadow: 10px 10px 5px grey;
+  padding: 15px;
 }
 
 /* Tabbed Headers*/

@@ -1,10 +1,10 @@
 import React from "react";
 import "../App.css";
 
-import ShowBasics from "../pages/ShowBasics";
+import ShowBasics from "../pages/Mission/ShowBasics";
 import ShowEquip from "./ShowEquip";
 import ShowStage from "./ShowStage";
-import ShowTools from "./ShowTools";
+import ShowTools from "../pages/Tools/ShowTools";
 import ShowUsers from "./ShowUsers";
 
 function AllTables() {
