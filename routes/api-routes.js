@@ -3,6 +3,19 @@ const db = require("../models");
 
 module.exports = function (app) {
   ////////Paths for mission_basics /////////
+  
+  app.get("/basics/:mission_id", (req, res) => {
+    
+    db.mission_basics.findOne({
+      where:{
+        mission_id: req.params.mission_id
+      }
+    }).then(function (m_basics) {
+      res.json(m_basics);
+    });
+  });
+  
+  
   //Get from mission_basics
   app.get("/basics", (req, res) => {
     // console.log(db);

@@ -41,7 +41,7 @@ const ShowBasics = () => {
                 <td>{data.notes}</td>
                 <td>{data.start_date}</td>
                 <td>{data.end_date}</td>
-                <td>{data.cover_img}</td>
+                <td><img src={data.cover_img} style={{width: "100px"}} alt={data.name}></img></td>
                 <td>{data.description}</td>
               </tr>
             ))}

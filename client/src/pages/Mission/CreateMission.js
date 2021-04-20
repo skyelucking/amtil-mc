@@ -1,12 +1,26 @@
-import React from "react";
+import React, {useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Tabs from "../../components/Tabs";
 import "../../App.css";
 import Basics from "../Mission/Basics";
 import EquipDetails from "../Equipment/EquipDetails";
 import MissionTools from "./MissionTools";
+import Axios from "axios";
 
 function CreateMission() {
+ const [basicsList, setBasicsList] = useState([]);
+ 
+ useEffect(() => {
+  const mission_id = JSON.parse(window.sessionStorage.getItem("mission")).mission_id
+ Axios.get("/basics/" + mission_id).then((response) => {
+    setBasicsList(response.data);
+  });
+
+  }, [])
+ 
+
+ 
+  
   return (
     <>
       <h1 className="PageHead" style={{ marginBottom: 10 }}>
@@ -20,7 +34,7 @@ function CreateMission() {
          	 
         </div> */}
             <div label="Basics">
-              <Basics />
+              {basicsList.mission_id}
             </div>
             <div label="Tools">
               <h1 className="PageHead">Tool Catalog</h1>

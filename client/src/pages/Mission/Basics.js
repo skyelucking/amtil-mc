@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Redirect } from "react";
 import Axios from "axios";
 import "../../App.css";
 import DatePicker from "react-date-picker";
@@ -66,9 +66,10 @@ export default function Basics() {
             name: response.data.name,
           })
         );
+    window.location.href="/createmission"
       }
     });
-    
+
  
   };
   return (
@@ -124,16 +125,7 @@ export default function Basics() {
           <option value="Other">Other</option>
         </select>
 
-        {/* <input
-      placeholder="Status"
-      style={{margin: 5}}
-        type="text"
-        onChange={(e) => {
-          setStatus(e.target.value);
-        }}
-      /> */}
-
-        <input
+               <input
           placeholder="Category"
           style={{ margin: 5 }}
           type="text"
@@ -179,7 +171,7 @@ export default function Basics() {
             padding: "15px",
           }}
         >
-          <b>Tool Image Upload</b>
+          <b>Mission Cover Image </b>
           <br></br>
           <input
             placeholder={image}
