@@ -13,8 +13,8 @@ export default function Menu() {
     <div className="Menu" style={{ justifyContent: "center", width: "100%" }}>
       {/* <div>Hi - {loginStatus}!</div> */}
       <div className="container menuBox">
-        <Link to="/createmission">
-          <button className="MainMenuBtn">Create Missions</button>
+        <Link to="/basics">
+          <button className="MainMenuBtn">Create A Mission</button>
         </Link>
         <br></br>
         <Link to="/basics">
