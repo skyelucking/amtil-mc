@@ -3,19 +3,19 @@ const db = require("../models");
 
 module.exports = function (app) {
   ////////Paths for mission_basics /////////
-  
+
   app.get("/basics/:mission_id", (req, res) => {
-    
-    db.mission_basics.findOne({
-      where:{
-        mission_id: req.params.mission_id
-      }
-    }).then(function (m_basics) {
-      res.json(m_basics);
-    });
+    db.mission_basics
+      .findOne({
+        where: {
+          mission_id: req.params.mission_id,
+        },
+      })
+      .then(function (m_basics) {
+        res.json(m_basics);
+      });
   });
-  
-  
+
   //Get from mission_basics
   app.get("/basics", (req, res) => {
     // console.log(db);
@@ -26,7 +26,6 @@ module.exports = function (app) {
 
   //Post to mission_basics
   app.post("/basics", (req, res) => {
-    
     db.mission_basics
       .create({
         status: req.body.status,
@@ -45,32 +44,32 @@ module.exports = function (app) {
       });
   });
 
-
- //Post to mission_toolslist//
- app.post("/missiontools", (req, res) => {
-      db.mission_toolslist
-    .create({
-      tool_id: req.body.tool_id,
-      mission_id: req.body.mission_id,
-          })
-    .then(function (m_toolslist) {
-      console.log(m_toolslist);
-      res.json(m_toolslist);
-    });
-});
-
-app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
-  db.mission_toolslist
-.destroy({
-  tool_id: req.body.tool_id,
-  mission_id: req.body.mission_id,
+  //Post to mission_toolslist//
+  app.post("/missiontools", (req, res) => {
+    db.MissionTool
+      .create({
+        tool_id: req.body.tool_id,
+        mission_id: req.body.mission_id,
       })
-.then(function (m_toolslist) {
-  console.log(m_toolslist);
-  res.json(m_toolslist);
-});
-});
+      .then(function (m_toolslist) {
+        console.log(m_toolslist);
+        res.json(m_toolslist);
+      });
+  });
 
+  app.delete("/missiontools/:mission_id/:tool_id", (req, res) => {
+    db.MissionTool
+      .destroy({
+        where: {
+          tool_id: req.params.tool_id,
+          mission_id: req.params.mission_id,
+        },
+      })
+      .then(function (m_toolslist) {
+        console.log(m_toolslist);
+        res.json(m_toolslist);
+      });
+  });
 
   ////////Paths for registration to users table /////////
 
@@ -87,13 +86,12 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
       username: req.body.username,
     }).then(function (user) {
       if (user) {
-        const response = user.validPassword(req.body.password)
-          if (response) {
-            res.json(user);
-          } else {
-            res.send({ message: "Wrong username/password combination!" });
-          }
-        
+        const response = user.validPassword(req.body.password);
+        if (response) {
+          res.json(user);
+        } else {
+          res.send({ message: "Wrong username/password combination!" });
+        }
       } else {
         res.send({ message: "User doesn't exist" });
       }
@@ -127,7 +125,6 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
 
   //Post to equipment_details
   app.post("/equipdetails", (req, res) => {
-    
     db.equipment_details
       .create({
         equip_name: req.body.equip_name,
@@ -136,7 +133,6 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
         equip_img: req.body.equip_img,
       })
       .then(function (equipment_details) {
-        
         res.json(equipment_details);
       });
   });
@@ -151,7 +147,6 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
 
   //Post to tool_details
   app.post("/tooldetails", (req, res) => {
-    
     db.tool_details
       .create({
         tool_name: req.body.tool_name,
@@ -160,7 +155,6 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
         tool_img: req.body.tool_img,
       })
       .then(function (tool_details) {
-       
         res.json(tool_details);
       });
   });
@@ -175,7 +169,6 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
 
   //Post to stage_details
   app.post("/stagedetails", (req, res) => {
-    
     db.stage_details
       .create({
         stage_name: req.body.stage_name,
@@ -183,7 +176,6 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
         stage_img: req.body.stage_img,
       })
       .then(function (stage_details) {
-        
         res.json(stage_details);
       });
   });
@@ -208,6 +200,6 @@ app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
 
 //Post to stage_details
 
-  // app.get("*", function(req, res) {
-  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// app.get("*", function(req, res) {
+// res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });

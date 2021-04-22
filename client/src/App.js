@@ -21,6 +21,8 @@ import MissionTools from "./pages/Mission/MissionTools";
 import ToolCatalog from "./pages/Tools/ToolCatalog";
 import AddElementsMenu from "./pages/Menus/AddElementsMenu";
 import MissionEquip from "./pages/Mission/MissionEquip";
+import EquipCatalog from "./pages/Equipment/EquipCatalog";
+import UpdateMissions from "./pages/Admin/UpdateMissions";
 
 function App() {
   return (
@@ -38,6 +40,7 @@ function App() {
 
       <Route path="/cloudinary" exact render={(props) => <Cloudinary />} />
       <Route path="/imgupload" exact render={(props) => <ImgUpload />} />
+      <Route path="/updatemissions" exact render={(props) => <UpdateMissions/>} />
 
       
       {/* CREATE A MISSION AND ADD MISSION ELEMENTS*/}
@@ -56,6 +59,7 @@ function App() {
       <Route path="/stagedetails" exact render={(props) => <StageDetails />} />
       <Route path="/addelements" exact render={(props) => <AddElements />} />
       <Route path="/toolcatalog" exact render={(props) => <ToolCatalog />} />
+      <Route path="/equipcatalog" exact render={(props) => <EquipCatalog/>} />
 
       {/* VIEW, UPDATE, AND DELETE MISSIONS*/}
       <Route path="/showbasics" exact render={(props) => <ShowBasics />} />

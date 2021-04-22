@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   const MissionTool = sequelize.define(
-    "mission_toolslist",
+    "MissionTool",
     {
       tool_id: {
         type: DataTypes.INTEGER,
@@ -8,7 +8,6 @@ module.exports = function (sequelize, DataTypes) {
       },
       mission_id: {
         type: DataTypes.INTEGER,
-        foreignKey: true,
         allowNull: false,
       },
 
@@ -23,7 +22,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       freezeTableName: true,
-      timestamps: true, // Enable timestamps
+      tableName: "mission_toolslist",
+      timestamps: false, // Enable timestamps
       createdAt: false, // Don't create createdAt
       updatedAt: false, // Don't create updatedAt
     }

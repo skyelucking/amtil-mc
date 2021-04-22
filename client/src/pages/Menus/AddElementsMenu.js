@@ -21,6 +21,15 @@ export default function AddElementsMenu() {
           <button className="MainMenuBtn">Equipment Catalog</button>
         </Link>
         <br></br>
+        <Link to="/menu">
+          <button className="MainMenuBtn">Stages</button>
+        </Link>
+        <br></br>
+        <Link to="/menu">
+          <button className="MainMenuBtn">Team Members</button>
+        </Link>
+        <br></br>
+       
 
         {/* <Link to="/addelements">
           {" "}

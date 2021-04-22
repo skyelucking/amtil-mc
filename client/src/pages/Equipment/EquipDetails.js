@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "../../App.css";
-// import ToolCatalog from "./ToolCatalog";
+import EquipCatalog from "./EquipCatalog";
 
 Axios.defaults.withCredentials = true;
 
@@ -124,7 +124,7 @@ export default function EquipDetails() {
           </button>
         </div>
         <br></br>
-        {/* <ToolCatalog /> */}
+        <EquipCatalog />
       </div>
     </>
   );
