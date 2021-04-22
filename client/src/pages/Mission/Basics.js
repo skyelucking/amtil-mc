@@ -1,4 +1,4 @@
-import React, { useState, Redirect } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import "../../App.css";
 import DatePicker from "react-date-picker";
@@ -108,10 +108,9 @@ export default function Basics() {
 
         <select
           id="Status"
-          onChange={(e) => {
-            setStatus(e.target.value);
-          }}
-        >
+          onChange={(e) => { setStatus(e.target.value);
+          }}>
+        
           <option value="Brainstorming">Brainstorming</option>
           <option value="Planning">Planning</option>
           <option value="Development">Development</option>

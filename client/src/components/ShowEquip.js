@@ -35,7 +35,7 @@ const ShowEquip = () => {
                 <td>{data.equip_name}</td>
                 <td>{data.equip_category}</td>
                 <td>{data.equip_description}</td>
-                <td>{data.equip_img}</td>
+                <td><img src={data.equip_img} alt={data.equip_name} style={{maxWidth: "100px"}}></img></td>
                 <td>{data.last_updated}</td>
                 <td>{data.last_user}</td>
             

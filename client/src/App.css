@@ -38,7 +38,7 @@ thead{
     border-radius: 4%;
     font-size: 1.9em;
     margin: auto;
-    padding: .2em;
+    padding: .4em;
     justify-content: center;
     text-align: center;
     display: flex;
@@ -80,6 +80,21 @@ thead{
   background-color: #dbf4fd;
   box-shadow: 10px 10px 5px grey;
   padding: 15px;
+}
+.missionInfo {
+  display: flex;
+  /* flex-direction: column; */
+  text-align: left;
+  justify-content: left;
+  width:100%;
+  align-items: center;
+  margin: auto;
+  background-color: #ebf3f5;
+  box-shadow: 10px 10px 5px grey;
+  padding: 20px;
+  border-color: #ccc;
+  border-width: 2px;
+  border-style: solid; 
 }
 
 /* Tabbed Headers*/

@@ -64,15 +64,6 @@ export default function ToolDetails() {
             }}
           />
 
-          {/* <input
-            className="addElement"
-            placeholder="Tool Category"
-            type="text"
-            onChange={(e) => {
-              setToolCategory(e.target.value);
-            }}
-          /> */}
-
           <select id="ToolCat" onChange={(e) => {
               setToolCategory(e.target.value);
             }}>

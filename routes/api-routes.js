@@ -45,6 +45,33 @@ module.exports = function (app) {
       });
   });
 
+
+ //Post to mission_toolslist//
+ app.post("/missiontools", (req, res) => {
+      db.mission_toolslist
+    .create({
+      tool_id: req.body.tool_id,
+      mission_id: req.body.mission_id,
+          })
+    .then(function (m_toolslist) {
+      console.log(m_toolslist);
+      res.json(m_toolslist);
+    });
+});
+
+app.delete("/missiontools/:mission_id+tool_id", (req, res) => {
+  db.mission_toolslist
+.destroy({
+  tool_id: req.body.tool_id,
+  mission_id: req.body.mission_id,
+      })
+.then(function (m_toolslist) {
+  console.log(m_toolslist);
+  res.json(m_toolslist);
+});
+});
+
+
   ////////Paths for registration to users table /////////
 
   //Get from users

@@ -1,47 +1,52 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Tabs from "../../components/Tabs";
 import "../../App.css";
-import Basics from "../Mission/Basics";
+import MissionEquip from "../Mission/MissionEquip"
 import EquipDetails from "../Equipment/EquipDetails";
 import MissionTools from "./MissionTools";
 import Axios from "axios";
 
 function CreateMission() {
- const [basicsList, setBasicsList] = useState([]);
- 
- useEffect(() => {
-  const mission_id = JSON.parse(window.sessionStorage.getItem("mission")).mission_id
- Axios.get("/basics/" + mission_id).then((response) => {
-    setBasicsList(response.data);
-  });
+  const [basicsList, setBasicsList] = useState([]);
 
-  }, [])
- 
+  useEffect(() => {
+    const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
+      .mission_id;
+    Axios.get("/basics/" + mission_id).then((response) => {
+      setBasicsList(response.data);
+    });
+  }, []);
 
- 
-  
   return (
     <>
-      <h1 className="PageHead" style={{ marginBottom: 10 }}>
-        Create a Mission
+      <h1
+        className="PageHead"
+        style={{ marginBottom: 10, width: "12em", padding: "5px" }}
+      >
+        Add Mission Details
       </h1>
       <Container style={{ width: "95%" }}>
         <div>
+          <div className="missionInfo ">
+            <span style={{ marginLeft: "10px" }}>
+              <b>Mission ID:</b> {basicsList.mission_id}{" "}
+            </span>{" "}
+            <span style={{ marginLeft: "10px" }}>
+              <b>Name:</b> {basicsList.name}
+            </span>
+           
+            <span style={{ marginLeft: "10px" }}>
+              <b>Description:</b> {basicsList.description}
+            </span>
+          </div>
           <Tabs>
-            {/* <div label="All Info">
-		  <div><Basics /><ToolDetails /><EquipDetails /></div> 
-         	 
-        </div> */}
-            <div label="Basics">
-              {basicsList.mission_id}
-            </div>
             <div label="Tools">
-              <h1 className="PageHead">Tool Catalog</h1>
+             
               <MissionTools />
             </div>
             <div label="Equipment">
-              <EquipDetails />
+            <MissionEquip />
             </div>
             <div label="Stage">
               <em>Stage</em>
@@ -50,22 +55,12 @@ function CreateMission() {
               <em>Team</em>
             </div>
             <div label="Storyboard"></div>
-            <div label="Procedural Steps">
-              Steps
-            </div>
-            <div label="Quiz Questions">
-             Quiz Questions
-            </div>
+            <div label="Procedural Steps">Steps</div>
+            <div label="Quiz Questions">Quiz Questions</div>
 
-            <div label="Styles/Color">
-              Style and Color Notes
-            </div>
-            <div label="Media/Documents">
-              Media Documents
-            </div>
-            <div label="FAA References">
-             FAA References
-            </div>
+            <div label="Styles/Color">Style and Color Notes</div>
+            <div label="Media/Documents">Media Documents</div>
+            <div label="FAA References">FAA References</div>
           </Tabs>
         </div>
       </Container>
