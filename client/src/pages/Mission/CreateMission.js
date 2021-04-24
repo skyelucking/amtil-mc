@@ -8,7 +8,7 @@ import MissionTools from "./MissionTools";
 import Axios from "axios";
 
 function CreateMission() {
-  const [basicsList, setBasicsList] = useState([]);
+  const [basicsList, setBasicsList] = useState({});
 
   useEffect(() => {
     const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
@@ -30,7 +30,7 @@ function CreateMission() {
         <div>
           <div className="missionInfo ">
             <span style={{ marginLeft: "10px" }}>
-              <b>Mission ID:</b> {basicsList.mission_id}{" "}
+              <b>Mission ID:</b> {}{" "}
             </span>{" "}
             <span style={{ marginLeft: "10px" }}>
               <b>Name:</b> {basicsList.name}

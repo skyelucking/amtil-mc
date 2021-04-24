@@ -17,10 +17,17 @@ export default function Navbar() {
 
   return (
     <div className="navbar-header">
-      <Link to="/"><b>Login: </b></Link> {" "}{user && user.username}
-      <Link to="/menu">{" "} |<b>Main Menu </b> </Link> 
-      <b>Display Data:</b> <Link to="/alltables"> All Tables | </Link>
-    </div>
+      <Link to="/">
+        <b>Login: </b>
+      </Link>{" "}
+      {user && user.username}
+      <Link to="/menu">
+        {" "}
+        |<b>  Main Menu: </b>{" "}
+      </Link>
+      <Link to="/alltables">  All Tables | </Link>
 
+      <Link to="/viewedit">  ViewEditMission | </Link>
+    </div>
   );
 }

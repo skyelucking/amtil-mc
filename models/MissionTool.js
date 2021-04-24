@@ -2,14 +2,14 @@ module.exports = function (sequelize, DataTypes) {
   const MissionTool = sequelize.define(
     "MissionTool",
     {
-      tool_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      mission_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      // tool_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      // },
+      // mission_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      // },
 
       last_updated: {
         type: DataTypes.DATE,
@@ -18,6 +18,10 @@ module.exports = function (sequelize, DataTypes) {
       last_user: {
         type: DataTypes.INTEGER,
         allowNull: true,
+      },
+      toolmission_id: {
+        type: DataTypes.INTEGER,
+        uniq: true,
       },
     },
     {
@@ -29,5 +33,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
+  
   return MissionTool;
 };
+

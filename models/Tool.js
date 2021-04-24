@@ -43,5 +43,16 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
+  Tool.associate = (models) => {
+   Tool.belongsToMany(models.mission_basics, {
+      through: {
+        model: models.MissionTool,
+        unique: false,
+        
+      },
+    
+    });
+     }
+
   return Tool;
 };

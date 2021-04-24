@@ -23,6 +23,7 @@ import AddElementsMenu from "./pages/Menus/AddElementsMenu";
 import MissionEquip from "./pages/Mission/MissionEquip";
 import EquipCatalog from "./pages/Equipment/EquipCatalog";
 import UpdateMissions from "./pages/Admin/UpdateMissions";
+import ViewEditMission from "./pages/Mission/ViewEditMission";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Route path="/cloudinary" exact render={(props) => <Cloudinary />} />
       <Route path="/imgupload" exact render={(props) => <ImgUpload />} />
       <Route path="/updatemissions" exact render={(props) => <UpdateMissions/>} />
+      <Route path="/viewedit" exact render={(props) => <ViewEditMission/>} />
 
       
       {/* CREATE A MISSION AND ADD MISSION ELEMENTS*/}

@@ -1,5 +1,6 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
+const Tool = require("../models/Tool");
 
 module.exports = function (app) {
   ////////Paths for mission_basics /////////
@@ -7,6 +8,7 @@ module.exports = function (app) {
   app.get("/basics/:mission_id", (req, res) => {
     db.mission_basics
       .findOne({
+        include: db.tool_details, 
         where: {
           mission_id: req.params.mission_id,
         },
@@ -45,11 +47,24 @@ module.exports = function (app) {
   });
 
   //Post to mission_toolslist//
+  app.get("/missiontools/:mission_id", (req, res) => {
+    db.MissionTool
+      .findAll({
+        where: {
+          missionBasicMissionId: req.params.mission_id,
+        },
+      })
+      .then(function (selectedTools) {
+        res.json(selectedTools);
+      });
+  });
+
   app.post("/missiontools", (req, res) => {
+    
     db.MissionTool
       .create({
-        tool_id: req.body.tool_id,
-        mission_id: req.body.mission_id,
+        toolDetailToolId: req.body.tool_id,
+        missionBasicMissionId: req.body.mission_id,
       })
       .then(function (m_toolslist) {
         console.log(m_toolslist);
@@ -62,7 +77,7 @@ module.exports = function (app) {
       .destroy({
         where: {
           tool_id: req.params.tool_id,
-          mission_id: req.params.mission_id,
+          missionBasicMissionId: req.params.mission_id,
         },
       })
       .then(function (m_toolslist) {
@@ -181,24 +196,6 @@ module.exports = function (app) {
   });
 };
 
-////////Paths for Login /////////
-//Get from User table
-
-//   app.get("/login", (req, res) => {
-//   if (req.session.user) {
-//     res.send({ loggedIn: true, user: req.session.user });
-//   } else {
-//     res.send({ loggedIn: false });
-//   }
-// });
-
-//   app.get("/login", (req, res) => {
-//     db.User.findAll({}).then(function (users) {
-//       res.json(users);
-//     });
-//   });
-
-//Post to stage_details
 
 // app.get("*", function(req, res) {
 // res.sendFile(path.join(__dirname, "./client/build/index.html"));
