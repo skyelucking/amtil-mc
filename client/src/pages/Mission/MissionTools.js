@@ -3,6 +3,7 @@ import React, { useState, useEffect, View } from "react";
 import Axios from "axios";
 import { Container, Table } from "react-bootstrap";
 import { Checkbox } from "@material-ui/core";
+import ShowBasicsTools from "./ShowBasicsTools";
 
 const MissionTools = () => {
   const [mission_id, setMissionID] = useState(
@@ -77,6 +78,7 @@ const MissionTools = () => {
   return (
     <div>
       <Container>
+        <ShowBasicsTools />
         <h1 className="PageHead">Tool Catalog</h1>
         <div style={{ textAlign: "center" }}></div>
         <Table bordered hover size="sm">
