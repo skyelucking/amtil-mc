@@ -19,10 +19,10 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
-      toolmission_id: {
-        type: DataTypes.INTEGER,
-        uniq: true,
-      },
+      // toolmission_id: {
+      //   type: DataTypes.INTEGER,
+      //   uniq: true,
+      // },
     },
     {
       freezeTableName: true,

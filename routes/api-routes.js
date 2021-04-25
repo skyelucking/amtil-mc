@@ -76,7 +76,7 @@ module.exports = function (app) {
     db.MissionTool
       .destroy({
         where: {
-          tool_id: req.params.tool_id,
+          toolDetailToolId: req.params.tool_id,
           missionBasicMissionId: req.params.mission_id,
         },
       })

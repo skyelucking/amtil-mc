@@ -5,14 +5,13 @@ import { Container, Table } from "react-bootstrap";
 import { Checkbox } from "@material-ui/core";
 
 const MissionTools = () => {
-  const [toolList, setToolList] = useState([]);
-  const [tool_id, setToolID] = useState("");
   const [mission_id, setMissionID] = useState(
     JSON.parse(window.sessionStorage.getItem("mission")).mission_id
   );
-  const [tool_check, setToolCheck] = useState([]);
-  const [selectedTools, setSelectedTools] = useState([]);
-  const [toolInfo, setToolInfo] = useState([]);
+  const [toolList, setToolList] = useState([]);
+  const [tool_id, setToolID] = useState("");
+  // const [tool_check, setToolCheck] = useState([]);
+  const [tool_box, setToolBox] = useState([]);
 
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
@@ -27,19 +26,27 @@ const MissionTools = () => {
       setToolList(tool_array);
     });
 
-    Axios.get("/missiontools/" + mission_id).then((response) => {
-      console.log("missiontools call", response.data);
-      const tool_sel = response.data.map((tool) => ({
-        ...tool,
-        checked: false,
-      }));
-      setSelectedTools(tool_sel);
+    Axios.get("/basics/" + mission_id).then((response) => {
+      console.log("basics", response.data);
+      setToolBox(response);
     });
+    // setToolBox([1 ,2 ,3]);
+    console.log("tool_box:", tool_box);
   }, []);
 
   //GETS TOOL LIST FOR TOOL CATALOG //
 
   //SAVES EACH TOOL TO MISSION TOOLS WHEN BOX IS CHECKED //
+  const mission_toolbox = () => {
+    Axios.get("/basics/" + mission_id)
+      .then((response) => {
+        console.log("basics", response.data);
+      })
+      .then((response) => {
+        console.log(response);
+        setToolBox(response);
+      });
+  };
 
   const mission_toolslist = (index, tool_array, toolId) => {
     if (tool_array[index].checked === true) {
@@ -64,53 +71,11 @@ const MissionTools = () => {
     tempArray[index].checked = !tempArray[index].checked;
     setToolList(tempArray);
     mission_toolslist(index, tempArray, toolId);
-    console.log(toolList);
-  };
-
-  const getToolInfo = (index, toolId) => {
-    Axios.get("/tooldetails" + toolId).then((response) => {
-      setToolInfo(response);
-      console.log("tool info", toolInfo);
-    });
-
-    const tempArray = toolList;
-    tempArray[index].checked = !tempArray[index].checked;
-    setToolList(tempArray);
-    mission_toolslist(index, tempArray, toolId);
-    console.log(toolList);
+    console.log("Tool list", toolList);
   };
 
   return (
     <div>
-      <Container>
-        <h1 className="PageHead">Selected Tools</h1>
-        <div style={{ textAlign: "center" }}></div>
-        <Table bordered hover size="sm">
-          <thead>
-            <tr>
-              {/* <th>Tool Id</th> */}
-              <th>Remove Tool</th>
-              <th>Tool ID</th>
-              <th>Mission ID</th>
-            </tr>
-          </thead>
-          <tbody>
-            {selectedTools.map((data, index) => (
-              <tr key={data.tool_id}>
-                <td>
-                  <button>Remove</button>
-                </td>
-                <td>{data.tool_id}</td>
-                <td>{data.mission_id}</td>
-                <td>
-                  {/* <View>{this.getToolInfo(index, data.tool_id)}</View>
-                  onLoad={(e) => {this.getToolInfo(index, data.tool_id); }} */}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </Container>
       <Container>
         <h1 className="PageHead">Tool Catalog</h1>
         <div style={{ textAlign: "center" }}></div>

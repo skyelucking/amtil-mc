@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 
 import ShowBasics from "../pages/Mission/ShowBasics";
+import ShowBasicsTools from "../pages/Mission/ShowBasicsTools";
 import ShowEquip from "./ShowEquip";
 import ShowStage from "./ShowStage";
 import ShowTools from "../pages/Tools/ShowTools";
@@ -22,6 +23,7 @@ function AllTables() {
         <b>Mission Specific Items (Tied by the mission_id param)</b>
       </div>
       <ShowBasics />
+      <ShowBasicsTools />
     </div>
   );
 }

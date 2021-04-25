@@ -30,7 +30,7 @@ function CreateMission() {
         <div>
           <div className="missionInfo ">
             <span style={{ marginLeft: "10px" }}>
-              <b>Mission ID:</b> {}{" "}
+              <b>Mission ID:</b> {basicsList.mission_id}{" "}
             </span>{" "}
             <span style={{ marginLeft: "10px" }}>
               <b>Name:</b> {basicsList.name}
