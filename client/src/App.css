@@ -47,6 +47,8 @@ thead{
    
 }
 
+
+
 .navbar-header{
   color: black;
   font-size: 1em;
@@ -175,4 +177,19 @@ input {
   margin-bottom: 5px ;
   padding: 5px ;
   border-radius: 3% ;
+}
+
+.SubMenuBtn{
+  width: 8em;
+    background-color: #4AB8DF;
+    color: rgb(8, 8, 8);
+    font-size: .25em;
+    margin: auto;
+    padding: .1em;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    vertical-align: middle;
+    box-shadow: 8px 8px 5px grey;
+   
 }

@@ -58,7 +58,7 @@ alert("Tool already added.")
         <ShowSelectedTools />
         <h1 className="PageHead">Tool Catalog</h1>
         <div style={{ textAlign: "center" }}></div>
-        <Table bordered hover size="sm">
+        <Table bordered size="sm" style={{ marginBottom: "15px" }}>
           <thead>
             <tr>
               {/* <th>Tool Id</th> */}
@@ -73,7 +73,7 @@ alert("Tool already added.")
             {toolList.map((data, index) => (
               <tr key={data.tool_id}>
                 <td>
-                  <button onClick={(e) => {
+                  <button className="button"  style={{ fontSize: '.75rem', fontWeight:"bolder", backgroundColor: "#4AB8DF", color: "black", marginTop: "2px", marginBottom: "2px", display: "flex", width: "90%"}} onClick={(e) => {
                   
                    mission_toolslist(data.tool_id); 
               }}>Add</button>
