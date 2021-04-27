@@ -4,7 +4,7 @@ import Axios from "axios";
 import { Container, Table, Card } from "react-bootstrap";
 import { Button } from "bootstrap";
 
-const ShowBasicsTools = () => {
+const ShowSelectedTools = () => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
     .mission_id;
 
@@ -23,6 +23,16 @@ const ShowBasicsTools = () => {
       console.log("toolList", toolList);
     });
   }, []);
+
+  const delete_tool = (i, mission_id, tool_id) => {
+    console.log("mission_id", mission_id, "tool_id ", tool_id);
+    Axios.delete("/missiontools/" + mission_id + "/" + tool_id).then(
+      (response) => {
+        setBasicsList(basicsList.filter(t => t.tool_id !== tool_id));
+        console.log(response);
+      }
+    );
+  };
 
   return (
     <div>
@@ -45,7 +55,7 @@ const ShowBasicsTools = () => {
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Tool ID</th>
+              <th>Remove</th>
               <th>Tool Name</th>
               <th>Tool Category</th>
               <th>Tool Description </th>
@@ -56,7 +66,15 @@ const ShowBasicsTools = () => {
           <tbody>
             {basicsList.map((data, i) => (
               <tr key={i}>
-                <td>{data.tool_id}</td>
+                <td>
+                  <button
+                    onClick={(e) => {
+                      delete_tool(i, mission_id, data.tool_id);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </td>
                 <td>{data.tool_name}</td>
                 <td>{data.tool_category}</td>
                 <td>{data.tool_description}</td>
@@ -79,4 +97,4 @@ const ShowBasicsTools = () => {
   );
 };
 
-export default ShowBasicsTools;
+export default ShowSelectedTools;

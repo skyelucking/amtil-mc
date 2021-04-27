@@ -24,7 +24,7 @@ import MissionEquip from "./pages/Mission/MissionEquip";
 import EquipCatalog from "./pages/Equipment/EquipCatalog";
 import UpdateMissions from "./pages/Admin/UpdateMissions";
 import ViewEditMission from "./pages/Mission/ViewEditMission";
-import ShowBasicsTools from "./pages/Mission/ShowBasicsTools";
+import ShowSelectedTools from "./pages/Mission/ShowSelectedTools";
 import ShowBasicsEquip from "./pages/Mission/ShowBasicsEquip";
 
 function App() {
@@ -67,7 +67,7 @@ function App() {
 
       {/* VIEW, UPDATE, AND DELETE MISSIONS*/}
       <Route path="/showbasics" exact render={(props) => <ShowBasics />} />
-      <Route path="/showbasicsTools" exact render={(props) => <ShowBasicsTools />} />
+      <Route path="/showselectedtools" exact render={(props) => <ShowSelectedTools />} />
       <Route path="/showbasicsequip" exact render={(props) => <ShowBasicsEquip />} />
       <Route path="/showequip" exact render={(props) => <ShowEquip />} />
       <Route path="/alltables" exact render={(props) => <AllTables />} />

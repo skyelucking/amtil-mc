@@ -3,7 +3,7 @@ import React, { useState, useEffect, View } from "react";
 import Axios from "axios";
 import { Container, Table } from "react-bootstrap";
 import { Checkbox } from "@material-ui/core";
-import ShowBasicsTools from "./ShowBasicsTools";
+import ShowSelectedTools from "./ShowSelectedTools";
 
 const MissionTools = () => {
   const [mission_id, setMissionID] = useState(
@@ -43,6 +43,7 @@ const MissionTools = () => {
       tool_id: toolID,
       mission_id: mission_id,
     }).then((response) => {
+      window.location.reload();
       console.log(response);
     })
     .catch((err) => {
@@ -54,7 +55,7 @@ alert("Tool already added.")
   return (
     <div>
       <Container>
-        <ShowBasicsTools />
+        <ShowSelectedTools />
         <h1 className="PageHead">Tool Catalog</h1>
         <div style={{ textAlign: "center" }}></div>
         <Table bordered hover size="sm">
