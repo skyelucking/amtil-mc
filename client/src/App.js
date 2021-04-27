@@ -18,6 +18,7 @@ import AddElements from "./pages/Menus/AddElements";
 import Cloudinary from "./pages/Admin/Cloudinary";
 import ImgUpload from "./pages/Admin/ImgUpload";
 import MissionTools from "./pages/Mission/MissionTools";
+import MissionStage from "./pages/Mission/MissionStage";
 import ToolCatalog from "./pages/Tools/ToolCatalog";
 import AddElementsMenu from "./pages/Menus/AddElementsMenu";
 import MissionEquip from "./pages/Mission/MissionEquip";
@@ -26,6 +27,7 @@ import UpdateMissions from "./pages/Admin/UpdateMissions";
 import ViewEditMission from "./pages/Mission/ViewEditMission";
 import ShowSelectedTools from "./pages/Mission/ShowSelectedTools";
 import ShowBasicsEquip from "./pages/Mission/ShowBasicsEquip";
+// import MissionStage from "../../models/MissionStage";
 
 function App() {
   return (
@@ -56,6 +58,7 @@ function App() {
       />
       <Route path="/missiontools" exact render={(props) => <MissionTools />} />
       <Route path="/missionequip" exact render={(props) => <MissionEquip />} />
+      <Route path="/missionstages" exact render={(props) => <MissionStage />} />
 
       {/* ADD ELEMENTS */}
       <Route path="/equipdetails" exact render={(props) => <EquipDetails />} />

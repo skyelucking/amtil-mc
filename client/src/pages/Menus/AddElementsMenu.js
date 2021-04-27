@@ -3,6 +3,7 @@ import Axios from "axios";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
+import Logo from "../../Images/transp_amtilogo.png";
 
 export default function AddElementsMenu() {
   // const [loginStatus, setLoginStatus] = useState("");
@@ -13,6 +14,18 @@ export default function AddElementsMenu() {
     <div className="Menu" style={{ justifyContent: "center", width: "100%" }}>
       {/* <div>Hi - {loginStatus}!</div> */}
       <div className="container menuBox">
+      <img
+        src={Logo}
+        alt="amtil logo"
+        style={{
+          width: "20%",
+          display: "flex",
+          marginLeft: "35%",
+          marginRight: "35%",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      ></img>
         <Link to="/tooldetails">
           <button className="MainMenuBtn">Tool Catalog</button>
         </Link>
@@ -21,7 +34,7 @@ export default function AddElementsMenu() {
           <button className="MainMenuBtn">Equipment Catalog</button>
         </Link>
         <br></br>
-        <Link to="/menu">
+        <Link to="/stagedetails">
           <button className="MainMenuBtn">Stages</button>
         </Link>
         <br></br>

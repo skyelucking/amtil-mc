@@ -1,8 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
-  const MissionTool = sequelize.define(
-    "MissionTool",
+  const MissionStage = sequelize.define(
+    "MissionStage",
     {
-      
       last_updated: {
         type: DataTypes.DATE,
         allowNull: true,
@@ -11,10 +10,11 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
+     
     },
     {
       freezeTableName: true,
-      tableName: "mission_toolslist",
+      tableName: "mission_stagelist",
       timestamps: false, // Enable timestamps
       createdAt: false, // Don't create createdAt
       updatedAt: false, // Don't create updatedAt
@@ -22,6 +22,6 @@ module.exports = function (sequelize, DataTypes) {
   );
 
   
-  return MissionTool;
+  return MissionStage;
 };
 

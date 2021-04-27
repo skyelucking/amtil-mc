@@ -5,6 +5,7 @@ import "../../App.css";
 import MissionEquip from "../Mission/MissionEquip"
 import EquipDetails from "../Equipment/EquipDetails";
 import MissionTools from "./MissionTools";
+import MissionStage from "./MissionStage";
 import Axios from "axios";
 
 function CreateMission() {
@@ -52,7 +53,7 @@ function CreateMission() {
             <MissionEquip />
             </div>
             <div label="Stage">
-              <em>Stage</em>
+            <MissionStage />
             </div>
             <div label="Team">
               <em>Team</em>

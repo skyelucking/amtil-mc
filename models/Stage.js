@@ -40,5 +40,16 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
+  Stage.associate = (models) => {
+    Stage.belongsToMany(models.mission_basics, {
+       through: {
+         model: models.MissionStage,
+         unique: false,
+         
+       },
+     
+     });
+      }
+
   return Stage;
 };
