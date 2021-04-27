@@ -43,5 +43,16 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
+  Equipment.associate = (models) => {
+    Equipment.belongsToMany(models.mission_basics, {
+       through: {
+         model: models.mission_equiplist,
+         unique: false,
+         
+       },
+     
+     });
+      }
+
   return Equipment;
 };

@@ -2,18 +2,18 @@ module.exports = function (sequelize, DataTypes) {
   const MissionEquipment = sequelize.define(
     "mission_equiplist",
     {
-      equip_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
+      // equip_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   primaryKey: true,
+      //   autoIncrement: true
 
-      },
-      mission_id: {
-        type: DataTypes.INTEGER,
-        foreignKey: true,
-        allowNull: false,
-      },
+      // },
+      // mission_id: {
+      //   type: DataTypes.INTEGER,
+      //   foreignKey: true,
+      //   allowNull: false,
+      // },
 
       last_updated: {
         type: DataTypes.DATE,
@@ -26,11 +26,12 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       freezeTableName: true,
-      timestamps: true, // Enable timestamps
+      tableName: "mission_equiplist",
+      timestamps: false, // Enable timestamps
       createdAt: false, // Don't create createdAt
       updatedAt: false, // Don't create updatedAt
     }
   );
 
-  return MissionEquipment;
+    return MissionEquipment;
 };

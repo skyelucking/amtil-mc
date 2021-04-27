@@ -3,13 +3,114 @@ const db = require("../models");
 const Tool = require("../models/Tool");
 
 module.exports = function (app) {
+ 
+ ////////  All PATHS FOR TOOLS   /////////
+
+ // GETS BASICS INFO BY MISSION ID WITH TOOL DETAILS INCLUDE //
+//  app.get("/missiontools/:mission_id", (req, res) => {
+//   db.mission_basics
+//     .findOne({
+//       include: db.tool_details, 
+//        where: {
+//         mission_id: req.params.mission_id,
+//       },
+//     })
+//     .then(function (m_basics) {
+//       res.json(m_basics);
+//     });
+// });
+ 
+ // GETS TOOLS BY MISSION ID BUT NO DETAILS //
+  app.get("/missiontoolsAll/:mission_id", (req, res) => {
+    db.MissionTool
+      .findAll({
+        where: {
+          missionBasicMissionId: req.params.mission_id,
+        },
+      })
+      .then(function (selectedTools) {
+        res.json(selectedTools);
+      });
+  });
+
+  // POSTS TOOLS INTO mission_toolslist TABLE //
+  app.post("/missiontools", (req, res) => {
+      db.MissionTool
+      .create({
+        toolDetailToolId: req.body.tool_id,
+        missionBasicMissionId: req.body.mission_id,
+      })
+      .then(function (m_toolslist) {
+        console.log(m_toolslist);
+        res.json(m_toolslist);
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      })
+  });
+
+  // DELETES TOOLS FROM mission_toolslist TABLE //
+  app.delete("/missiontools/:mission_id/:tool_id", (req, res) => {
+    db.MissionTool
+      .destroy({
+        where: {
+          toolDetailToolId: req.params.tool_id,
+          missionBasicMissionId: req.params.mission_id,
+        },
+      })
+      .then(function (m_toolslist) {
+        console.log(m_toolslist);
+        res.json(m_toolslist);
+      });
+  });
+
+
+
+   ////////  All PATHS FOR EQUIPMENT   /////////
+
+   // GETS BASICS INFO BY MISSION ID WITH EQUIPMENT DETAILS INCLUDE //
+ app.get("/missionequip/:mission_id", (req, res) => {
+  db.mission_basics
+    .findOne({
+      include: db.equipment_details, 
+       where: {
+        mission_id: req.params.mission_id,
+      },
+    })
+    .then(function (m_basics) {
+      res.json(m_basics);
+    });
+});
+
+   app.get("/equipdetails", (req, res) => {
+    db.equipment_details.findAll({}).then(function (equipment_details) {
+      res.json(equipment_details);
+    });
+  });
+
+  //Post to equipment_details
+  app.post("/equipdetails", (req, res) => {
+    db.equipment_details
+      .create({
+        equip_name: req.body.equip_name,
+        equip_category: req.body.equip_category,
+        equip_description: req.body.equip_description,
+        equip_img: req.body.equip_img,
+      })
+      .then(function (equipment_details) {
+        res.json(equipment_details);
+      });
+  });
+
+
+ 
   ////////Paths for mission_basics /////////
 
   app.get("/basics/:mission_id", (req, res) => {
     db.mission_basics
       .findOne({
         include: db.tool_details, 
-        where: {
+         where: {
           mission_id: req.params.mission_id,
         },
       })
@@ -46,45 +147,7 @@ module.exports = function (app) {
       });
   });
 
-  //Post to mission_toolslist//
-  app.get("/missiontools/:mission_id", (req, res) => {
-    db.MissionTool
-      .findAll({
-        where: {
-          missionBasicMissionId: req.params.mission_id,
-        },
-      })
-      .then(function (selectedTools) {
-        res.json(selectedTools);
-      });
-  });
-
-  app.post("/missiontools", (req, res) => {
-    
-    db.MissionTool
-      .create({
-        toolDetailToolId: req.body.tool_id,
-        missionBasicMissionId: req.body.mission_id,
-      })
-      .then(function (m_toolslist) {
-        console.log(m_toolslist);
-        res.json(m_toolslist);
-      });
-  });
-
-  app.delete("/missiontools/:mission_id/:tool_id", (req, res) => {
-    db.MissionTool
-      .destroy({
-        where: {
-          tool_id: req.params.tool_id,
-          missionBasicMissionId: req.params.mission_id,
-        },
-      })
-      .then(function (m_toolslist) {
-        console.log(m_toolslist);
-        res.json(m_toolslist);
-      });
-  });
+ 
 
   ////////Paths for registration to users table /////////
 
@@ -131,26 +194,8 @@ module.exports = function (app) {
   });
 
   ////////Paths for equipment_details table /////////
-  //Get from equipment_details
-  app.get("/equipdetails", (req, res) => {
-    db.equipment_details.findAll({}).then(function (equipment_details) {
-      res.json(equipment_details);
-    });
-  });
-
-  //Post to equipment_details
-  app.post("/equipdetails", (req, res) => {
-    db.equipment_details
-      .create({
-        equip_name: req.body.equip_name,
-        equip_category: req.body.equip_category,
-        equip_description: req.body.equip_description,
-        equip_img: req.body.equip_img,
-      })
-      .then(function (equipment_details) {
-        res.json(equipment_details);
-      });
-  });
+ 
+ 
 
   ////////Paths for tool_details table /////////
   //Get from tool_details

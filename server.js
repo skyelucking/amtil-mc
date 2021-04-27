@@ -34,6 +34,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 require("./routes/api-routes")(app);
+require("./routes/mission-routes")(app);
 
 
 // app.get("/login", (req, res) => {

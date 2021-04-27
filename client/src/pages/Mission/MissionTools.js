@@ -10,8 +10,7 @@ const MissionTools = () => {
     JSON.parse(window.sessionStorage.getItem("mission")).mission_id
   );
   const [toolList, setToolList] = useState([]);
-  const [tool_id, setToolID] = useState("");
-  // const [tool_check, setToolCheck] = useState([]);
+  // const [tool_id, setToolID] = useState("");
   const [tool_box, setToolBox] = useState([]);
 
   //GETS MISSION ID FROM SESSION VARIABLE
@@ -20,19 +19,8 @@ const MissionTools = () => {
       .mission_id;
 
     Axios.get("/tooldetails").then((response) => {
-      const tool_array = response.data.map((tool) => ({
-        ...tool,
-        checked: false,
-      }));
-      setToolList(tool_array);
+      setToolList(response.data);
     });
-
-    Axios.get("/basics/" + mission_id).then((response) => {
-      console.log("basics", response.data);
-      setToolBox(response);
-    });
-    // setToolBox([1 ,2 ,3]);
-    console.log("tool_box:", tool_box);
   }, []);
 
   //GETS TOOL LIST FOR TOOL CATALOG //
@@ -49,30 +37,18 @@ const MissionTools = () => {
       });
   };
 
-  const mission_toolslist = (index, tool_array, toolId) => {
-    if (tool_array[index].checked === true) {
-      console.log("mission_id", mission_id, "tool_id", toolId);
-      Axios.post("/missiontools", {
-        tool_id: toolId,
-        mission_id: mission_id,
-      }).then((response) => {
-        console.log(response);
-      });
-    } else {
-      Axios.delete("/missiontools/" + mission_id + "/" + toolId).then(
-        (response) => {
-          console.log(response);
-        }
-      );
-    }
-  };
-
-  const checkedState = (index, toolId) => {
-    const tempArray = toolList;
-    tempArray[index].checked = !tempArray[index].checked;
-    setToolList(tempArray);
-    mission_toolslist(index, tempArray, toolId);
-    console.log("Tool list", toolList);
+  const mission_toolslist = (toolID) => {
+    console.log("tool_id", toolID);
+    Axios.post("/missiontools", {
+      tool_id: toolID,
+      mission_id: mission_id,
+    }).then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+alert("Tool already added.")
+    })
+    ;
   };
 
   return (
@@ -96,15 +72,10 @@ const MissionTools = () => {
             {toolList.map((data, index) => (
               <tr key={data.tool_id}>
                 <td>
-                  <Checkbox
-                    id="ToolCheck"
-                    checked={toolList[index].checked}
-                    onChange={(e) => {
-                      checkedState(index, data.tool_id);
-                      setToolID(data.tool_id);
-                    }}
-                    inputProps={{ "aria-label": "primary checkbox" }}
-                  />
+                  <button onClick={(e) => {
+                  
+                   mission_toolslist(data.tool_id); 
+              }}>Add</button>
                 </td>
                 <td>
                   <img

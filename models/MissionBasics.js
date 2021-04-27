@@ -1,57 +1,57 @@
-var MissionTool = require('../models/MissionTool');
-var MissionBasics = require('../models/MissionBasics');
-var models = require('../models/');
+var MissionTool = require("../models/MissionTool");
+var MissionEquipment = require("../models/MissionEquipment");
+var MissionBasics = require("../models/MissionBasics");
+var models = require("../models/");
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const MissionBasics = sequelize.define(
     "mission_basics",
     {
-       mission_id: {
+      mission_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true
+        autoIncrement: true,
       },
       status: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: true,
       },
       category: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       summary: {
         type: DataTypes.STRING,
-        allowNull: true      
+        allowNull: true,
       },
       notes: {
         type: DataTypes.STRING,
-        allowNull: true      
+        allowNull: true,
       },
       start_date: {
         type: DataTypes.STRING,
-        allowNull: true      
+        allowNull: true,
       },
       end_date: {
         type: DataTypes.STRING,
-        allowNull: true      
+        allowNull: true,
       },
       cover_img: {
         type: DataTypes.STRING,
-        allowNull: true      
+        allowNull: true,
       },
       description: {
         type: DataTypes.STRING,
-        allowNull: true      
+        allowNull: true,
       },
-     
     },
     {
-      freezeTableName: true
+      freezeTableName: true,
     }
   );
 
@@ -61,11 +61,16 @@ module.exports = function(sequelize, DataTypes) {
       through: {
         model: models.MissionTool,
         unique: false,
-              },
-    
+      },
     });
-    
-  }
+    MissionBasics.belongsToMany(models.equipment_details, {
+      through: {
+        model: models.mission_equiplist,
+        unique: false,
+      },
+    });
+  };
 
-  return MissionBasics ;
+  
+  return MissionBasics;
 };

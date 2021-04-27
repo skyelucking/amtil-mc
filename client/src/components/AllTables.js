@@ -7,6 +7,7 @@ import ShowEquip from "./ShowEquip";
 import ShowStage from "./ShowStage";
 import ShowTools from "../pages/Tools/ShowTools";
 import ShowUsers from "./ShowUsers";
+import ShowBasicsEquip from "../pages/Mission/ShowBasicsEquip";
 
 function AllTables() {
   return (
@@ -24,6 +25,7 @@ function AllTables() {
       </div>
       <ShowBasics />
       <ShowBasicsTools />
+      <ShowBasicsEquip />
     </div>
   );
 }

@@ -1,96 +1,112 @@
 import "../../App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, View } from "react";
 import Axios from "axios";
 import { Container, Table } from "react-bootstrap";
-import { Checkbox } from '@material-ui/core';
+import { Checkbox } from "@material-ui/core";
+import ShowBasicsEquip from "./ShowBasicsEquip";
 
-const MissionEquip= () => {
+const MissionEquip = () => {
+  const [mission_id, setMissionID] = useState(
+    JSON.parse(window.sessionStorage.getItem("mission")).mission_id
+  );
+  const [equipList, setEquipList] = useState([]);
+  const [equip_id, setEquipID] = useState("");
 
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
     const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
       .mission_id;
-      
-  }, []);
-  
-  //GETS EQUIPMENT LIST FOR TOOL CATALOG //
-  Axios.get("/equipdetails").then((response) => {
-    setEquipList(response.data);
-  });
 
-  const [equipList, setEquipList] = useState([]);
-
-
-  //SAVES EACH TOOL TO MISSION EQUIP WHEN BOX IS CHECKED //
-  const [equip_id, setEquipID] = useState("");
-  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission"))
-  .mission_id);
-  const [equip_check, setEquipCheck] = useState("");
-  
-
-  const mission_equiplist = () => {
-    if (equip_check === true) {
-      Axios.post("/missionequips", {
-      equip_id: equip_id,
-      mission_id: mission_id,
-     }).then((response) => {
-      console.log(response);
+    Axios.get("/equipdetails").then((response) => {
+      const equip_array = response.data.map((equip) => ({
+        ...equip,
+        checked: false,
+      }));
+      setEquipList(equip_array);
     });
-    }else {
-      Axios.delete("/missionequips", {
-        equip_id: equip_id,
+
+    // Axios.get("/basics/" + mission_id).then((response) => {
+    //   // console.log("basics", response.data);
+    //   setEquipBox(response);
+    // });
+    // setEquipBox([1 ,2 ,3]);
+    // console.log("equip_box:", equip_box);
+  }, []);
+
+  //GETS TOOL LIST FOR TOOL CATALOG //
+
+  //SAVES EACH TOOL TO MISSION TOOLS WHEN BOX IS CHECKED //
+  // const mission_equipbox = () => {
+  //   Axios.get("/basics/" + mission_id)
+  //     .then((response) => {
+  //       console.log("basics", response.data);
+  //     })
+  //     .then((response) => {
+  //       // console.log(response);
+  //       setEquipBox(response);
+  //     });
+  // };
+
+  const mission_equiplist = (index, equip_array, equipId) => {
+    if (equip_array[index].checked === true) {
+      console.log("mission_id", mission_id, "equip_id", equipId);
+      Axios.post("/missionequip", {
+        equip_id: equipId,
         mission_id: mission_id,
-       }).then((response) => {
+      }).then((response) => {
         console.log(response);
       });
+    } else {
+      Axios.delete("/missionequip/" + mission_id + "/" + equipId).then(
+        (response) => {
+          console.log(response);
+        }
+      );
     }
-    
+  };
+
+  const checkedState = (index, equipId) => {
+    const tempArray = equipList;
+    tempArray[index].checked = !tempArray[index].checked;
+    setEquipList(tempArray);
+    mission_equiplist(index, tempArray, equipId);
+    console.log("Equip list", equipList);
   };
 
   return (
     <div>
       <Container>
-      <h1 className="PageHead">Equipment Catalog</h1>
+        <ShowBasicsEquip />
+
+        
+        <h1 className="PageHead">Equip Catalog</h1>
         <div style={{ textAlign: "center" }}></div>
         <Table bordered hover size="sm">
           <thead>
             <tr>
               {/* <th>Tool Id</th> */}
-              <th style={{maxWidth: "15px", fontSize: ".9em"}}>Add Equip.</th>
+              <th>Add Equip</th>
               <th>Image</th>
               <th>Name</th>
               <th>Category</th>
               <th>Description</th>
-              
-             
             </tr>
           </thead>
           <tbody>
             {equipList.map((data, index) => (
               <tr key={data.equip_id}>
-                
-                <td style={{maxWidth: "10%"}} >
-                <Checkbox
-                id="ToolCheck"
-        checked={false}
-        onChange={(e) => {
-          setEquipCheck(!equip_check);
-          setEquipID(data.equip_id);
-          mission_equiplist();
-        }}
-        inputProps={{ 'aria-label': 'primary checkbox' }}
-      />
-                {/* <Checkbox
-        defaultunchecked
-        color="primary"
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-        onChange={(e) => {
-          setToolID(data.tool_id);
-          mission_toolslist();
-        }}
-      /> */}
+                <td>
+                  <Checkbox
+                    id="EquipCheck"
+                    checked={equipList[index].checked}
+                    onChange={(e) => {
+                      checkedState(index, data.equip_id);
+                      setEquipID(data.equip_id);
+                    }}
+                    inputProps={{ "aria-label": "primary checkbox" }}
+                  />
                 </td>
-                 <td style={{ maxWidth: "120px" }}>
+                <td>
                   <img
                     src={data.equip_img}
                     style={{ maxWidth: "100px" }}
@@ -100,8 +116,6 @@ const MissionEquip= () => {
                 <td>{data.equip_name}</td>
                 <td>{data.equip_category}</td>
                 <td style={{ fontSize: ".75em" }}>{data.equip_description}</td>
-               
-               
               </tr>
             ))}
           </tbody>

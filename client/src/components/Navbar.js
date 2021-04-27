@@ -13,7 +13,7 @@ export default function Navbar() {
   useEffect(() => {
     setUser(JSON.parse(window.sessionStorage.getItem("user")));
   }, []);
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className="navbar-header">

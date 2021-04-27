@@ -8,10 +8,12 @@ import MissionTools from "./MissionTools";
 import Axios from "axios";
 
 function CreateMission() {
-  const [basicsList, setBasicsList] = useState({});
+  const [basicsList, setBasicsList] = useState();
 
   useEffect(() => {
-    const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
+    const missionVar = window.sessionStorage.getItem("mission");
+    if (!missionVar) return;
+    const mission_id = JSON.parse(missionVar)
       .mission_id;
     Axios.get("/basics/" + mission_id).then((response) => {
       setBasicsList(response.data);
@@ -19,13 +21,14 @@ function CreateMission() {
   }, []);
 
   return (
-    <>
+       <>
       <h1
         className="PageHead"
         style={{ marginBottom: 10, width: "12em", padding: "5px" }}
       >
         Add Mission Details
       </h1>
+      {basicsList ? 
       <Container style={{ width: "95%" }}>
         <div>
           <div className="missionInfo ">
@@ -63,7 +66,7 @@ function CreateMission() {
             <div label="FAA References">FAA References</div>
           </Tabs>
         </div>
-      </Container>
+      </Container> : <div>No Mission Selected</div>}
     </>
   );
 }
