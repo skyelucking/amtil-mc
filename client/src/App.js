@@ -6,7 +6,7 @@ import Login from "./pages/Admin/Login";
 import Menu from "./pages/Menus/Menu";
 import Navbar from "./components/Navbar";
 import AllTables from "./components/AllTables";
-import ShowEquip from "./components/ShowEquip";
+import ShowEquip from "./pages/Equipment/ShowEquip";
 import Registration from "./pages/Admin/Registration";
 import EquipDetails from "./pages/Equipment/EquipDetails";
 import ToolDetails from "./pages/Tools/ToolDetails";
@@ -17,17 +17,18 @@ import CreateMission from "./pages/Mission/CreateMission";
 import AddElements from "./pages/Menus/AddElements";
 import Cloudinary from "./pages/Admin/Cloudinary";
 import ImgUpload from "./pages/Admin/ImgUpload";
-import MissionTools from "./pages/Mission/MissionTools";
-import MissionStage from "./pages/Mission/MissionStage";
+import MissionTools from "./pages/Tools/MissionTools";
+
+import StageCatalog from "./pages/Stage/StageCatalog";
 import ToolCatalog from "./pages/Tools/ToolCatalog";
 import AddElementsMenu from "./pages/Menus/AddElementsMenu";
-import MissionEquip from "./pages/Mission/MissionEquip";
+import MissionEquip from "./pages/Equipment/MissionEquip";
 import EquipCatalog from "./pages/Equipment/EquipCatalog";
 import UpdateMissions from "./pages/Admin/UpdateMissions";
 import ViewEditMission from "./pages/Mission/ViewEditMission";
-import ShowSelectedTools from "./pages/Mission/ShowSelectedTools";
-import ShowBasicsEquip from "./pages/Mission/ShowBasicsEquip";
-// import MissionStage from "../../models/MissionStage";
+import ShowSelectedTools from "./pages/Tools/ShowSelectedTools";
+import ShowSelectedEquip from "./pages/Equipment/ShowSelectedEquip";
+
 
 function App() {
   return (
@@ -58,7 +59,7 @@ function App() {
       />
       <Route path="/missiontools" exact render={(props) => <MissionTools />} />
       <Route path="/missionequip" exact render={(props) => <MissionEquip />} />
-      <Route path="/missionstages" exact render={(props) => <MissionStage />} />
+      
 
       {/* ADD ELEMENTS */}
       <Route path="/equipdetails" exact render={(props) => <EquipDetails />} />
@@ -66,13 +67,14 @@ function App() {
       <Route path="/stagedetails" exact render={(props) => <StageDetails />} />
       <Route path="/addelements" exact render={(props) => <AddElements />} />
       <Route path="/toolcatalog" exact render={(props) => <ToolCatalog />} />
+      <Route path="/stagecatalog" exact render={(props) => <StageCatalog />} />
       <Route path="/equipcatalog" exact render={(props) => <EquipCatalog/>} />
 
       {/* VIEW, UPDATE, AND DELETE MISSIONS*/}
       <Route path="/showbasics" exact render={(props) => <ShowBasics />} />
       <Route path="/showselectedtools" exact render={(props) => <ShowSelectedTools />} />
-      <Route path="/showbasicsequip" exact render={(props) => <ShowBasicsEquip />} />
-      <Route path="/showequip" exact render={(props) => <ShowEquip />} />
+      <Route path="/showselectedequip" exact render={(props) => <ShowSelectedEquip />} />
+    
       <Route path="/alltables" exact render={(props) => <AllTables />} />
     </Router>
   );

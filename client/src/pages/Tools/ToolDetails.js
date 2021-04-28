@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "../../App.css";
-import ToolCatalog from "./ToolCatalog";
+import ToolCatalog from "../Tools/ToolCatalog";
 
 Axios.defaults.withCredentials = true;
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "../../App.css";
+import StageCatalog from "./StageCatalog";
 
 
 Axios.defaults.withCredentials = true;
@@ -53,7 +54,7 @@ export default function StageDetails() {
 
     return (
     <div className="container">
-      <div className="inputBox">
+      <div className="inputBox" style={{marginBottom: "25px"}}>
         <h3>Add A New Stage/Setting</h3>
         
       
@@ -117,17 +118,7 @@ export default function StageDetails() {
           </button>
         </div>
        
-        {/* <input
-        className="addElement"
-        placeholder="Stage Image"
-          type="text"
-          onChange={(e) => {
-            setStageImg(e.target.value);
-          }}
-        /> */}
-        
-        {/* <button onClick={stage_details} style={{margin: 15}}> Save</button>
-      </div> */}
+        <StageCatalog />
       
     </div>
   );

@@ -1,3 +1,15 @@
+.Card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgb(224, 169, 169);
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
 .App {
   text-align: center;
 }
@@ -84,16 +96,32 @@ thead{
   padding: 15px;
 }
 .missionInfo {
-  display: flex;
-  /* flex-direction: column; */
-  text-align: left;
-  justify-content: left;
-  width:100%;
+  text-align: center;
+  justify-content: center;
+  /* height: fit-content; */
+  height: 5%;
+  width: 100%;
   align-items: center;
   margin: auto;
   background-color: #ebf3f5;
   box-shadow: 10px 10px 5px grey;
-  padding: 20px;
+  padding: 2px;
+  border-color: #ccc;
+  border-width: 2px;
+  border-style: solid; 
+}
+
+.textBlock {
+  
+  text-align: center;
+  justify-content: center;
+  width:80%;
+  align-items: center;
+  margin-top: 5px;
+  margin: auto;
+  background-color: #ebf3f5;
+  box-shadow: 10px 10px 5px grey;
+  padding: 10px;
   border-color: #ccc;
   border-width: 2px;
   border-style: solid; 
@@ -104,7 +132,7 @@ thead{
   border-color: #ccc;
   border-width: 0px;
   border-style: solid; 
-  border-top: 0;
+  border-top: 1px;
   justify-content: center;
   align-content: center;
   /* padding: 10px; */
@@ -114,6 +142,7 @@ thead{
   /* border: 1px solid #ccc; */
   min-width: 100%;
   padding: 0;
+  border-top: 2px;
   border-bottom: 0px;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
@@ -127,6 +156,7 @@ thead{
   margin-bottom: -1px;
   padding: 0.5rem 0.5rem;
   background-color: #dbf4fd;
+  border-top: 1px solid #ccc;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
  
@@ -155,7 +185,7 @@ thead{
   background-color: rgb(255, 255, 255);
   width: 95%;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   
 
 }

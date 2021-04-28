@@ -204,29 +204,11 @@ module.exports = function (app) {
       });
   });
 
-  ////////Paths for stage_details table /////////
-  //Get from stage_details
-  app.get("/stagedetails", (req, res) => {
-    db.stage_details.findAll({}).then(function (stage_details) {
-      res.json(stage_details);
-    });
-  });
-
-  //Post to stage_details
-  app.post("/stagedetails", (req, res) => {
-    db.stage_details
-      .create({
-        stage_name: req.body.stage_name,
-        stage_desc: req.body.stage_desc,
-        stage_img: req.body.stage_img,
-      })
-      .then(function (stage_details) {
-        res.json(stage_details);
-      });
-  });
-};
+ 
 
 
 // app.get("*", function(req, res) {
 // res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
+
+}

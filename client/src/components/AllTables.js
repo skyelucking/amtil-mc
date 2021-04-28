@@ -2,12 +2,12 @@ import React from "react";
 import "../App.css";
 
 import ShowBasics from "../pages/Mission/ShowBasics";
-import ShowSelectedTools from "../pages/Mission/ShowSelectedTools";
-import ShowEquip from "./ShowEquip";
-import ShowStage from "./ShowStage";
+import ShowSelectedTools from "../pages/Tools/ShowSelectedTools";
+import ShowEquip from "../pages/Equipment/ShowEquip";
+import ShowStage from "../pages/Stage/StageDetails";
 import ShowTools from "../pages/Tools/ShowTools";
 import ShowUsers from "./ShowUsers";
-import ShowBasicsEquip from "../pages/Mission/ShowBasicsEquip";
+import ShowSelectedEquip from "../pages/Equipment/ShowSelectedEquip";
 
 function AllTables() {
   return (
@@ -25,7 +25,7 @@ function AllTables() {
       </div>
       <ShowBasics />
       <ShowSelectedTools />
-      <ShowBasicsEquip />
+      <ShowSelectedEquip />
     </div>
   );
 }

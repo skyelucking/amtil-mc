@@ -24,7 +24,8 @@ export default function Menu() {
         }}
       >
         {/* <div>Hi - {loginStatus}!</div> */}
-        <div className="container menuBox"><img
+        <div className="container menuBox">
+          <img
         src={Logo}
         alt="amtil logo"
         style={{

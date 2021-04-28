@@ -13,7 +13,7 @@ const ToolCatalog = () => {
   return (
     <div>
       <Container>
-        <div class="PageHead" style={{ textAlign: "center" }}>
+        <div className="PageHead" style={{ textAlign: "center" }}>
           <b>Tool Catalog</b>
         </div>  
         <Table  bordered hover size="sm">

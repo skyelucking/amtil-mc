@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Tabs from "../../components/Tabs";
 import "../../App.css";
-import MissionEquip from "./MissionEquip"
+import MissionEquip from "../Equipment/MissionEquip"
 import EquipDetails from "../Equipment/EquipDetails";
-import MissionTools from "./MissionTools";
+import MissionTools from "../Tools/MissionTools";
 import Axios from "axios";
 
 function ViewEditMission() {
