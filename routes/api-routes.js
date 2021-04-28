@@ -51,44 +51,7 @@ module.exports = function (app) {
 
 
 
-   ////////  All PATHS FOR EQUIPMENT   /////////
-
-   // GETS BASICS INFO BY MISSION ID WITH EQUIPMENT DETAILS INCLUDE //
-//  app.get("/missionequip/:mission_id", (req, res) => {
-//   db.mission_basics
-//     .findOne({
-//       include: db.equipment_details, 
-//        where: {
-//         mission_id: req.params.mission_id,
-//       },
-//     })
-//     .then(function (m_basics) {
-//       res.json(m_basics);
-//     });
-// });
-
-  //  app.get("/equipdetails", (req, res) => {
-  //   db.equipment_details.findAll({}).then(function (equipment_details) {
-  //     res.json(equipment_details);
-  //   });
-  // });
-
-  //Post to equipment_details
-  // app.post("/equipdetails", (req, res) => {
-  //   db.equipment_details
-  //     .create({
-  //       equip_name: req.body.equip_name,
-  //       equip_category: req.body.equip_category,
-  //       equip_description: req.body.equip_description,
-  //       equip_img: req.body.equip_img,
-  //     })
-  //     .then(function (equipment_details) {
-  //       res.json(equipment_details);
-  //     });
-  // });
-
-
- 
+    
   ////////Paths for mission_basics /////////
 
   app.get("/basics/:mission_id", (req, res) => {

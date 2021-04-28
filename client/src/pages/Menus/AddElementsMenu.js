@@ -38,7 +38,7 @@ export default function AddElementsMenu() {
           <button className="MainMenuBtn">Stages</button>
         </Link>
         <br></br>
-        <Link to="/menu">
+        <Link to="/teamdetails">
           <button className="MainMenuBtn">Team Members</button>
         </Link>
         <br></br>

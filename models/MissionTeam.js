@@ -2,18 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   const MissionTeam = sequelize.define(
     "mission_team",
     {
-      member_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-
-      mission_id: {
-        type: DataTypes.INTEGER,
-        foreignKey: true,
-        allowNull: false,
-      },
-
-      last_updated: {
+        last_updated: {
         type: DataTypes.DATE,
         allowNull: true,
       },
@@ -24,6 +13,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       freezeTableName: true,
+      tableName: "mission_team",
       timestamps: true, // Enable timestamps
       createdAt: false, // Don't create createdAt
       updatedAt: false, // Don't create updatedAt

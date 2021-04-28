@@ -21,7 +21,11 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      team_type: {
+      department: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      avatar: {
         type: DataTypes.STRING,
         allowNull: true,
       },
@@ -42,6 +46,17 @@ module.exports = function (sequelize, DataTypes) {
       
     }
   );
+
+  Team.associate = (models) => {
+    Team.belongsToMany(models.mission_basics, {
+       through: {
+         model: models.mission_team,
+         unique: false,
+         
+       },
+     
+     });
+      }
 
   return Team;
 };

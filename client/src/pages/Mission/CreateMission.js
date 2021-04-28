@@ -9,6 +9,7 @@ import MissionStage from "../Stage/MissionStage";
 import Axios from "axios";
 import StageCatalog from "../Stage/StageCatalog";
 import Logo from "../../Images/transp_amtilogo.png";
+import MissionTeam from "../Team/MissionTeam";
 
 function CreateMission() {
   const [basicsList, setBasicsList] = useState();
@@ -87,7 +88,7 @@ function CreateMission() {
                 <MissionStage />
               </div>
               <div label="Team">
-                <em>Team</em>
+                <MissionTeam />
               </div>
               <div label="Storyboard"></div>
               <div label="Procedural Steps">Steps</div>

@@ -1,6 +1,7 @@
 var MissionTool = require("../models/MissionTool");
 var MissionStage = require("../models/MissionStage");
 var MissionEquipment = require("../models/MissionEquipment");
+var MissionTeam = require("../models/MissionTeam")
 var MissionBasics = require("../models/MissionBasics");
 var models = require("../models/");
 
@@ -76,6 +77,14 @@ module.exports = function (sequelize, DataTypes) {
         unique: false,
       },
     });
+    MissionBasics.belongsToMany(models.team_details, {
+      through: {
+        model: models.mission_team,
+        unique: false,
+      },
+    });
+
+
   };
 
   

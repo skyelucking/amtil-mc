@@ -35,19 +35,6 @@ app.post("/addequip", (req, res) => {
 });
 
 
-// // GETS STAGE BY MISSION ID BUT NO STAGE DETAILS //
-// app.get("/missionstageAll/:mission_id", (req, res) => {
-//     db.MissionStage
-//       .findAll({
-//         where: {
-//           missionBasicMissionId: req.params.mission_id,
-//         },
-//       })
-//       .then(function (selectedStage) {
-//         res.json(selectedStage);
-//       });
-//   });
-
   // DELETES Equipment FROM mission_equiplist TABLE //
   app.delete("/deleteequip/:mission_id/:equip_id", (req, res) => {
     db.mission_equiplist

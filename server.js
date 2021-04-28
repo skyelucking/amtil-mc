@@ -37,6 +37,7 @@ require("./routes/api-routes")(app);
 require("./routes/mission-routes")(app);
 require("./routes/stage-routes")(app);
 require("./routes/equip-routes")(app);
+require("./routes/team-routes")(app);
 
 
 

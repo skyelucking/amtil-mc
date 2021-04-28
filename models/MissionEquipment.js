@@ -2,20 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   const MissionEquipment = sequelize.define(
     "mission_equiplist",
     {
-      // equip_id: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      //   primaryKey: true,
-      //   autoIncrement: true
-
-      // },
-      // mission_id: {
-      //   type: DataTypes.INTEGER,
-      //   foreignKey: true,
-      //   allowNull: false,
-      // },
-
-      last_updated: {
+        last_updated: {
         type: DataTypes.DATE,
         allowNull: true,
       },
