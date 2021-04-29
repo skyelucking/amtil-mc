@@ -1,29 +1,13 @@
-import "../../App.css";
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Table, Card, Button } from "react-bootstrap";
-// import { Button } from "bootstrap";
 
-const ShowSelectedTeam = () => {
+const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
     .mission_id;
 
-  const [basicsList, setBasicsList] = useState([]);
-  const [teamRoster, setTeamRoster] = useState([]);
-
-  useEffect(() => {
-    Axios.get("/getteam/" + mission_id).then((response) => {
-      console.log(response.data);
-      let tempArray = [];
-      const teamRoster = [];
-      tempArray = [...response.data.team_details];
-      setBasicsList(tempArray);
-      console.log("basicsList", basicsList);
-      console.log("tempArray", tempArray);
-      console.log("teamRoster", teamRoster);
-    });
-  }, []);
+    const [teamRoster, setTeamRoster] = useState([]);
 
   const delete_team = (i, mission_id, member_id) => {
     console.log("mission_id", mission_id, "member_id ", member_id);
@@ -40,7 +24,9 @@ const ShowSelectedTeam = () => {
       <div>
         <Container>
           <div style={{ textAlign: "center" }}>
-            <h1 className="PageHead" style={{width: "12em"}}>Mission Team Members</h1>
+            <h1 className="PageHead" style={{ width: "12em" }}>
+              Mission Team Members
+            </h1>
           </div>
           <div
             className="menuBox"
