@@ -10,6 +10,7 @@ import Axios from "axios";
 import StageCatalog from "../Stage/StageCatalog";
 import Logo from "../../Images/transp_amtilogo.png";
 import MissionTeam from "../Team/MissionTeam";
+import StoryDetails from "../Storyboards/StoryDetails";
 
 function CreateMission() {
   const [basicsList, setBasicsList] = useState();
@@ -36,8 +37,8 @@ function CreateMission() {
           <div>
             <div className="missionInfo ">
               <span style={{ marginLeft: "10px", textAlign: "center" }}>
-                <b style={{fontSize: "1.25em"}}>{basicsList.name}</b>: {basicsList.description}{" "}<p style={{ marginLeft: "10px" }}>
-                </p>
+                <b style={{ fontSize: "1.25em" }}>{basicsList.name}</b>:{" "}
+                {basicsList.description} <p style={{ marginLeft: "10px" }}></p>
                 <p
                   style={{
                     marginLeft: "10px",
@@ -47,9 +48,7 @@ function CreateMission() {
                 >
                   [ ID#:{basicsList.mission_id} ]
                 </p>
-                
-                         
-            </span>
+              </span>
             </div>
             <Tabs>
               <div label="Welcome" className="textBlock">
@@ -78,25 +77,25 @@ function CreateMission() {
                   <h4>Let's do this!</h4>
                 </div>
               </div>
+              <div label="Team">
+                <MissionTeam />
+              </div>
+              <div label="Storyboard">
+                <StoryDetails />
+              </div>
+              <div label="Stage">
+                <MissionStage />
+              </div>
               <div label="Tools">
                 <MissionTools />
               </div>
               <div label="Equipment">
                 <MissionEquip />
               </div>
-              <div label="Stage">
-                <MissionStage />
-              </div>
-              <div label="Team">
-                <MissionTeam />
-              </div>
-              <div label="Storyboard"></div>
+
               <div label="Procedural Steps">Steps</div>
               <div label="Quiz Questions">Quiz Questions</div>
-
-              <div label="Styles/Color">Style and Color Notes</div>
-              <div label="Media/Documents">Media Documents</div>
-              <div label="FAA References">FAA References</div>
+              <div label="References Docs">References Docs</div>
             </Tabs>
           </div>
         </Container>

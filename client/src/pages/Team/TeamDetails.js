@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "../../App.css";
+import ShowTeam from "./ShowTeam";
 
 
 Axios.defaults.withCredentials = true;
@@ -89,6 +90,7 @@ export default function TeamDetails() {
             }}>
             <option value="---">---</option>
             <option value="Engineering">Engineering</option>
+            <option value="Operations">Operations</option>
             <option value="Education">Education</option>
             <option value="Marketing">Marketing</option>
             <option value="Finance">Finance</option>
@@ -142,7 +144,7 @@ export default function TeamDetails() {
           </button>
         </div>
         <br></br>
-        {/* <ToolCatalog /> */}
+        <ShowTeam/>
       </div>
     </>
   );

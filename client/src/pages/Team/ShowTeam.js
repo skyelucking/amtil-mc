@@ -3,42 +3,44 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { Container, Table } from "react-bootstrap";
 
-const ShowTools = () => {
-  Axios.get("/tooldetails").then((response) => {
-    setToolList(response.data);
+const ShowTeam = () => {
+  Axios.get("/teamdetails").then((response) => {
+    setTeamRoster(response.data);
   });
 
-  const [toolList, setToolList] = useState([]);
+  const [teamRoster, setTeamRoster] = useState([]);
 
   return (
     <div>
       <Container>
         <div style={{ textAlign: "center" }}>
-          <b>Mission Tools Table</b>
+          <b>Team Members</b>
         </div>
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Tool_id</th>
+              <th>Avatar</th>
               <th>Name</th>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Image</th>
-              <th>Last Updated</th>
-              <th>Last User</th>
+              <th>Title</th>
+              <th>Department</th>
             </tr>
           </thead>
           <tbody>
-            {toolList.map((data, index) => (
-              <tr key={data.tool_id}>
-                <td>{data.tool_id}</td>
-                <td>{data.tool_name}</td>
-                <td>{data.tool_category}</td>
-                <td style={{fontSize: ".75em"}}>{data.tool_description}</td>
-                <td><img src={data.tool_img} style={{maxWidth: "100px"}} alt={data.tool_description}></img></td>
-                <td>{data.last_updated}</td>
-                <td>{data.last_user}</td>
-            
+            {teamRoster.map((data, index) => (
+              <tr key={data.member_id}>
+                <td>
+                  <img
+                    src={data.avatar}
+                    style={{ maxWidth: "150px" }}
+                    alt={data.last_name}
+                  ></img>
+                </td>
+
+                <td>
+                  {data.first_name} {data.last_name}
+                </td>
+                <td>{data.title}</td>
+                <td>{data.department}</td>
               </tr>
             ))}
           </tbody>
@@ -48,4 +50,4 @@ const ShowTools = () => {
   );
 };
 
-export default ShowTools;
+export default ShowTeam;

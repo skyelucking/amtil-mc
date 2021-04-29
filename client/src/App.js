@@ -44,6 +44,11 @@ import StageCatalog from "./pages/Stage/StageCatalog";
 import MissionTeam from "./pages/Team/MissionTeam";
 import MissionDropDown from "./components/MissionDropDown";
 
+//CRUD STORYBOARD
+import StoryDetails from "./pages/Storyboards/StoryDetails"
+import MissionStoryboards from "./pages/Storyboards/MissionStoryboards"
+
+
 function App() {
   return (
    
@@ -91,6 +96,10 @@ function App() {
 
 {/* CRUD TEAM*/}   
       <Route path="/missionteam" exact render={(props) => <MissionTeam />} />
+
+{/* CRUD STORYBOARDS*/}  
+<Route path="/storydetails" exact render={(props) => <StoryDetails />} />
+<Route path="/missionstoryboards" exact render={(props) => <MissionStoryboards/>} />
       
     </Router>
   );

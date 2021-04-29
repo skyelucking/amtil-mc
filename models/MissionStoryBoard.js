@@ -8,11 +8,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         autoIncrement: true
       },
-      mission_id: {
-        type: DataTypes.INTEGER,
-        foreignKey: true,
-        allowNull: false,
-      },
+      
       panel_order: {
         type: DataTypes.STRING,
         allowNull: true
@@ -22,6 +18,10 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       },
       panel_notes: {
+        type: DataTypes.STRING,
+        allowNull: true      
+      },
+      color_and_style: {
         type: DataTypes.STRING,
         allowNull: true      
       },
@@ -42,5 +42,5 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
-  return MissionStoryBoard;
+    return MissionStoryBoard;
 };

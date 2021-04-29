@@ -1,17 +1,15 @@
-
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Table, Card, Button } from "react-bootstrap";
 
-
-const ShowSelectedEquip = ({basicsList, setBasicsList}) => {
+const ShowSelectedEquip = ({ basicsList, setBasicsList }) => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
     .mission_id;
 
   const [equipList, setEquipList] = useState([]);
-  
-    const delete_equip = (i, mission_id, equip_id) => {
+
+  const delete_equip = (i, mission_id, equip_id) => {
     console.log("mission_id", mission_id, "equip_id ", equip_id);
     Axios.delete("/deleteequip/" + mission_id + "/" + equip_id).then(
       (response) => {

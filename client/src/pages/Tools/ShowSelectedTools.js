@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Table, Card, Button } from "react-bootstrap";
+import { Container, Table, Card, Button, Modal  } from "react-bootstrap";
 
 
 const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList }) => {
@@ -10,6 +10,10 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList }) => {
     .mission_id;
 
   const [toolsList, setToolsList] = useState([]);
+  const [displayDesc, setDisplayDesc] = useState([]);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const delete_tool = (i, mission_id, tool_id) => {
     console.log("mission_id", mission_id, "tool_id ", tool_id);
@@ -20,6 +24,8 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList }) => {
       }
     );
   };
+
+  
 
   return (
     <>
@@ -76,15 +82,46 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList }) => {
                   >
                     {data.tool_name}
                   </Card.Title>
+                  <Button
+                  className="SubMenuBtn button"
+                  style={{
+                    fontSize: ".9rem",
+                    fontWeight: "bolder",
+                    backgroundColor: "#4AB8DF",
+                    color: "black",
+                    marginTop: "5px",
+                    marginBottom: "15px",
+                    display: "flex",
+                  }}
+                  onClick={handleShow}
+                >
+                  Description
+                </Button>
                   <Card.Text
                     style={{ fontSize: ".75rem", textAlign: "center" }}
                   >
-                    {data.tool_description}
+                    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{data.tool_name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{data.tool_description}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          
+        </Modal.Footer>
+      </Modal>
                   </Card.Text>
                 </Card.Body>
               </Card>
             ))}
           </div>
+          <Button className="SubMenuBtn button" onClick={handleShow}>
+        Tool Desccription
+      </Button>
+
+      
         </Container>
       </div>
     </>

@@ -38,6 +38,8 @@ require("./routes/mission-routes")(app);
 require("./routes/stage-routes")(app);
 require("./routes/equip-routes")(app);
 require("./routes/team-routes")(app);
+require("./routes/tool-routes")(app);
+require("./routes/storyboard-routes")(app);
 
 
 

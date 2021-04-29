@@ -1,7 +1,7 @@
 var MissionTool = require("../models/MissionTool");
 var MissionStage = require("../models/MissionStage");
 var MissionEquipment = require("../models/MissionEquipment");
-var MissionTeam = require("../models/MissionTeam")
+var MissionTeam = require("../models/MissionTeam");
 var MissionBasics = require("../models/MissionBasics");
 var models = require("../models/");
 
@@ -57,7 +57,6 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
-  //Question: can I designate the FK above? I don't like the auto generated one.
   MissionBasics.associate = (models) => {
     MissionBasics.belongsToMany(models.tool_details, {
       through: {
@@ -83,10 +82,8 @@ module.exports = function (sequelize, DataTypes) {
         unique: false,
       },
     });
-
-
+    
   };
 
-  
   return MissionBasics;
 };
