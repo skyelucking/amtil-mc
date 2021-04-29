@@ -1,17 +1,15 @@
-import "../../App.css";
+
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Table, Card, Button } from "react-bootstrap";
-// import { Button } from "bootstrap";
 
-const ShowSelectedTools = ({basicsList, setBasicsList, setToolList}) => {
+
+const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList }) => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
     .mission_id;
 
-  
   const [toolsList, setToolsList] = useState([]);
-
 
   const delete_tool = (i, mission_id, tool_id) => {
     console.log("mission_id", mission_id, "tool_id ", tool_id);

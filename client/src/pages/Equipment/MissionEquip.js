@@ -11,7 +11,8 @@ const MissionEquip = () => {
   );
   const [equipList, setEquipList] = useState([]);
   const [equip_box, setEquipBox] = useState([]);
-
+  const [basicsList, setBasicsList] = useState([]);
+ 
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
     const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
@@ -19,6 +20,16 @@ const MissionEquip = () => {
 
     Axios.get("/equipdetails").then((response) => {
       setEquipList(response.data);
+      Axios.get("/missionequip/" + mission_id).then((response) => {
+        console.log(response.data);
+        let tempArray = [];
+        const equipList = [];
+        tempArray = [...response.data.equipment_details];
+        setBasicsList(tempArray);
+        console.log("basicsList", basicsList);
+        console.log("tempArray", tempArray);
+        console.log("equipList", equipList);
+      });
     });
   }, []);
 
@@ -27,8 +38,10 @@ const MissionEquip = () => {
     Axios.post("/addequip", {
       equip_id: equipID,
       mission_id: mission_id,
-    }).then((response) => {
-      window.location.reload();
+    }).then((response) => {       
+      const currentEquip = equipList.find(t => t.equip_id === equipID)
+      setBasicsList([...basicsList, currentEquip])
+      setEquipList(prevState => prevState.filter((eq) => eq.equip_id !== equipID));
       console.log(response);
     })
     .catch((err) => {
@@ -40,7 +53,7 @@ alert("Equip already added.")
   return (
     <div>
       <Container>
-        <ShowSelectedEquip />
+        <ShowSelectedEquip basicsList={basicsList} setBasicsList={setBasicsList} setEquipList={setEquipList} />
         <h1 className="PageHead">Equipment Catalog</h1>
         <div style={{ textAlign: "center" }}></div>
         <Table bordered size="sm" style={{ marginBottom: "15px" }}>
@@ -55,7 +68,7 @@ alert("Equip already added.")
             </tr>
           </thead>
           <tbody>
-            {equipList.map((data, index) => (
+            {equipList.filter(equip => !basicsList.find(b => b.equip_id === equip.equip_id)).map((data, index) => (
               <tr key={data.equip_id}>
                 <td>
                   <button className="button"  style={{ fontSize: '.75rem', fontWeight:"bolder", backgroundColor: "#4AB8DF", color: "black", marginTop: "2px", marginBottom: "2px", display: "flex", width: "90%"}} onClick={(e) => {

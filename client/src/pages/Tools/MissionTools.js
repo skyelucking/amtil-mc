@@ -10,10 +10,10 @@ const MissionTools = () => {
     JSON.parse(window.sessionStorage.getItem("mission")).mission_id
   );
   const [toolList, setToolList] = useState([]);
-  // const [tool_id, setToolID] = useState("");
   const [tool_box, setToolBox] = useState([]);
  const [basicsList, setBasicsList] = useState([]);
-  //GETS MISSION ID FROM SESSION VARIABLE
+ 
+ //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
     const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
       .mission_id;
@@ -33,8 +33,6 @@ const MissionTools = () => {
     });
   }, []);
  
-  //GETS TOOL LIST FOR TOOL CATALOG //
-
     const mission_toolslist = (toolID) => {
     console.log("tool_id", toolID);
     Axios.post("/missiontools", {
@@ -42,7 +40,6 @@ const MissionTools = () => {
       mission_id: mission_id,
     })
       .then((response) => {
-        // setBasicsList();
         const currentTool = toolList.find(t => t.tool_id === toolID)
         setBasicsList([...basicsList, currentTool])
         setToolList(prevState => prevState.filter((t) => t.tool_id !== toolID));
