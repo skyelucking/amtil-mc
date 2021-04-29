@@ -12,7 +12,7 @@ const MissionTools = () => {
   const [toolList, setToolList] = useState([]);
   // const [tool_id, setToolID] = useState("");
   const [tool_box, setToolBox] = useState([]);
-
+ const [basicsList, setBasicsList] = useState([]);
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
     const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
@@ -20,42 +20,43 @@ const MissionTools = () => {
 
     Axios.get("/tooldetails").then((response) => {
       setToolList(response.data);
+      Axios.get("/missiontools/" + mission_id).then((response) => {
+        console.log(response.data);
+        let tempArray = [];
+        const toolList = [];
+        tempArray = [...response.data.tool_details];
+        setBasicsList(tempArray);
+        console.log("basicsList", basicsList);
+        console.log("tempArray", tempArray);
+        console.log("toolList", toolList);
+      });
     });
   }, []);
-
+ 
   //GETS TOOL LIST FOR TOOL CATALOG //
 
-  //SAVES EACH TOOL TO MISSION TOOLS WHEN BOX IS CHECKED //
-  const mission_toolbox = () => {
-    Axios.get("/basics/" + mission_id)
-      .then((response) => {
-        console.log("basics", response.data);
-      })
-      .then((response) => {
-        console.log(response);
-        setToolBox(response);
-      });
-  };
-
-  const mission_toolslist = (toolID) => {
+    const mission_toolslist = (toolID) => {
     console.log("tool_id", toolID);
     Axios.post("/missiontools", {
       tool_id: toolID,
       mission_id: mission_id,
-    }).then((response) => {
-      window.location.reload();
-      console.log(response);
     })
-    .catch((err) => {
-alert("Tool already added.")
-    })
-    ;
+      .then((response) => {
+        // setBasicsList();
+        const currentTool = toolList.find(t => t.tool_id === toolID)
+        setBasicsList([...basicsList, currentTool])
+        setToolList(prevState => prevState.filter((t) => t.tool_id !== toolID));
+        console.log(response);
+      })
+      .catch((err) => {
+        alert("Tool already added.");
+      });
   };
 
   return (
     <div>
       <Container>
-        <ShowSelectedTools />
+        <ShowSelectedTools basicsList={basicsList} setBasicsList={setBasicsList} setToolList={setToolList}/>
         <h1 className="PageHead">Tool Catalog</h1>
         <div style={{ textAlign: "center" }}></div>
         <Table bordered size="sm" style={{ marginBottom: "15px" }}>
@@ -70,13 +71,27 @@ alert("Tool already added.")
             </tr>
           </thead>
           <tbody>
-            {toolList.map((data, index) => (
+            {toolList.filter(tool => !basicsList.find(b => b.tool_id === tool.tool_id)).map((data, index) => (
               <tr key={data.tool_id}>
                 <td>
-                  <button className="button"  style={{ fontSize: '.75rem', fontWeight:"bolder", backgroundColor: "#4AB8DF", color: "black", marginTop: "2px", marginBottom: "2px", display: "flex", width: "90%"}} onClick={(e) => {
-                  
-                   mission_toolslist(data.tool_id); 
-              }}>Add</button>
+                  <button
+                    className="button"
+                    style={{
+                      fontSize: ".75rem",
+                      fontWeight: "bolder",
+                      backgroundColor: "#4AB8DF",
+                      color: "black",
+                      marginTop: "2px",
+                      marginBottom: "2px",
+                      display: "flex",
+                      width: "90%",
+                    }}
+                    onClick={(e) => {
+                      mission_toolslist(data.tool_id);
+                    }}
+                  >
+                    Add
+                  </button>
                 </td>
                 <td>
                   <img

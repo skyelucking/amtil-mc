@@ -42,11 +42,16 @@ import StageCatalog from "./pages/Stage/StageCatalog";
 
 //CRUD TEAM
 import MissionTeam from "./pages/Team/MissionTeam";
+import MissionDropDown from "./components/MissionDropDown";
 
 function App() {
   return (
    
     <Router>
+
+{/* COMPONENTS */}
+<Route path="/missiondropdown" exact render={(props) => <MissionDropDown />} />
+
 {/* MENUS and ADMIN */}
       <Navbar />
       <Route path="/menu" exact render={(props) => <Menu />} />
