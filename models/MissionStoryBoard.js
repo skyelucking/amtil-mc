@@ -46,5 +46,14 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
+  // MissionStoryBoard.associate = function(models) {
+  //   MissionStoryBoard.belongsTo(models.MissionBasics, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+    // });
+  // };
+
+
     return MissionStoryBoard;
 };

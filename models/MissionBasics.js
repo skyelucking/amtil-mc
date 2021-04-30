@@ -82,8 +82,14 @@ module.exports = function (sequelize, DataTypes) {
         unique: false,
       },
     });
+    MissionBasics.hasMany(models.MissionStoryBoard, {
+      onDelete: "cascade"
+    });
+
     
   };
+
+  
 
   return MissionBasics;
 };
