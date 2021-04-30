@@ -42,6 +42,7 @@ export default function StoryDetails() {
   const [panel_img, setPanelImg] = useState("");
 
   const post_storyboards = () => {
+    console.log("mission_id", mission_id)
     Axios.post("/poststoryboards", {
       panel_order: panel_order,
       panel_notes: panel_notes,

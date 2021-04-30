@@ -8,6 +8,10 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false,
         autoIncrement: true
       },
+      missionBasicMissionId: {
+        type: DataTypes.STRING,
+        allowNull: true
+      },
       
       panel_order: {
         type: DataTypes.STRING,

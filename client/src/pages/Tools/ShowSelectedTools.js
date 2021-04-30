@@ -106,7 +106,7 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList }) => {
         </Modal.Header>
         <Modal.Body>{data.tool_description}</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button className="SubMenuBtn button" onClick={handleClose}>
             Close
           </Button>
           
@@ -117,11 +117,7 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList }) => {
               </Card>
             ))}
           </div>
-          <Button className="SubMenuBtn button" onClick={handleShow}>
-        Tool Desccription
-      </Button>
-
-      
+          
         </Container>
       </div>
     </>

@@ -21,7 +21,7 @@ function MissionStoryboards() {
   
   return (
   <div> {storyPanels.map((data, index) => (
-      <div className="Panel">
+      <div className="Panel" key={data.storyboard_id}>
           <div className="panelHead">Panel #{data.panel_order} <button style={{justifyContent: "right", marginLeft: "75%", marginBottom: "2px", marginTop: "2px", fontSize: "90%"}}>Edit</button></div>
          <div><a href={data.panel_img} targer="_blank"> <img src={data.panel_img} className="panelImg"></img></a></div>
          
