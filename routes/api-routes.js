@@ -46,7 +46,7 @@ module.exports = function (app) {
   app.post("/login", (req, res) => {
     console.log(req.body);
     db.User.findOne({
-      username: req.body.username,
+      where: {username: req.body.username},
     }).then(function (user) {
       if (user) {
         const response = user.validPassword(req.body.password);
