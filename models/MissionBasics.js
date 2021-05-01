@@ -1,3 +1,4 @@
+var MissionQuestion = require("../models/MissionQuestion");
 var MissionTool = require("../models/MissionTool");
 var MissionStage = require("../models/MissionStage");
 var MissionEquipment = require("../models/MissionEquipment");
@@ -31,7 +32,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      notes: {
+      pm_url: {
         type: DataTypes.STRING,
         allowNull: true,
       },
@@ -87,6 +88,10 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     MissionBasics.hasMany(models.mission_stepslist, {
+      onDelete: "cascade"
+    });
+
+    MissionBasics.hasMany(models.mission_questionlist, {
       onDelete: "cascade"
     });
 

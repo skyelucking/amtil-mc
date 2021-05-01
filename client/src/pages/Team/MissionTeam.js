@@ -58,7 +58,7 @@ const MissionTeam = () => {
             setTeamRoster={setTeamRoster}
           />
           <h1 className="PageHead">Team Roster</h1>
-          <div style={{ textAlign: "center" }}></div>
+          {/* <div style={{ textAlign: "center" }}></div> */}
           <Table bordered size="sm" style={{ marginBottom: "15px" }}>
             <thead>
               <tr>

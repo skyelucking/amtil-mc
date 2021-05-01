@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "../../App.css";
 import swal from '@sweetalert/with-react';
+import MissionSteps from "./MissionSteps"
 
 
 Axios.defaults.withCredentials = true;
@@ -136,7 +137,7 @@ export default function StepDetails() {
           </button>
         </div>
         <br></br>
-        {/* <MissionSteps /> */}
+        
       </div>
     </>
   );

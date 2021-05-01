@@ -9,12 +9,16 @@ module.exports = function (sequelize, DataTypes) {
         autoIncrement: true
         
       },
-      mission_id: {
+      missionBasicMissionId: {
         type: DataTypes.INTEGER,
         foreignKey: true,
         allowNull: false,
       },
       q_order: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+      },
+      q_text: {
         type: DataTypes.STRING,
         allowNull: true
       },
@@ -42,6 +46,10 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: true      
       },
+      q_img: {
+        type: DataTypes.STRING,
+        allowNull: true      
+      },
       last_updated: {
         type: DataTypes.DATE,
         allowNull: true,
@@ -58,6 +66,14 @@ module.exports = function (sequelize, DataTypes) {
       updatedAt: false, // Don't create updatedAt
     }
   );
+
+  MissionQuestion.associate = function(models) {
+    MissionQuestion.belongsTo(models.mission_basics, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return MissionQuestion;
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "../../App.css";
 import MissionStoryboards from "./MissionStoryboards";
+import swal from '@sweetalert/with-react';
 
 Axios.defaults.withCredentials = true;
 
@@ -51,6 +52,7 @@ export default function StoryDetails() {
       mission_id: mission_id,
     }).then((response) => {
       console.log(response);
+      swal("Panel", "Added!", "success");
     });
   };
 

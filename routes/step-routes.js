@@ -16,7 +16,7 @@ module.exports = function (app) {
 
    
     //Get from step_details
-  app.get("/sdetails", (req, res) => {
+  app.get("/stepdetails", (req, res) => {
     db.mission_stepslist.findAll({}).then(function (step) {
       res.json(step);
     });

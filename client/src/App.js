@@ -52,6 +52,10 @@ import MissionStoryboards from "./pages/Storyboards/MissionStoryboards"
 //CRUD STEPS
 import StepDetails from "./pages/Steps/StepDetails"
 
+//CRUD QUESTIONS
+import AddQuestion from "./pages/Questions/AddQuestion"
+import StepsnDropDown from "./components/StepsDropDown";
+
 
 function App() {
   return (
@@ -60,6 +64,7 @@ function App() {
 
 {/* COMPONENTS */}
 <Route path="/missiondropdown" exact render={(props) => <MissionDropDown />} />
+<Route path="/stepsdd" exact render={(mission_id) => <StepsnDropDown/>} />
 
 {/* MENUS and ADMIN */}
       <Navbar />
@@ -107,6 +112,10 @@ function App() {
 
 {/* CRUD STEPS*/} 
 <Route path="/stepdetails" exact render={(props) => <StepDetails />} />
+
+{/* CRUD QUESTIONS*/} 
+<Route path="/addquestion" exact render={(props) => <AddQuestion />} />
+
       
     </Router>
   );

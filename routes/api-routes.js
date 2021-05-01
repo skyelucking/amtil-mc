@@ -22,7 +22,7 @@ module.exports = function (app) {
         name: req.body.name,
         category: req.body.category,
         summary: req.body.summary,
-        notes: req.body.notes,
+        pm_url: req.body.pm_url,
         start_date: req.body.start_date,
         end_date: req.body.end_date,
         cover_img: req.body.cover_img,

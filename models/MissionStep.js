@@ -43,6 +43,7 @@ module.exports = function (sequelize, DataTypes) {
       updatedAt: false, // Don't create updatedAt
     }
   );
+  
   MissionStep.associate = function(models) {
     MissionStep.belongsTo(models.mission_basics, {
       foreignKey: {

@@ -36,7 +36,7 @@ export default function Basics() {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [summary, setSummary] = useState("");
-  const [notes, setNotes] = useState("");
+  const [pm_url, setPmURL] = useState("");
   const [start_date, setStartDate] = useState("");
   const [end_date, setEndDate] = useState("");
   const [cover_img, setCoverImg] = useState("");
@@ -49,7 +49,7 @@ export default function Basics() {
       name: name,
       category: category,
       summary: summary,
-      notes: notes,
+      pm_url: pm_url,
       start_date: start_date,
       end_date: end_date,
       cover_img: image,
@@ -110,7 +110,7 @@ export default function Basics() {
           id="Status"
           onChange={(e) => { setStatus(e.target.value);
           }}>
-        
+        <option value="---">---</option>
           <option value="Brainstorming">Brainstorming</option>
           <option value="Planning">Planning</option>
           <option value="Development">Development</option>
@@ -153,13 +153,13 @@ export default function Basics() {
             setSummary(e.target.value);
           }}
         />
-        {/* <label>notes</label> */}
+        {/* <label>pm_url</label> */}
         <input
-          placeholder="Notes"
+          placeholder="Project Management URL"
           style={{ margin: 5 }}
           type="text"
           onChange={(e) => {
-            setNotes(e.target.value);
+            setPmURL(e.target.value);
           }}
         />
         <div
