@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Table, Card, Button } from "react-bootstrap";
+import swal from '@sweetalert/with-react';
 
 const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
@@ -15,6 +16,8 @@ const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
       (response) => {
         setBasicsList(basicsList.filter((t) => t.member_id !== member_id));
         console.log(response);
+        
+        swal("Team Member", "removed!", "error");
       }
     );
   };

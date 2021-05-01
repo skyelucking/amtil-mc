@@ -5,9 +5,13 @@ const Tool = require("../models/Tool");
 module.exports = function (app) {
   //Get from mission_basics
   app.get("/basics", (req, res) => {
-    db.mission_basics.findAll({}).then(function (m_basics) {
-      res.json(m_basics);
-    });
+    db.mission_basics
+      .findAll({
+        include: db.tool_details,
+      })
+      .then(function (m_basics) {
+        res.json(m_basics);
+      });
   });
 
   //Post to mission_basics
@@ -73,6 +77,68 @@ module.exports = function (app) {
       res.json(users);
     });
   });
+
+  //GETS FROM EACH CONNECTED TABLE //
+
+  // -- TOOLS -- //
+  app.get("/gtools", (req, res) => {
+    db.mission_basics
+      .findAll({
+        include: db.tool_details,
+      })
+      .then(function (gtools) {
+        res.json(gtools);
+      });
+  });
+
+  // -- EQUIPMENT -- //
+  app.get("/gequip", (req, res) => {
+    db.mission_basics
+      .findAll({
+        include: db.equipment_details,
+      })
+      .then(function (gequip) {
+        res.json(gequip);
+      });
+  });
+
+  // -- TEAM -- //
+  app.get("/gteam", (req, res) => {
+    db.mission_basics
+      .findAll({
+        include: db.team_details,
+      })
+      .then(function (gteam) {
+        res.json(gteam);
+      });
+  });
+
+  // -- STAGE -- //
+  app.get("/gstage", (req, res) => {
+    db.mission_basics
+      .findAll({
+        include: db.stage_details,
+      })
+      .then(function (gstage) {
+        res.json(gstage);
+      });
+  });
+
+// -- STORYBOARDS -- //
+app.get("/gstoryboards", (req, res) => {
+  db.mission_basics
+    .findAll({
+      include: db.mission_storyboard,
+    })
+    .then(function (gstoryboards) {
+      res.json(gstoryboards);
+    });
+});
+
+
+
+
+
 
   // app.get("*", function(req, res) {
   // res.sendFile(path.join(__dirname, "./client/build/index.html"));

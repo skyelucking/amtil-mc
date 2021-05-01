@@ -29,7 +29,7 @@ module.exports = function (app) {
  
     //Get from tool_details
   app.get("/sdetails", (req, res) => {
-    db.MissionStoryBoard.findAll({}).then(function (storyboard) {
+    db.mission_storyboard.findAll({}).then(function (storyboard) {
       res.json(storyboard);
     });
   });

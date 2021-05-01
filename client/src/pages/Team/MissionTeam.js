@@ -2,6 +2,7 @@ import React, { useState, useEffect, View } from "react";
 import Axios from "axios";
 import { Container, Table } from "react-bootstrap";
 import ShowSelectedTeam from "../Team/ShowSelectedTeam";
+import swal from '@sweetalert/with-react';
 
 const MissionTeam = () => {
   const [mission_id, setMissionID] = useState(
@@ -41,6 +42,7 @@ const MissionTeam = () => {
             prevState.filter((eq) => eq.member_id !== memberID)
           );
           console.log(response);
+          swal("Team Member", "Added!", "success");
         })
         .catch((err) => {
           alert("Team Member already added. You must really like them!");

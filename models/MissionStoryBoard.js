@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
         autoIncrement: true
       },
       missionBasicMissionId: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: true
       },
       
@@ -40,19 +40,20 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       freezeTableName: true,
+      tableName: "mission_storyboard",
       timestamps: true, // Enable timestamps
       createdAt: false, // Don't create createdAt
       updatedAt: false, // Don't create updatedAt
     }
   );
 
-  // MissionStoryBoard.associate = function(models) {
-  //   MissionStoryBoard.belongsTo(models.MissionBasics, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-    // });
-  // };
+  MissionStoryBoard.associate = function(models) {
+    MissionStoryBoard.belongsTo(models.mission_basics, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
 
     return MissionStoryBoard;
