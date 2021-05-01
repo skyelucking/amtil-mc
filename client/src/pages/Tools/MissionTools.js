@@ -33,7 +33,7 @@ const MissionTools = () => {
     });
   }, []);
  
-    const mission_toolslist = (toolID) => {
+    const addTool = (toolID) => {
     console.log("tool_id", toolID);
     Axios.post("/missiontools", {
       tool_id: toolID,
@@ -42,7 +42,7 @@ const MissionTools = () => {
       .then((response) => {
         const currentTool = toolList.find(t => t.tool_id === toolID)
         setBasicsList([...basicsList, currentTool])
-        setToolList(prevState => prevState.filter((t) => t.tool_id !== toolID));
+        setToolList(toolList.filter(t => t.tool_id !== currentTool.tool_id));
         console.log(response);
       })
       .catch((err) => {
@@ -53,7 +53,7 @@ const MissionTools = () => {
   return (
     <div>
       <Container>
-        <ShowSelectedTools basicsList={basicsList} setBasicsList={setBasicsList} setToolList={setToolList}/>
+        <ShowSelectedTools basicsList={basicsList} setBasicsList={setBasicsList} setToolList={setToolList} toolList={toolList}/>
         <h1 className="PageHead">Tool Catalog</h1>
         <div style={{ textAlign: "center" }}></div>
         <Table bordered size="sm" style={{ marginBottom: "15px" }}>
@@ -84,7 +84,7 @@ const MissionTools = () => {
                       width: "90%",
                     }}
                     onClick={(e) => {
-                      mission_toolslist(data.tool_id);
+                      addTool(data.tool_id);
                     }}
                   >
                     Add
