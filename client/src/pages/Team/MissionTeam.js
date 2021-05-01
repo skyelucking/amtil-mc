@@ -4,22 +4,18 @@ import { Container, Table } from "react-bootstrap";
 import ShowSelectedTeam from "../Team/ShowSelectedTeam";
 import swal from '@sweetalert/with-react';
 
-const MissionTeam = () => {
-  const [mission_id, setMissionID] = useState(
-    JSON.parse(window.sessionStorage.getItem("mission")).mission_id
-  );
+const MissionTeam = (props) => {
+  
   const [teamRoster, setTeamRoster] = useState([]);
   const [team_list, setTeamList] = useState([]);
   const [basicsList, setBasicsList] = useState([]);
 
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
-    const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-      .mission_id;
-
+   
     Axios.get("/teamdetails").then((response) => {
       setTeamRoster(response.data);
-      Axios.get("/getteam/" + mission_id).then((response) => {
+      Axios.get("/getteam/" + props.missionID).then((response) => {
         console.log(response.data);
         let tempArray = [];
         const teamRoster = [];
@@ -27,13 +23,13 @@ const MissionTeam = () => {
         setBasicsList(tempArray);
       });
       });
-    }, []);
+    }, [props.missionID]);
 
     const mission_teamroster = (memberID) => {
       console.log("member_id", memberID);
       Axios.post("/addteam", {
         member_id: memberID,
-        mission_id: mission_id,
+        mission_id: props.missionID,
       })
         .then((response) => {
           const currentTeam = teamRoster.find((t) => t.member_id === memberID);

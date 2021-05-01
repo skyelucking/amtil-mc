@@ -1,16 +1,16 @@
 
-import React, { useState, useEffect} from "react";
+import React, { useState} from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Table, Card, Button, Modal  } from "react-bootstrap";
+import { Container, Card, Button, Modal  } from "react-bootstrap";
 
 
 const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList, toolList }) => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
     .mission_id;
 
-  // const [toolsList, setToolsList] = useState([]);
-  const [displayDesc, setDisplayDesc] = useState([]);
+ 
+  // const [displayDesc, setDisplayDesc] = useState([]);
   const [modalData, setModalData] = useState({});
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -80,7 +80,7 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList, toolList })
                   <Card.Title
                     style={{
                       fontSize: ".90rem",
-                      textAlign: "center",
+                      
                       backgroundColor: "#4AB8DF",
                       textAlign: "center",
                     }}

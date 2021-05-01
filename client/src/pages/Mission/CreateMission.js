@@ -15,16 +15,21 @@ import MissionSteps from "../Steps/MissionSteps";
 import AddQuestion from "../Questions/AddQuestion";
 
 function CreateMission() {
+  const [mission_id, setMissionID] = useState();
   const [basicsList, setBasicsList] = useState();
 
   useEffect(() => {
     const missionVar = window.sessionStorage.getItem("mission");
     if (!missionVar) return;
     const mission_id = JSON.parse(missionVar).mission_id;
+    if (mission_id) setMissionID(mission_id);
+  }, []);
+
+  useEffect(() => {
     Axios.get("/basics/" + mission_id).then((response) => {
       setBasicsList(response.data);
     });
-  }, []);
+  }, [mission_id])
 
   return (
     <>
@@ -80,7 +85,7 @@ function CreateMission() {
                 </div>
               </div>
               <div label="Team">
-                <MissionTeam />
+                <MissionTeam missionID={mission_id} />
               </div>
               <div label="Storyboard">
                 <StoryDetails />
@@ -95,9 +100,13 @@ function CreateMission() {
                 <MissionEquip />
               </div>
 
-              <div label="Procedural Steps"><MissionSteps /></div>
-              
-              <div label="Quiz Questions"><AddQuestion /> </div>
+              <div label="Procedural Steps">
+                <MissionSteps />
+              </div>
+
+              <div label="Quiz Questions">
+                <AddQuestion />{" "}
+              </div>
               <div label="References Docs">References Docs</div>
             </Tabs>
           </div>

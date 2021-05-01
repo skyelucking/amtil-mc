@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Table, Card, Button } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 
 const ShowSelectedEquip = ({ basicsList, setBasicsList }) => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
     .mission_id;
 
-  const [equipList, setEquipList] = useState([]);
+  // const [equipList, setEquipList] = useState([]);
 
   const delete_equip = (i, mission_id, equip_id) => {
     console.log("mission_id", mission_id, "equip_id ", equip_id);
@@ -65,7 +65,7 @@ const ShowSelectedEquip = ({ basicsList, setBasicsList }) => {
                       fontSize: ".90rem",
                       textAlign: "center",
                       backgroundColor: "#4AB8DF",
-                      textAlign: "center",
+                      
                     }}
                   >
                     {data.equip_name}

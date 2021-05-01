@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "../../App.css";
 import swal from '@sweetalert/with-react';
-import MissionSteps from "./MissionSteps"
+
 
 
 Axios.defaults.withCredentials = true;
 
 export default function StepDetails() {
-  const [mission_id, setMissionID] = useState(
-    JSON.parse(window.sessionStorage.getItem("mission")).mission_id
-  );
+  const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
+    .mission_id;
+    
   // Start of Cloudinary Upload
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
