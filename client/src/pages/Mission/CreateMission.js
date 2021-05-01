@@ -12,6 +12,7 @@ import Logo from "../../Images/transp_amtilogo.png";
 import MissionTeam from "../Team/MissionTeam";
 import StoryDetails from "../Storyboards/StoryDetails";
 import MissionSteps from "../Steps/MissionSteps";
+import AddQuestion from "../Questions/AddQuestion";
 
 function CreateMission() {
   const [basicsList, setBasicsList] = useState();
@@ -96,7 +97,7 @@ function CreateMission() {
 
               <div label="Procedural Steps"><MissionSteps /></div>
               
-              <div label="Quiz Questions">Quiz Questions</div>
+              <div label="Quiz Questions"><AddQuestion /> </div>
               <div label="References Docs">References Docs</div>
             </Tabs>
           </div>

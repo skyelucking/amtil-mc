@@ -41,6 +41,7 @@ require("./routes/team-routes")(app);
 require("./routes/tool-routes")(app);
 require("./routes/storyboard-routes")(app);
 require("./routes/step-routes")(app);
+require("./routes/question-routes")(app);
 
 
 

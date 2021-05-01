@@ -50,6 +50,10 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: true      
       },
+      q_position: {
+        type: DataTypes.STRING,
+        allowNull: true      
+      },
       last_updated: {
         type: DataTypes.DATE,
         allowNull: true,

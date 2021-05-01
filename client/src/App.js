@@ -54,7 +54,7 @@ import StepDetails from "./pages/Steps/StepDetails"
 
 //CRUD QUESTIONS
 import AddQuestion from "./pages/Questions/AddQuestion"
-import StepsnDropDown from "./components/StepsDropDown";
+import StepsDD from "./components/MissionDropDown";
 
 
 function App() {
@@ -64,7 +64,7 @@ function App() {
 
 {/* COMPONENTS */}
 <Route path="/missiondropdown" exact render={(props) => <MissionDropDown />} />
-<Route path="/stepsdd" exact render={(mission_id) => <StepsnDropDown/>} />
+<Route path="/stepsdd" exact render={(mission_id) => <StepsDD/>} />
 
 {/* MENUS and ADMIN */}
       <Navbar />

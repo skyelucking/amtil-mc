@@ -36,13 +36,20 @@ module.exports = function (app) {
 
   //Post to tool_details
   app.post("/postquestions", (req, res) => {
-    db.mission_storyboard
+    db.mission_questionlist
       .create({
-        panel_order: req.body.panel_order,
-        panel_notes: req.body.panel_notes,
-        color_and_style: req.body.color_and_style,
-        panel_img: req.body.panel_img,
+        q_order: req.body.q_order,
+        q_text: req.body.q_text,
+        q_ansA: req.body.q_ansA,
+        q_ansB: req.body.q_ansB,
+        q_ansC: req.body.q_ansC,
+        q_ansD: req.body.q_ansD,
+        q_ansE: req.body.q_ansE,
+        q_ansCorrect: req.body.q_ansCorrect,
+        q_position: req.body.q_position,
+        q_img: req.body.q_img,
         missionBasicMissionId: req.body.mission_id,
+
       })
       .then(function (panel) {
         res.json(panel);

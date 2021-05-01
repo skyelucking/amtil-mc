@@ -3,6 +3,7 @@ import Axios from "axios";
 import "../../App.css";
 // import MissionStoryboards from "./MissionQuestions";
 import swal from "@sweetalert/with-react";
+import StepsDD from "../../components/MissionDropDown";
 
 Axios.defaults.withCredentials = true;
 
@@ -37,6 +38,21 @@ export default function AddQuestion() {
   };
 
   //End of Cloudinary Upload//
+
+  useEffect(() => {
+    Axios.get("/getsteps/" + mission_id).then((response) => {
+      // console.log("step list", response.data);
+      let tempArray = [];
+      const stepList = [];
+      tempArray = [...response.data];
+      setStepList(tempArray);
+      // setStepList(response.data);
+      console.log("stepList", stepList);
+      console.log("tempArray", tempArray);
+    });
+  }, []);
+
+  const [stepList, setStepList] = useState([]);
   const [q_order, setQuestionOrder] = useState("");
   const [q_text, setQtext] = useState("");
   const [q_ansA, setQansA] = useState("");
@@ -47,8 +63,13 @@ export default function AddQuestion() {
   const [q_ansCorrect, setQansCorrect] = useState("");
   const [q_position, setQPosition] = useState("");
   const [q_img, setQImg] = useState("");
+  const [posDD, setPosDD] = useState("");
+  const [stepDD, setStepDD] = useState("");
+ 
+  var questPos = posDD + " " + stepDD;
+  
 
-  const [panel_img, setPanelImg] = useState("");
+  
 
   const post_questions = () => {
     console.log("mission_id", mission_id);
@@ -61,7 +82,7 @@ export default function AddQuestion() {
       q_ansD: q_ansD,
       q_ansE: q_ansE,
       q_ansCorrect: q_ansCorrect,
-      q_position: q_position,
+      q_position: posDD + " " + stepDD,
       q_img: image,
       mission_id: mission_id,
     }).then((response) => {
@@ -211,12 +232,13 @@ export default function AddQuestion() {
             style={{
               textAlign: "left",
               width: "510px",
-              height: "100px",
+              height: "150px",
               marginTop: "10px",
               border: "2px",
               borderStyle: "solid",
               borderColor: "grey",
               padding: "3px",
+              flex: "row",
             }}
           >
              <div
@@ -229,15 +251,16 @@ export default function AddQuestion() {
             >
               <b>Question Position</b>
             </div>
-            <select
+           <div><select
               style={{
                 width: "150px",
                 height: "25px",
                 marginTop: "5px",
                 marginBottom: "5px",
+               
               }}
               onChange={(e) => {
-                setQansCorrect(e.target.value);
+                setPosDD(e.target.value);
               }}
             >
               <option
@@ -253,8 +276,20 @@ export default function AddQuestion() {
               <option value="Between">Between</option>
              
             </select>
+            <select
+        onChange={(e) => {
+          setStepDD(e.target.value);
+        }}
+      >
+        {stepList.map((data, index) => (
+          <option value={data.step_text}>#{data.step_order} {data.step_text}</option>
+        ))}
+      </select>
+   
 
-           <div><b>Question Position: {q_ansCorrect} </b></div>
+  </div> 
+
+           <div><b>Question Position:<br></br> {questPos}</b></div>
           </div> 
           <div
             style={{
