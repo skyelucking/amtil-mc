@@ -91,14 +91,7 @@ export default function AddQuestion() {
     });
   };
 
-  useEffect(() => {
-    Axios.get("/b_storyboards/" + mission_id).then((response) => {
-      console.log(response.data);
-      setQuestionList(response.data);
-    });
-  }, []);
-
-  var questNum = questionList.length;
+   var questNum = questionList.length;
 
   return (
     <>
