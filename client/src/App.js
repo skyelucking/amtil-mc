@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
+import swal from '@sweetalert/with-react';
 
 //MENUS AND ADMIN
 import AddElements from "./pages/Menus/AddElements";
@@ -47,6 +48,9 @@ import MissionDropDown from "./components/MissionDropDown";
 //CRUD STORYBOARD
 import StoryDetails from "./pages/Storyboards/StoryDetails"
 import MissionStoryboards from "./pages/Storyboards/MissionStoryboards"
+
+//CRUD STEPS
+import StepDetails from "./pages/Steps/StepDetails"
 
 
 function App() {
@@ -100,6 +104,9 @@ function App() {
 {/* CRUD STORYBOARDS*/}  
 <Route path="/storydetails" exact render={(props) => <StoryDetails />} />
 <Route path="/missionstoryboards" exact render={(props) => <MissionStoryboards/>} />
+
+{/* CRUD STEPS*/} 
+<Route path="/stepdetails" exact render={(props) => <StepDetails />} />
       
     </Router>
   );

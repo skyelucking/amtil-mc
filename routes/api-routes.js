@@ -135,6 +135,17 @@ app.get("/gstoryboards", (req, res) => {
     });
 });
 
+// -- STEPS -- //
+app.get("/gsteps", (req, res) => {
+  db.mission_basics
+    .findAll({
+      include: db.mission_stepslist,
+    })
+    .then(function (gsteps) {
+      res.json(gsteps);
+    });
+});
+
 
 
 

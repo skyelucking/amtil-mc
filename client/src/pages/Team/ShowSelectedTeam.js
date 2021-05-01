@@ -17,7 +17,7 @@ const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
         setBasicsList(basicsList.filter((t) => t.member_id !== member_id));
         console.log(response);
         
-        swal("Team Member", "removed!", "error");
+        swal("Team Member", "removed!", "info");
       }
     );
   };
