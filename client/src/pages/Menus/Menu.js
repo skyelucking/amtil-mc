@@ -4,7 +4,7 @@ import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import Logo from "../../Images/transp_amtilogo.png";
-import AssistantIcon from '@material-ui/icons/Assistant';
+
 
 export default function Menu() {
   // const [loginStatus, setLoginStatus] = useState("");

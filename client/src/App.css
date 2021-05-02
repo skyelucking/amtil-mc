@@ -143,6 +143,7 @@ thead{
   width: 100%;
   background-color: #4AB8DF;
   margin-bottom:20px ;
+  text-align: center;
 }
 
 .navbar-header a {
@@ -298,5 +299,24 @@ input {
     display: flex;
     vertical-align: middle;
     box-shadow: 8px 8px 5px grey;
+   
+}
+
+.missionBox {
+  position: fixed;
+  top: 40px;
+  left: 25px;
+  width: 250px;
+  /* height: 200px; */
+  background-color: #caf0ff;
+  padding: 10px;
+  color: rgb(15, 15, 15);
+  border: 1px solid #444;
+  border-left: 1px solid #444;
+  border-right: 1px solid #111;
+  border-bottom: 1px solid #111;
+  box-sizing: border-box;
+  position: fixed;
+  box-shadow: 10px 10px 5px grey;
    
 }

@@ -25,10 +25,10 @@ export default function Navbar() {
       <Link to="/">
         <b style={{margin: "5px"}}>Hello, </b>
       </Link>{" "}
-      {user && user.userfName} !   <SentimentVerySatisfiedIcon style={{fontSize: "1.2em", padding: "0px", margin: "0px"}}/>
+      {user && user.userfName} !   <SentimentVerySatisfiedIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/>
       <Link to="/menu">
         {" "}
-        ~ <b style={{marginLeft: "15px"}}>  Mission Menu: </b>{" "}
+        ///   <b style={{marginLeft: "15px"}}>  Mission Menu: </b>{" "}
       </Link>
       <Link to="/basics"> <AssistantIcon  style={{fontSize: "1.2em"}}/> Create a Mission | </Link>
       <Link to="/viewmissions">  View Missions </Link>
@@ -40,10 +40,11 @@ export default function Navbar() {
       <Link to="/tooldetails">Tool Catalog  | </Link>
       <Link to="/equipdetails">Equipment Catalog  | </Link>
       <Link to="/stagedetails">Stages  | </Link>
-      <Link to="/teamdetails">Team Members</Link>
-
-      <Link to="/viewedit" style={{marginLeft: "5%"}}> <b><ExitToAppIcon  style={{fontSize: "1.2em"}}/> Logout</b> </Link>
-      <Link to="/viewedit"> <b><AdbIcon  style={{fontSize: "1.2em"}}/> Offer Feedback</b> </Link>
+      <Link to="/teamdetails">Team Members   </Link>
+      {" "}
+        /// 
+      <Link to="/viewedit" style={{marginLeft: "25px"}}> <b><ExitToAppIcon  style={{fontSize: "1.2em"}}/> Logout</b> </Link>
+      <Link to="/viewedit"> <b><AdbIcon  style={{fontSize: "1.2em"}}/>Feedback</b> </Link>
       
     </div>
   );
