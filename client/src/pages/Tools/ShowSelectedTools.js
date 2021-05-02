@@ -1,15 +1,18 @@
-
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Card, Button, Modal  } from "react-bootstrap";
+import { Container, Card, Button, Modal } from "react-bootstrap";
+import InfoIcon from "@material-ui/icons/Info";
 
-
-const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList, toolList }) => {
+const ShowSelectedTools = ({
+  basicsList,
+  setBasicsList,
+  setToolList,
+  toolList,
+}) => {
   const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
     .mission_id;
 
- 
   // const [displayDesc, setDisplayDesc] = useState([]);
   const [modalData, setModalData] = useState({});
   const [show, setShow] = useState(false);
@@ -24,13 +27,11 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList, toolList })
     Axios.delete("/missiontools/" + mission_id + "/" + tool.tool_id).then(
       (response) => {
         setBasicsList(basicsList.filter((t) => t.tool_id !== tool.tool_id));
-        setToolList([...toolList, tool])
+        setToolList([...toolList, tool]);
         console.log(response);
       }
     );
   };
-
-  
 
   return (
     <>
@@ -49,80 +50,83 @@ const ShowSelectedTools = ({ basicsList, setBasicsList, setToolList, toolList })
             }}
           >
             {basicsList.map((data, i) => (
-              <Card
+              <div
                 className="Card"
                 key={i}
                 style={{ width: "12rem", margin: "10px" }}
               >
-                <Button
-                  className="SubMenuBtn button"
+                <div
                   style={{
-                    fontSize: ".9rem",
-                    fontWeight: "bolder",
+                    fontSize: "1.2rem",
+                    fontWeight: "bold",
+                    width: "100%",
+                    height: "3emem",
                     backgroundColor: "#4AB8DF",
-                    color: "black",
-                    marginTop: "5px",
-                    marginBottom: "15px",
-                    display: "flex",
-                  }}
-                  onClick={(e) => {
-                    delete_tool(i, mission_id, data);
+                    textAlign: "center",
+                    verticalAlign: "middle",
+                    marginBottom: "5px",
+                    padding: "5px"
                   }}
                 >
-                  Remove
-                </Button>
+                 <div> {data.tool_category}:<br></br> {data.tool_name}
+                    <br></br></div>
+                   
+                </div>
+
                 <Card.Img
                   variant="top"
-                  style={{ width: "8rem", padding: "5px" }}
+                  style={{
+                    width: "8rem",
+                    padding: "5px",
+                    display: "flex",
+                    margin: "auto",
+                  }}
                   src={data.tool_img}
                 />
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      fontSize: ".90rem",
-                      
-                      backgroundColor: "#4AB8DF",
-                      textAlign: "center",
-                    }}
-                  >
-                    {data.tool_name}
-                  </Card.Title>
-                  <Button
-                  className="SubMenuBtn button"
-                  style={{
-                    fontSize: ".9rem",
-                    fontWeight: "bolder",
-                    backgroundColor: "#4AB8DF",
-                    color: "black",
-                    marginTop: "5px",
-                    marginBottom: "15px",
-                    display: "flex",
-                  }}
-                  onClick={() => {handleShow(data)}}
-                >
-                  Description
-                </Button>
+                <div className="cardBody">
                   <Card.Text
                     style={{ fontSize: ".75rem", textAlign: "center" }}
+                  ></Card.Text>
+                  <Button
+                    className="SubMenuBtn "
+                    style={{
+                      fontSize: ".9rem",
+                      fontWeight: "bolder",
+                      backgroundColor: "#4AB8DF",
+                      color: "black",
+                      marginTop: "5px",
+                      marginBottom: "5px",
+                      display: "flex",
+                    }}
+                    onClick={(e) => {
+                      delete_tool(i, mission_id, data);
+                    }}
                   >
-                   
-                  </Card.Text>
-                </Card.Body>
-              </Card>
+                    Remove
+                  </Button>
+                  <div
+                    className="cardIcon"
+                    style={{fontSize: ".5rem", textAlign: "left", width: "20%", margin: "5px"}}
+                    onClick={() => {
+                      handleShow(data);
+                    }}
+                  > <InfoIcon className="cardIcon" />
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
           <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>{modalData.tool_name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{modalData.tool_description}</Modal.Body>
-        <Modal.Footer>
-          <Button className="SubMenuBtn button" onClick={handleClose}>
-            Close
-          </Button>
-          
-        </Modal.Footer>
-      </Modal>
+            <Modal.Header closeButton>
+              <Modal.Title>{modalData.tool_name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{modalData.tool_description}</Modal.Body>
+            <Modal.Footer>
+              <Button className="SubMenuBtn button" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Container>
       </div>
     </>

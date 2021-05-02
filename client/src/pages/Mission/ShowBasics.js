@@ -13,21 +13,18 @@ const ShowBasics = () => {
   return (
     <div>
       <Container>
-      <div style={{textAlign: "center"}}>
-      <b>Mission Basics Table</b></div>
+        
         <Table striped bordered hover size="sm">
-          <thead>
+          <thead style={{backgroundColor: "#dbf4fd"}}>
             <tr>
-              <th>Mission_id</th>
+              <th>ID</th>
               <th>Name</th>
               <th>Status</th>
               <th>Category</th>
-              <th>Summary</th>
-              <th>Notes</th>
-              <th>Start_date</th>
-              <th>End_date</th>
-              <th>Cover_img</th>
               <th>Description</th>
+              <th>View</th>
+              <th>Edit</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -37,12 +34,10 @@ const ShowBasics = () => {
                 <td>{data.name}</td>
                 <td>{data.status}</td>
                 <td>{data.category}</td>
-                <td>{data.summary}</td>
-                <td>{data.notes}</td>
-                <td>{data.start_date}</td>
-                <td>{data.end_date}</td>
-                <td><img src={data.cover_img} style={{width: "100px"}} alt={data.name}></img></td>
                 <td>{data.description}</td>
+                <td><button>View</button></td>
+                <td><button>Edit</button></td>
+               
               </tr>
             ))}
           </tbody>

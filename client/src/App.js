@@ -25,6 +25,7 @@ import ShowBasics from "./pages/Mission/ShowBasics";
 import CreateMission from "./pages/Mission/CreateMission";
 import UpdateMissions from "./pages/Admin/UpdateMissions";
 import ViewEditMission from "./pages/Mission/ViewEditMission";
+import ViewMissions from "./pages/Mission/ViewMissions"
 import Basics from "./pages/Mission/Basics";
 
 //CRUD TOOLS
@@ -89,6 +90,7 @@ function App() {
       <Route path="/basics" exact render={(props) => <Basics />} />
       <Route path="/createmission" exact render={(props) => <CreateMission />} />
       <Route path="/showbasics" exact render={(props) => <ShowBasics />} />
+      <Route path="/viewmissions" exact render={(props) => <ViewMissions/>} />
       <Route path="/alltables" exact render={(props) => <AllTables />} />
 
 {/* CRUD TOOLS*/}    

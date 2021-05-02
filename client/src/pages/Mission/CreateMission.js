@@ -15,8 +15,10 @@ import MissionSteps from "../Steps/MissionSteps";
 import AddQuestion from "../Questions/AddQuestion";
 
 function CreateMission() {
+  
   const [mission_id, setMissionID] = useState();
   const [basicsList, setBasicsList] = useState();
+  const [missionDrop, setMissionDrop] = useState([]);
 
   useEffect(() => {
     const missionVar = window.sessionStorage.getItem("mission");
@@ -30,6 +32,18 @@ function CreateMission() {
       setBasicsList(response.data);
     });
   }, [mission_id])
+
+  useEffect((missionDrop) => {
+    Axios.get("/basics/").then((response) => {
+      let tempArray = [];
+      const missionDrop = [];
+      tempArray = [...response.data]
+      setMissionDrop([...response.data]);
+      console.log("tempArray", tempArray);
+      console.log(missionDrop);
+    });
+  }, [])
+
 
   return (
     <>
@@ -112,7 +126,20 @@ function CreateMission() {
           </div>
         </Container>
       ) : (
+        <>
         <div>No Mission Selected</div>
+        <div>
+      <select
+      onChange={(e) => {
+        setMissionID(e.target.value);
+      }} >
+        {missionDrop.map((data, index) => (
+          <option value={data.mission_id} key={index}>{data.mission_id} - {data.name}</option>
+        ))}
+      </select>
+    </div>
+    </>
+
       )}
     </>
   );
