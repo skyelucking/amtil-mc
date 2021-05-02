@@ -137,17 +137,19 @@ thead{
 
 
 .navbar-header{
-  color: black;
+  color: rgb(59, 59, 59);
   font-size: 1em;
-  max-height: 30px;
+  max-height: 45px;
   width: 100%;
   background-color: #4AB8DF;
   margin-bottom:20px ;
 }
 
 .navbar-header a {
-  color: black;
+  color:  rgb(59, 59, 59);
   font-size: 1em;
+  margin-left: 3px;
+  margin-right: 3px;
  
 }
 

@@ -9,24 +9,30 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
+  const [userfName, setUserFname] = useState("");
   
 
   Axios.defaults.withCredentials = true;
 
   const login = () => {
-    console.log(username, password)
+    console.log("username:", username, "password:", password)
     Axios.post("/login", {
       username: username,
       password: password,
     }).then((response) => {
+      console.log(response.data);
       if (response.data.message) {
         setLoginStatus(response.data.message);
       } else {
         setLoginStatus(response.data.username);
+        setUserFname(response.data.fName);
         window.sessionStorage.setItem("user", JSON.stringify({
           username: response.data.username,
-          userid: response.data.id
+          userid: response.data.id,
+          useremail: response.data.email,
+          userfName: response.data.fName
         }));
+        window.location.href="/menu"
         
       }
     });
@@ -58,7 +64,6 @@ export default function Login() {
       </div>
       <div><a href="/registration">Need to register?</a> </div>
 
-      <h1> {loginStatus} !</h1>
-    </div>
+         </div>
   );
 }

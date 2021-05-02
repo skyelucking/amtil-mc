@@ -52,6 +52,7 @@ module.exports = function (app) {
         const response = user.validPassword(req.body.password);
         if (response) {
           res.json(user);
+          console.log(user);
         } else {
           res.send({ message: "Wrong username/password combination!" });
         }
