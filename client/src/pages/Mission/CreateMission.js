@@ -56,21 +56,52 @@ function CreateMission() {
       {basicsList ? (
         <Container style={{ width: "95%" }}>
           <div>
-            <div className="missionInfo ">
-              <span style={{ marginLeft: "10px", textAlign: "center" }}>
-                <b style={{ fontSize: "1.25em" }}>{basicsList.name}</b>:{" "}
-                {basicsList.description} <p style={{ marginLeft: "10px" }}></p>
-                <p
-                  style={{
-                    marginLeft: "10px",
-                    fontSize: ".75em",
-                    opacity: "65%",
-                  }}
-                >
-                  [ ID#:{basicsList.mission_id} ]
-                </p>
+          <div>
+              {/* Mission Basics */}
+            <div className="missionBox ">
+                <div style={{
+                    fontSize: "1.2rem",
+                    fontWeight: "bold",
+                    width: "100%",
+                    height: "3emem",
+                    backgroundColor: "#4AB8DF",
+                    textAlign: "center",
+                    verticalAlign: "middle",
+                    marginBottom: "5px",
+                    padding: "5px"
+                  }}>Mission Basics</div>
+                  {basicsList.cover_img ? <img src={basicsList.cover_img} style={{width: "100%"}}></img> :
+     <div></div>
+ }
+              <span
+                style={{
+                  fontSize: ".75em",
+                  opacity: "65%",
+                }}
+              >
+                [ ID#:{basicsList.mission_id} ]
+              </span><br></br>
+              <span style={{ fontSize: ".9em", textAlign: "left" }}>
+                <b >Name:</b> {basicsList.name}{" "}
+                <br></br>
+                <b >Category:</b> {basicsList.category}{" "}
+                <br></br>
+                <b style={{ fontSize: ".9em"}}><a href={basicsList.pm_url} target="_blank">Project Management Link</a></b>{" "}
+                <br></br>
+                <b >Description: </b>
+                <span style={{ fontSize: ".75em" }}>{basicsList.description}</span>
+              
+              <br></br>
+                <b  >Start Date: </b>
+                <span style={{ fontSize: ".5em" }}>{basicsList.start_date}</span>
+             
+              <br></br>
+                <b >Expected End Date: </b>
+                <span style={{ fontSize: ".5em" }}>{basicsList.end_date}</span>
               </span>
             </div>
+            {/* <ShowSelectedTeam id={basicsList.mission_id} /> */}
+          </div>
             <Tabs>
               <div label="Welcome" className="textBlock">
                 <img

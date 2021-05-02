@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import Tabs from "../../components/Tabs";
 import "../../App.css";
 import Axios from "axios";
-import ShowSelectedTeam from "../Team/ShowSelectedTeam";
+import TeamBox from "../Team/TeamBox";
+import ToolBox from "../Tools/ToolBox";
 
 function MissionInfo() {
   const [mission_id, setMissionID] = useState();
@@ -23,17 +23,7 @@ function MissionInfo() {
     });
   }, [mission_id]);
 
-  //   useEffect((missionDrop) => {
-  //     Axios.get("/basics/").then((response) => {
-  //       let tempArray = [];
-  //       const missionDrop = [];
-  //       tempArray = [...response.data]
-  //       setMissionDrop([...response.data]);
-  //       console.log("tempArray", tempArray);
-  //       console.log(missionDrop);
-  //     });
-  //   }, [])
-
+  
   return (
     <>
       <h1
@@ -44,41 +34,44 @@ function MissionInfo() {
       </h1>
       {basicsList ? (
         <Container style={{ width: "95%" }}>
-          <div>
+       <div>
               {/* Mission Basics */}
             <div className="missionBox ">
-                <div style={{
-                    fontSize: "1.2rem",
-                    fontWeight: "bold",
-                    width: "100%",
-                    height: "3emem",
-                    backgroundColor: "#4AB8DF",
-                    textAlign: "center",
-                    verticalAlign: "middle",
-                    marginBottom: "5px",
-                    padding: "5px"
-                  }}>Mission Basics</div>
+                <div className="viewBoxHeader">Mission Basics</div>
+                  {basicsList.cover_img ? <img src={basicsList.cover_img} style={{width: "100%"}}></img> :
+     <div></div>
+ }
               <span
                 style={{
                   fontSize: ".75em",
                   opacity: "65%",
                 }}
               >
-                [ ID#:{basicsList.mission_id} ]
+                [ ID#: {basicsList.mission_id} ]
               </span><br></br>
-              <span style={{ fontSize: "1em", textAlign: "left" }}>
+              <span style={{ fontSize: ".9em", textAlign: "left" }}>
                 <b >Name:</b> {basicsList.name}{" "}
                 <br></br>
                 <b >Category:</b> {basicsList.category}{" "}
                 <br></br>
-                <b style={{ fontSize: ".75em"}}><a href={basicsList.pm_url} target="_blank">Project Management Link</a></b>{" "}
+                <b style={{ fontSize: ".9em"}}><a href={basicsList.pm_url} target="_blank">Project Management Link</a></b>{" "}
                 <br></br>
                 <b >Description: </b>
                 <span style={{ fontSize: ".75em" }}>{basicsList.description}</span>
+              
+              <br></br>
+                <b  >Start Date: </b>
+                <span style={{ fontSize: ".5em" }}>{basicsList.start_date}</span>
+             
+              <br></br>
+                <b >Expected End Date: </b>
+                <span style={{ fontSize: ".5em" }}>{basicsList.end_date}</span>
               </span>
             </div>
-            <ShowSelectedTeam  />
-          </div>
+            <div > <TeamBox mission_id={basicsList.mission_id} className="viewBox "/></div>
+            <div > <ToolBox mission_id={basicsList.mission_id} className="viewBox "/></div>
+           
+            </div>
         </Container>
       ) : (
         <>

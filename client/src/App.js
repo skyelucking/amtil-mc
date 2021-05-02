@@ -32,6 +32,7 @@ import Basics from "./pages/Mission/Basics";
 import MissionTools from "./pages/Tools/MissionTools";
 import ToolCatalog from "./pages/Tools/ToolCatalog";
 import ShowSelectedTools from "./pages/Tools/ShowSelectedTools";
+import ToolBox from "./pages/Tools/ToolBox";
 
 //CRUD EQUIPMENT
 import MissionEquip from "./pages/Equipment/MissionEquip";
@@ -45,6 +46,7 @@ import StageCatalog from "./pages/Stage/StageCatalog";
 //CRUD TEAM
 import MissionTeam from "./pages/Team/MissionTeam";
 import MissionDropDown from "./components/MissionDropDown";
+import TeamBox from "./pages/Team/TeamBox"
 
 //CRUD STORYBOARD
 import StoryDetails from "./pages/Storyboards/StoryDetails"
@@ -57,6 +59,7 @@ import StepDetails from "./pages/Steps/StepDetails"
 import AddQuestion from "./pages/Questions/AddQuestion"
 import StepsDD from "./components/MissionDropDown";
 import MissionInfo from "./pages/Mission/MissionInfo";
+
 
 
 function App() {
@@ -100,6 +103,7 @@ function App() {
       <Route path="/toolcatalog" exact render={(props) => <ToolCatalog />} />
       <Route path="/showselectedtools" exact render={(props) => <ShowSelectedTools />} />
       <Route path="/missiontools" exact render={(props) => <MissionTools />} />
+      <Route path="/toolbox" exact render={(props) => <ToolBox />} />
 
 {/* CRUD EQUIPMENT*/}    
       <Route path="/equipcatalog" exact render={(props) => <EquipCatalog />} />
@@ -110,6 +114,7 @@ function App() {
 
 {/* CRUD TEAM*/}   
       <Route path="/missionteam" exact render={(props) => <MissionTeam />} />
+      <Route path="/teambox" exact render={(props) => <TeamBox />} />
 
 {/* CRUD STORYBOARDS*/}  
 <Route path="/storydetails" exact render={(props) => <StoryDetails />} />

@@ -79,6 +79,20 @@ module.exports = function (app) {
       });
   });
 
+  // Get TEAM MEMBERS By MissionID with Details //
+app.get("/gettools/:mission_id", (req, res) => {
+  db.mission_basics
+    .findOne({
+      include: db.tool_details, 
+       where: {
+        mission_id: req.params.mission_id,
+      },
+    })
+    .then(function (m_basics) {
+      res.json(m_basics);
+    });
+});
+
   // app.get("*", function(req, res) {
   // res.sendFile(path.join(__dirname, "./client/build/index.html"));
   // });
