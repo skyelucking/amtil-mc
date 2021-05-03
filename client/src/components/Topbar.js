@@ -30,7 +30,7 @@ export default function Topbar() {
     <>
              <Navbar collapseOnSelect expand="lg" style={{backgroundColor: "#4AB8DF", fontSize: "1.2em", color: "black", maxHeight: "45px", marginBottom: "5px"}} >
       
-            <Nav className="navbar-header" style={{backgroundColor: "#4AB8DF", fontSize: "1em", color: "black", fontWeight: "bold"}}>
+            
             <Navbar.Brand ><SentimentVerySatisfiedIcon style={{fontSize: "1em", padding: "0px", marginRight: "5px"}}/>Hello, {user && user.userfName} ! </Navbar.Brand>
       
               <NavDropdown title="Mission Menu" id="collasible-nav-dropdown">
@@ -55,10 +55,10 @@ export default function Topbar() {
               </NavDropdown>
               <Navbar.Brand href="/teamdetails" style={{marginLeft: "50%"}}> <b><ExitToAppIcon  style={{fontSize: "1em"}}/> Logout</b> </Navbar.Brand>
             <Navbar.Brand href="/teamdetails"> <b><AdbIcon  style={{fontSize: "1em"}}/> Feedback</b> </Navbar.Brand>
-            </Nav>
             
-          </Navbar>
-
+            </Navbar>
+          
+          
    </>
   );
 }
