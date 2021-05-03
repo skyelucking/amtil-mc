@@ -93,11 +93,11 @@ function CreateMission() {
               
               <br></br>
                 <b  >Start Date: </b>
-                <span style={{ fontSize: ".5em" }}>{basicsList.start_date}</span>
+                <span style={{ fontSize: "1em" }}>{basicsList.start_date}</span>
              
               <br></br>
                 <b >Expected End Date: </b>
-                <span style={{ fontSize: ".5em" }}>{basicsList.end_date}</span>
+                <span style={{ fontSize: "1em" }}>{basicsList.end_date}</span>
               </span>
             </div>
             {/* <ShowSelectedTeam id={basicsList.mission_id} /> */}

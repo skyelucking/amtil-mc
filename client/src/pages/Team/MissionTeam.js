@@ -56,7 +56,7 @@ const MissionTeam = (props) => {
           <h1 className="PageHead">Team Roster</h1>
           {/* <div style={{ textAlign: "center" }}></div> */}
           <Table bordered size="sm" style={{ marginBottom: "15px" }}>
-            <thead>
+            <thead >
               <tr>
                 {/* <th>Tool Id</th> */}
                 <th>Add to Team</th>
@@ -85,7 +85,7 @@ const MissionTeam = (props) => {
                           marginTop: "2px",
                           marginBottom: "2px",
                           display: "flex",
-                          width: "90%",
+                          width: "50px",
                         }}
                         onClick={(e) => {
                           mission_teamroster(data.member_id);

@@ -3,6 +3,7 @@ import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Card, Button, Modal } from "react-bootstrap";
 import InfoIcon from "@material-ui/icons/Info";
+import NoImg from  "../../Images/NoImg.jpg";
 
 const ShowSelectedTools = ({
   basicsList,
@@ -72,17 +73,24 @@ const ShowSelectedTools = ({
                     <br></br></div>
                    
                 </div>
-
+                {data.tool_img ? 
                 <Card.Img
                   variant="top"
                   style={{
-                    width: "8rem",
+                    width: "100%",
                     padding: "5px",
                     display: "flex",
                     margin: "auto",
                   }}
                   src={data.tool_img}
-                />
+                /> :
+                <div><img src="https://res.cloudinary.com/amtil/image/upload/v1620072960/zwsh3nlk6ylrejbj6srj.jpg" style={{
+                  width: "100%",
+                  padding: "5px",
+                  display: "flex",
+                  margin: "auto",
+                }}></img></div>
+            }
                 <div className="cardBody">
                   <Card.Text
                     style={{ fontSize: ".75rem", textAlign: "center" }}

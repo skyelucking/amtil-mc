@@ -58,12 +58,12 @@ function MissionSteps() {
                 </td>
                 <td>{data.step_order} </td>
                 <td>{data.step_text} </td>
-                <td>
-                  <img
+                <td style={{justifyConent: "center"}}>
+                  {data.step_img ? (<img
                     src={data.step_img}
                     style={{ maxWidth: "100px" }}
                     alt={data.step_text}
-                  ></img>
+                  ></img>) :(<img src="https://res.cloudinary.com/amtil/image/upload/v1620072960/zwsh3nlk6ylrejbj6srj.jpg" className="panelImg" style={{width: "8rem", margins: "auto", display: "flex", justifyContent: "center"}}></img>)}
                 </td>
               </tr>
             ))}

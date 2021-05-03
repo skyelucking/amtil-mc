@@ -18,7 +18,7 @@ const ToolCatalog = () => {
         </div>  
         <Table  bordered hover size="sm">
        
-          <thead>
+          <thead style={{backgroundColor: "#dbf4fd"}}>
               
             <tr>              
               <th>Name</th>
@@ -35,8 +35,10 @@ const ToolCatalog = () => {
                 <td>{data.tool_name}</td>
                 <td>{data.tool_category}</td>
                 <td style={{fontSize: ".75em"}}>{data.tool_description}</td>
-                <td><img src={data.tool_img} style={{maxWidth: "100px"}} alt={data.tool_description}></img></td>
-                            
+               <td>
+                   <img src={data.tool_img} style={{maxWidth: "100px"}} alt={data.tool_description}></img>
+                </td>
+                         
               </tr>
             ))}
           </tbody>

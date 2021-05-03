@@ -42,6 +42,29 @@ const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
           >
             {basicsList.map((data, i) => (
               <Card key={i} style={{ width: "12rem", margin: "10px" }}>
+                 <Card.Title
+                    style={{
+                      fontSize: ".90rem",
+                      textAlign: "center",
+                      backgroundColor: "#4AB8DF",
+                      textAlign: "center",
+                    }}
+                  >
+                    {data.first_name} {data.last_name}
+                  </Card.Title>
+                <Card.Img
+                  variant="top"
+                  style={{ width: "8rem", padding: "5px" }}
+                  src={data.avatar}
+                />
+                <Card.Body>
+                 
+                  <Card.Text
+                    style={{ fontSize: ".75rem", textAlign: "center" }}
+                  >
+                    {data.title} {data.department}
+                  </Card.Text>
+                </Card.Body>
                 <Button
                   className="SubMenuBtn button"
                   style={{
@@ -59,28 +82,6 @@ const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
                 >
                   Remove
                 </Button>
-                <Card.Img
-                  variant="top"
-                  style={{ width: "8rem", padding: "5px" }}
-                  src={data.avatar}
-                />
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      fontSize: ".90rem",
-                      textAlign: "center",
-                      backgroundColor: "#4AB8DF",
-                      textAlign: "center",
-                    }}
-                  >
-                    {data.first_name} {data.last_name}
-                  </Card.Title>
-                  <Card.Text
-                    style={{ fontSize: ".75rem", textAlign: "center" }}
-                  >
-                    {data.title} {data.department}
-                  </Card.Text>
-                </Card.Body>
               </Card>
             ))}
           </div>

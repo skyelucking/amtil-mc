@@ -1,3 +1,7 @@
+thead{
+ background-color: #dbf4fd;
+}
+
 /* Cards */
 .Card {
   position: relative;
@@ -307,7 +311,7 @@ input {
   position: fixed;
   top: 50px;
   left: 25px;
-  width: 250px;
+  width: 300px;
   /* height: 200px; */
   background-color: #caf0ff;
   padding: 10px;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "../../App.css";
 import Logo from  "../../Images/transp_amtilogo.png";
+import NoImg from  "../../Images/NoImg.jpg";
 
 
 export default function Login() {
