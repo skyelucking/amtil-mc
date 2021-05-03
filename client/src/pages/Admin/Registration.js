@@ -10,10 +10,10 @@ export default function Registration() {
   const [lNameReg, setlNameReg] = useState("");
   const [titleReg, setlTitleReg] = useState("");
 
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const [loginStatus, setLoginStatus] = useState("");
+  const [loginStatus, setLoginStatus] = useState("");
 
   Axios.defaults.withCredentials = true;
 

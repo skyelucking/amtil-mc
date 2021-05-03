@@ -66,7 +66,9 @@ function App() {
   return (
    
     <Router>
+          
  <Topbar />
+
 {/* COMPONENTS */}
 <Route path="/missiondropdown" exact render={(props) => <MissionDropDown />} />
 <Route path="/stepsdd" exact render={(mission_id) => <StepsDD/>} />

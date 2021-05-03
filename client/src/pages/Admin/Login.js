@@ -64,6 +64,8 @@ export default function Login() {
       </div>
       <div><a href="/registration">Need to register?</a> </div>
 
+
+<div>{loginStatus}</div>
          </div>
   );
 }

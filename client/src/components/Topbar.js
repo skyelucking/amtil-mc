@@ -55,9 +55,10 @@ export default function Topbar() {
                 </NavDropdown.Item>
                
               </NavDropdown>
-            </Nav>
-            <Navbar.Brand href="/teamdetails"> <b><ExitToAppIcon  style={{fontSize: "1em"}}/> Logout</b> </Navbar.Brand>
+              <Navbar.Brand href="/teamdetails" style={{marginLeft: "50%"}}> <b><ExitToAppIcon  style={{fontSize: "1em"}}/> Logout</b> </Navbar.Brand>
             <Navbar.Brand href="/teamdetails"> <b><AdbIcon  style={{fontSize: "1em"}}/> Feedback</b> </Navbar.Brand>
+            </Nav>
+            
           </Navbar>
 
    </>
