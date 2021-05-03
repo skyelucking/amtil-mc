@@ -4,6 +4,9 @@ import "../../App.css";
 // import MissionStoryboards from "./MissionQuestions";
 import swal from "@sweetalert/with-react";
 import StepsDD from "../../components/MissionDropDown";
+import MissionQuestions from "./MissionQuestions";
+import { Container, Table, tr, td, Button } from "react-bootstrap";
+// import InfoIcon from "@material-ui/icons/Info";
 
 Axios.defaults.withCredentials = true;
 
@@ -11,6 +14,15 @@ export default function AddQuestion() {
   const [mission_id, setMissionID] = useState(
     JSON.parse(window.sessionStorage.getItem("mission")).mission_id
   );
+  // const [modalData, setModalData] = useState({});
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
+  // const handleShow = (tool) => {
+  //   setModalData(tool);
+  //   setShow(true);
+  // };
+
+
   // Start of Cloudinary Upload
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -66,7 +78,7 @@ export default function AddQuestion() {
   const [posDD, setPosDD] = useState("");
   const [stepDD, setStepDD] = useState("");
  
-  var questPos = posDD + " " + stepDD;
+  var questPos = posDD + " # " + stepDD;
   
 
   
@@ -95,7 +107,18 @@ export default function AddQuestion() {
 
   return (
     <>
-      <div className="container">
+    
+    
+      <div className="container"> 
+      <MissionQuestions />
+      {/* <div
+                    className="cardIcon"
+                    style={{fontSize: ".5rem", textAlign: "left", width: "20%", margin: "5px"}}
+                    onClick={() => {
+                      handleShow(data);
+                    }}
+                  > <InfoIcon className="cardIcon" />
+                  </div> */}
         <h3 className="PageHead" style={{ width: "12em" }}>
           Pop-Up Question
         </h3>
@@ -328,7 +351,18 @@ export default function AddQuestion() {
           </button>
         </div>
         <br></br>
-        {/* <MissionStoryboards /> */}
+        {/* <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Quiz Questions</Modal.Title>
+            </Modal.Header>
+            <Modal.Body> <MissionQuestions  /> </Modal.Body>
+            <Modal.Footer>
+              <Button className="SubMenuBtn button" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal> */}
+        <MissionQuestions />
       </div>
     </>
   );

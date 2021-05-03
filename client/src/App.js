@@ -59,6 +59,7 @@ import StepDetails from "./pages/Steps/StepDetails"
 import AddQuestion from "./pages/Questions/AddQuestion"
 import StepsDD from "./components/MissionDropDown";
 import MissionInfo from "./pages/Mission/MissionInfo";
+import MissionQuestions from "./pages/Questions/MissionQuestions";
 
 
 
@@ -127,6 +128,7 @@ function App() {
 
 {/* CRUD QUESTIONS*/} 
 <Route path="/addquestion" exact render={(props) => <AddQuestion />} />
+<Route path="/missionquestions" exact render={(props) => <MissionQuestions />} />
 
 {/* VIEW AND EDIT */}
 <Route path="/missioninfo" exact render={(props) => <MissionInfo/>} />

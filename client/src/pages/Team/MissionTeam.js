@@ -97,7 +97,7 @@ const MissionTeam = (props) => {
                     <td>
                       <img
                         src={data.avatar}
-                        style={{ maxWidth: "100px" }}
+                        style={{ maxWidth: "5em" }}
                         alt={data.first_name}
                       ></img>
                     </td>
@@ -105,7 +105,7 @@ const MissionTeam = (props) => {
                       {data.first_name} {data.last_name}{" "}
                     </td>
                     <td>{data.title}</td>
-                    <td style={{ fontSize: ".75em" }}>{data.department}</td>
+                    <td style={{ fontSize: "1em" }}>{data.department}</td>
                   </tr>
                 ))}
             </tbody>

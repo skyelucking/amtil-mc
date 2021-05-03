@@ -4,33 +4,13 @@ const MissionStoryBoard = require("../models/MissionStoryBoard");
 module.exports = function (app) {
 
   // GETS Storyboards BY MISSION ID BUT NO DETAILS //
-  app.get("/getstoryboards/:mission_id", (req, res) => {
-    db.mission_storyboard.findAll({
+  app.get("/getquestions/:mission_id", (req, res) => {
+    db.mission_questionlist.findAll({
       where: {
         missionBasicMissionId: req.params.mission_id,
       },
-    }).then(function (storyboards) {
-      res.json(stoaryboards);
-    });
-  });
-
-    app.get("/b_storyboards/:mission_id", (req, res) => {
-    db.mission_storyboard
-      .findAll({
-         where: {
-          missionBasicMissionId: req.params.mission_id,
-        },
-      })
-      .then(function (basics) {
-        res.json(basics);
-      });
-  });
-
- 
-    //Get from tool_details
-  app.get("/sdetails", (req, res) => {
-    db.mission_storyboard.findAll({}).then(function (storyboard) {
-      res.json(storyboard);
+    }).then(function (questionlist) {
+      res.json(questionlist);
     });
   });
 
@@ -51,8 +31,8 @@ module.exports = function (app) {
         missionBasicMissionId: req.body.mission_id,
 
       })
-      .then(function (panel) {
-        res.json(panel);
+      .then(function (question) {
+        res.json(question);
       });
   });
 

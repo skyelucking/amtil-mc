@@ -44,7 +44,7 @@ const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
               <Card key={i} style={{ width: "12rem", margin: "10px" }}>
                  <Card.Title
                     style={{
-                      fontSize: ".90rem",
+                      fontSize: "1.2rem",
                       textAlign: "center",
                       backgroundColor: "#4AB8DF",
                       textAlign: "center",
@@ -54,15 +54,13 @@ const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
                   </Card.Title>
                 <Card.Img
                   variant="top"
-                  style={{ width: "8rem", padding: "5px" }}
+                  style={{ width: "100%", padding: "0px" }}
                   src={data.avatar}
                 />
                 <Card.Body>
-                 
-                  <Card.Text
-                    style={{ fontSize: ".75rem", textAlign: "center" }}
-                  >
-                    {data.title} {data.department}
+                                   <Card.Text
+                    style={{ fontSize: "1rem", textAlign: "center" }}
+                  >{data.title} {data.department}
                   </Card.Text>
                 </Card.Body>
                 <Button
@@ -72,7 +70,7 @@ const ShowSelectedTeam = ({ basicsList, setBasicsList }) => {
                     fontWeight: "bolder",
                     backgroundColor: "#4AB8DF",
                     color: "black",
-                    marginTop: "5px",
+                    marginTop: "0px",
                     marginBottom: "15px",
                     display: "flex",
                   }}

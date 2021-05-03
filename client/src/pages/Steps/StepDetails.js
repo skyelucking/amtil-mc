@@ -91,7 +91,7 @@ export default function StepDetails() {
             }}
           />
                     
-                    <div
+                    {/* <div
             style={{
               border: "2px",
               borderStyle: "solid",
@@ -110,7 +110,7 @@ export default function StepDetails() {
               }}
             />
             {/* Image Upload Section */}
-            <div>
+            {/* <div>
               <input
                 type="file"
                 name="file"
@@ -122,11 +122,11 @@ export default function StepDetails() {
               ) : (
                 <img src={image} style={{ width: "150px" }} alt={image} />
               )}
-              <div>Image URL: {image}</div>
-            </div>
+              <div>Image URL: {image}</div> */}
+            {/* </div> */} 
 
-            <div></div>
-          </div>
+            {/* <div></div>
+          </div> */}
           
           <button
             onClick={poststeps}

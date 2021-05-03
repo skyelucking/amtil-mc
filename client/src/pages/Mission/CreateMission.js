@@ -54,7 +54,7 @@ function CreateMission() {
         Build your Mission!
       </h1>
       {basicsList ? (
-        <Container style={{ width: "95%" }}>
+        <Container style={{ width: "95%", display: "flex", textAlign: "center", justifyContent: "center", margin: "auto" }}>
           <div>
           <div>
               {/* Mission Basics */}
@@ -152,7 +152,7 @@ function CreateMission() {
               <div label="Quiz Questions">
                 <AddQuestion />{" "}
               </div>
-              <div label="References Docs">References Docs</div>
+              {/* <div label="References Docs">References Docs</div> */}
             </Tabs>
           </div>
         </Container>

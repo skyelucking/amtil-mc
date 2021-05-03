@@ -227,8 +227,8 @@ thead{
   padding: 0;
   border-top: 2px;
   border-bottom: 0px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  /* border-left: 1px solid #ccc; */
+  /* border-right: 1px solid #ccc; */
   
   
 }

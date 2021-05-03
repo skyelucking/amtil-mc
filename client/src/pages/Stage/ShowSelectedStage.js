@@ -46,18 +46,19 @@ const ShowSelectedStage = () => {
 
         
         {basicsList.map((data, i) => (
-      <Card key={i} style={{ width: '12rem', margin: "10px" }}>
-        <Button className="SubMenuBtn button"  style={{ fontSize: '.9rem', fontWeight:"bolder", backgroundColor: "#4AB8DF", color: "black", marginTop: "5px", marginBottom: "15px", display: "flex"}} onClick={(e) => {
-                      delete_stage(i, mission_id, data.stage_id);
-                    }}>Remove</Button>
-      <Card.Img variant="top" style={{ width: '8rem', padding: "5px" }} src={data.stage_img} />
+      <Card key={i} style={{ width: '30rem', margin: "10px" }}>
+       <Card.Title style={{ fontSize: '1.2rem', textAlign: "center", backgroundColor: "#4AB8DF", textAlign: "center", }}>{data.stage_name}</Card.Title> 
+      <Card.Img variant="top" style={{ width: '100%', padding: "2px" }} src={data.stage_img} />
       <Card.Body>
-        <Card.Title style={{ fontSize: '.90rem', textAlign: "center", backgroundColor: "#4AB8DF", textAlign: "center", }}>{data.stage_name}</Card.Title>
-        <Card.Text style={{ fontSize: '.75rem', textAlign: "center" }}>
+        
+        <Card.Text style={{ fontSize: '1rem', textAlign: "center" }}>
         {data.stage_desc}
         </Card.Text>
         
       </Card.Body>
+      <Button className="SubMenuBtn button"  style={{ fontSize: '.9rem', fontWeight:"bolder", backgroundColor: "#4AB8DF", color: "black", marginTop: "5px", marginBottom: "5px", display: "flex"}} onClick={(e) => {
+                      delete_stage(i, mission_id, data.stage_id);
+                    }}>Remove</Button>
     </Card>
     ))}</div>
                 
