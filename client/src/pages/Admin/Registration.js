@@ -36,55 +36,70 @@ export default function Registration() {
     <div className="App">
       <div className="registration">
         <h1>Registration</h1>
-        <label>Email</label>
+       
         <input
         value={emailReg}
+        placeholder="Email Address"
+        style={{margin: "3px"}}
+          style={{margin: "3px"}}
           type="text"
           onChange={(e) => {
             setEmailReg(e.target.value);
           }}
         />
-        <label>First Name</label>
+       
         <input
         value={fNameReg}
+        placeholder="First Name"
+        style={{margin: "3px"}}
+          style={{margin: "3px"}}
           type="text"
           onChange={(e) => {
             setfNameReg(e.target.value);
           }}
         />
-        <label>Last Name</label>
+        
         <input
         value={lNameReg}
+        placeholder="Last Name"
+        style={{margin: "3px"}}
+          style={{margin: "3px"}}
           type="text"
           onChange={(e) => {
             setlNameReg(e.target.value);
           }}
         />
-        <label>Title</label>
+        
         <input
         value={titleReg}
+        placeholder="Title"
+          style={{margin: "3px"}}
           type="text"
           onChange={(e) => {
             setlTitleReg(e.target.value);
           }}
         />
-        <label>Username</label>
+        
         <input
         value={usernameReg}
+        placeholder="Enter Username"
+          style={{margin: "3px"}}
           type="text"
           onChange={(e) => {
             setUsernameReg(e.target.value);
           }}
         />
-        <label>Password</label>
+        
         <input
-          type="text"
+          type="password"
+          placeholder="password"
           value={passwordReg}
           onChange={(e) => {
             setPasswordReg(e.target.value);
           }}
         />
-        <button onClick={register}> Register </button>
+        <button onClick={register} style={{margin: "10px"}}
+         > Register </button>
       </div>
 <div> Already Registered? <a href="/">Login here.</a></div>
 
