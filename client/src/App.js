@@ -9,7 +9,7 @@ import Cloudinary from "./pages/Admin/Cloudinary";
 import ImgUpload from "./pages/Admin/ImgUpload";
 import Login from "./pages/Admin/Login";
 import Menu from "./pages/Menus/Menu";
-import Navbar from "./components/Navbar";
+import Topbar from "./components/Topbar";
 import AllTables from "./components/AllTables";
 import AddElementsMenu from "./pages/Menus/AddElementsMenu";
 import Registration from "./pages/Admin/Registration";
@@ -66,7 +66,7 @@ function App() {
   return (
    
     <Router>
- <Navbar />
+ <Topbar />
 {/* COMPONENTS */}
 <Route path="/missiondropdown" exact render={(props) => <MissionDropDown />} />
 <Route path="/stepsdd" exact render={(mission_id) => <StepsDD/>} />

@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const Tool = require("../models/Tool");
+const moment = require("moment");
 
 module.exports = function (app) {
   //Get from mission_basics
@@ -16,6 +17,7 @@ module.exports = function (app) {
 
   //Post to mission_basics
   app.post("/basics", (req, res) => {
+    // console.log("*****DATE CONVERT*****", moment(req.body.start_date).format('YYYY-MM-DD'));
     db.mission_basics
       .create({
         status: req.body.status,
@@ -23,8 +25,8 @@ module.exports = function (app) {
         category: req.body.category,
         summary: req.body.summary,
         pm_url: req.body.pm_url,
-        start_date: req.body.start_date,
-        end_date: req.body.end_date,
+        start_date: moment(req.body.start_date).format('YYYY-MM-DD'),
+        end_date: moment(req.body.end_date).format('YYYY-MM-DD'),
         cover_img: req.body.cover_img,
         description: req.body.description,
       })

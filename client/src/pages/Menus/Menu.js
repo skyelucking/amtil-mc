@@ -13,7 +13,6 @@ export default function Menu() {
 
   return (
     <>
-      
       <div
         className="Menu"
         style={{
@@ -27,22 +26,24 @@ export default function Menu() {
         {/* <div>Hi - {loginStatus}!</div> */}
         <div className="container menuBox">
           <img
-        src={Logo}
-        alt="amtil logo"
-        style={{
-          width: "20%",
-          display: "flex",
-          marginLeft: "35%",
-          marginRight: "35%",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-      ></img>
+            src={Logo}
+            alt="amtil logo"
+            style={{
+              width: "20%",
+              display: "flex",
+              marginLeft: "35%",
+              marginRight: "35%",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          ></img>
           <Link to="/basics">
-            <button className="MainMenuBtn">  Create A Mission</button>
+            <button className="MainMenuBtn"> Create A Mission</button>
           </Link>
+         
+
           <br></br>
-          <Link to="/basics">
+          <Link to="/viewmissions">
             <button className="MainMenuBtn">View Missions</button>
           </Link>
           <br></br>
