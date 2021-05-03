@@ -28,9 +28,7 @@ export default function Topbar() {
 
   return (
     <>
-       
-     
-      <Navbar collapseOnSelect expand="lg" style={{backgroundColor: "#4AB8DF", fontSize: "1.2em", color: "black", maxHeight: "45px", marginBottom: "40px"}} >
+             <Navbar collapseOnSelect expand="lg" style={{backgroundColor: "#4AB8DF", fontSize: "1.2em", color: "black", maxHeight: "45px", marginBottom: "5px"}} >
       
             <Nav className="navbar-header" style={{backgroundColor: "#4AB8DF", fontSize: "1em", color: "black", fontWeight: "bold"}}>
             <Navbar.Brand ><SentimentVerySatisfiedIcon style={{fontSize: "1em", padding: "0px", marginRight: "5px"}}/>Hello, {user && user.userfName} ! </Navbar.Brand>

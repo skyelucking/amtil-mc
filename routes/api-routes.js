@@ -78,6 +78,7 @@ module.exports = function (app) {
     }).then(function (users) {
       // console.log(users);
       res.json(users);
+      
     });
   });
 

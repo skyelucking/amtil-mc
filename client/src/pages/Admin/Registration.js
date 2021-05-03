@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "../../App.css";
+import swal from '@sweetalert/with-react';
 
 export default function Registration() {
   const [usernameReg, setUsernameReg] = useState("");
@@ -27,7 +28,7 @@ export default function Registration() {
       email: emailReg,
 
     }).then((response) => {
-      // console.log(response);
+      swal("User", "Added!", "success");
     });
   };
 
