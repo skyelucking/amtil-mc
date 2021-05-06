@@ -34,14 +34,16 @@ export default function Topbar() {
             <Navbar.Brand ><SentimentVerySatisfiedIcon style={{fontSize: "1em", padding: "0px", marginRight: "5px"}}/>Hello, {user && user.userfName} ! </Navbar.Brand>
       
               <NavDropdown title="Mission Menu" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/basics"><AssistantIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/> Create a Mission</NavDropdown.Item>
+                <NavDropdown.Item ><Link to="/basics"><AssistantIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/> 
+            Create A Mission
+          </Link></NavDropdown.Item>
                 <NavDropdown.Item href="/viewmissions">
                 <VisibilityIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} /> View Missions
                 </NavDropdown.Item>
                
               </NavDropdown>
               <NavDropdown title="Elements Menu" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/tooldetails"><BuildIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/>Tool Catalog</NavDropdown.Item>
+                <NavDropdown.Item ><Link to="/tooldetails"><BuildIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/>Tool Catalog</Link></NavDropdown.Item>
                 <NavDropdown.Item href="/equipdetails">
                 <RadioIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} />Equipment Catalog
                 </NavDropdown.Item>
