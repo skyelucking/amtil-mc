@@ -46,6 +46,7 @@ export default function Login() {
  
       <div className="login">
         <img src={Logo} alt="amtil logo"></img>
+        <p className="textBlock" style={{width: "50%", marginBottom: "10px"}}> Welcome! This website is still in its very early stages. There are buttons that don't work and wonky things that happen sometimes. It's an adventure! If you are here to check it out - please know that it is not ready for feedback just yet. Hey - the feedback button doesn't even work! You will be notified when this is ready for beta testers and feedback! Thanks!</p>
         <h1>Login</h1>
         <input
           type="text"

@@ -37,26 +37,26 @@ export default function Topbar() {
                 <NavDropdown.Item ><Link to="/basics"><AssistantIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/> 
             Create A Mission
           </Link></NavDropdown.Item>
-                <NavDropdown.Item href="/viewmissions">
-                <VisibilityIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} /> View Missions
+                <NavDropdown.Item ><Link to="/viewmissions">
+                <VisibilityIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} /> View Missions</Link>
                 </NavDropdown.Item>
                
               </NavDropdown>
               <NavDropdown title="Elements Menu" id="collasible-nav-dropdown">
                 <NavDropdown.Item ><Link to="/tooldetails"><BuildIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/>Tool Catalog</Link></NavDropdown.Item>
-                <NavDropdown.Item href="/equipdetails">
-                <RadioIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} />Equipment Catalog
+                <NavDropdown.Item ><Link to="/equipdetails">
+                <RadioIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} />Equipment Catalog</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/stagedetails">
-                <WallpaperIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} />Stages
+                <NavDropdown.Item ><Link to="/stagedetails">
+                <WallpaperIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} />Stages</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/teamdetails">
-                <PeopleIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} />Team Members
+                <NavDropdown.Item ><Link to="/teamdetails">
+                <PeopleIcon style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}} />Team Members</Link>
                 </NavDropdown.Item>
                
               </NavDropdown>
-              <Navbar.Brand href="/teamdetails" style={{marginLeft: "50%"}}> <b><ExitToAppIcon  style={{fontSize: "1em"}}/> Logout</b> </Navbar.Brand>
-            <Navbar.Brand href="/teamdetails"> <b><AdbIcon  style={{fontSize: "1em"}}/> Feedback</b> </Navbar.Brand>
+              <Navbar.Brand href="https://youtu.be/xvFZjo5PgG0" style={{marginLeft: "50%"}}> <b><ExitToAppIcon  style={{fontSize: "1em"}}/> Logout</b> </Navbar.Brand>
+            <Navbar.Brand href="https://youtu.be/xvFZjo5PgG0" target="_blank"> <b><AdbIcon  style={{fontSize: "1em"}}/> Feedback</b> </Navbar.Brand>
             
             </Navbar>
           
