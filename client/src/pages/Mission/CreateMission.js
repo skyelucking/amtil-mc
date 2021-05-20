@@ -152,7 +152,7 @@ function CreateMission() {
               <div label="Quiz Questions">
                 <AddQuestion />{" "}
               </div>
-              {/* <div label="References Docs">References Docs</div> */}
+              <div label="References Docs">References Docs</div>
             </Tabs>
           </div>
         </Container>

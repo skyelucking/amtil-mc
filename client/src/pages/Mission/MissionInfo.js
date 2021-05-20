@@ -8,13 +8,14 @@ import ToolBox from "../Tools/ToolBox";
 function MissionInfo() {
   const [mission_id, setMissionID] = useState();
   const [basicsList, setBasicsList] = useState();
-  const [missionDrop, setMissionDrop] = useState([]);
+  // const [missionDrop, setMissionDrop] = useState([]);
 
   useEffect(() => {
     const missionVar = window.sessionStorage.getItem("mission");
-    if (!missionVar) return;
-    const mission_id = JSON.parse(missionVar).mission_id;
-    if (mission_id) setMissionID(mission_id);
+    setMissionID(missionVar);
+    // if (!missionVar) return;
+    // const mission_id = JSON.parse(missionVar).mission_id;
+    // if (mission_id) setMissionID(mission_id);
   }, []);
 
   useEffect(() => {
@@ -75,7 +76,7 @@ function MissionInfo() {
         </Container>
       ) : (
         <>
-          <div>No Mission Selected</div>
+          {/* <div>No Mission Selected</div>
           <div>
             <select
               onChange={(e) => {
@@ -88,7 +89,7 @@ function MissionInfo() {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
         </>
       )}
     </>
