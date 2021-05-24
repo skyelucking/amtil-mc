@@ -139,6 +139,23 @@ thead{
    
 }
 
+.SmallLinkBtn{
+  width: 8em;
+    background-color: #4AB8DF;
+    color: rgb(15, 15, 15);
+    border-radius: 4%;
+    font-size: 1em;
+    margin-bottom: 10px;
+    padding: .1em;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    vertical-align: middle;
+    margin-right: 60%;
+    box-shadow: 5px 5px 5px grey;
+   
+}
+
 
 
 .navbar-header{

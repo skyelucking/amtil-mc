@@ -3,6 +3,7 @@ import Axios from "axios";
 import "../../App.css";
 import DatePicker from "react-date-picker";
 import swal from '@sweetalert/with-react';
+import { Link } from "react-router-dom";
 
 Axios.defaults.withCredentials = true;
 
@@ -63,8 +64,8 @@ export default function Tickets() {
       if (response) {
         console.log(response);
         swal(response.data.ticket_title, 'submitted!', "info");
-        setTimeout(function(){window.location.href="/ticketcreate"} , 5000)
-        // window.location.href="/ticketcreate"
+        setTimeout(function(){window.location.href="/ticketcreate"} , 3000)
+        
       } 
       // else {
       //   swal(response.data.ticket_title, "could not be submitted!", "info");
@@ -77,7 +78,8 @@ export default function Tickets() {
   };
   return (
     <div className="container">
-      <h3 className="PageHead">Submit a Ticket</h3>
+      <h3 className="PageHead" style={{marginTop: "10px"}}>Submit a Ticket</h3>
+      <Link to="/ticketlog"><button className="SmallLinkBtn">View Ticket Log</button></Link>
       <div className="inputBox">
         <input
           placeholder="Title of Ticket"

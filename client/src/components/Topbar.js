@@ -33,7 +33,7 @@ export default function Topbar() {
             
             <Navbar.Brand ><SentimentVerySatisfiedIcon style={{fontSize: "1em", padding: "0px", marginRight: "5px"}}/>Hello, {user && user.userfName} ! </Navbar.Brand>
       
-              <NavDropdown title="Mission Menu" id="collasible-nav-dropdown">
+            <NavDropdown title="Mission Menu" id="collasible-nav-dropdown" >
                 <NavDropdown.Item ><Link to="/basics"><AssistantIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/> 
             Create A Mission
           </Link></NavDropdown.Item>
@@ -56,7 +56,7 @@ export default function Topbar() {
                
               </NavDropdown>
               <Navbar.Brand href="https://youtu.be/xvFZjo5PgG0" style={{marginLeft: "50%"}}> <b><ExitToAppIcon  style={{fontSize: "1em"}}/> Logout</b> </Navbar.Brand>
-            <Navbar.Brand href="https://youtu.be/xvFZjo5PgG0" target="_blank"> <b><AdbIcon  style={{fontSize: "1em"}}/> Feedback</b> </Navbar.Brand>
+            <Navbar.Brand href="/ticketcreate" > <b><AdbIcon  style={{fontSize: "1em"}}/> Feedback</b> </Navbar.Brand>
             
             </Navbar>
           
