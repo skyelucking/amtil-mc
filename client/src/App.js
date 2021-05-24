@@ -13,6 +13,7 @@ import Topbar from "./components/Topbar";
 import AllTables from "./components/AllTables";
 import AddElementsMenu from "./pages/Menus/AddElementsMenu";
 import Registration from "./pages/Admin/Registration";
+import Tickets from "./pages/Admin/Tickets";
 
 //ADD ELEMENTS
 import TeamDetails from "./pages/Team/TeamDetails";
@@ -63,6 +64,7 @@ import MissionQuestions from "./pages/Questions/MissionQuestions";
 
 
 
+
 function App() {
   return (
    
@@ -87,6 +89,7 @@ function App() {
       <Route path="/updatemissions" exact render={(props) => <UpdateMissions />}/>
       <Route path="/viewedit" exact render={(props) => <ViewEditMission />} />
       <Route path="/addelements" exact render={(props) => <AddElements />} />
+      <Route path="/ticketcreate" exact render={(props) => <Tickets />} />
 
 {/* ADD ELEMENTS */}
       <Route path="/missionequip" exact render={(props) => <MissionEquip />} />

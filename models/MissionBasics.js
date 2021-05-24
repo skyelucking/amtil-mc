@@ -37,11 +37,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
       },
       start_date: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: true,
       },
       end_date: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: true,
       },
       cover_img: {

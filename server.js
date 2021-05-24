@@ -43,6 +43,7 @@ require("./routes/tool-routes")(app);
 require("./routes/storyboard-routes")(app);
 require("./routes/step-routes")(app);
 require("./routes/question-routes")(app);
+require("./routes/ticket-routes")(app);
 
 if(process.env.NODE_ENV === "production"){
   app.get("*", function(req, res) {
