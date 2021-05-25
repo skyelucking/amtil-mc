@@ -16,19 +16,28 @@ import AddQuestion from "../Questions/AddQuestion";
 
 function CreateMission() {
   
-  const [mission_id, setMissionID] = useState();
+  const [mission_id, setMissionID] = useState(window.sessionStorage.getItem("mission"));
   const [basicsList, setBasicsList] = useState();
   const [missionDrop, setMissionDrop] = useState([]);
 
-  useEffect(() => {
-    const missionVar = window.sessionStorage.getItem("mission");
-    if (!missionVar) return;
-    const mission_id = JSON.parse(missionVar).mission_id;
-    if (mission_id) setMissionID(mission_id);
-  }, []);
+    // useEffect(() => {
+    // mission_id = window.sessionStorage.getItem("mission");
+    // if (!missionVar) return;
+    // const mission_id = JSON.parse(missionVar).mission_id;
+    // if (mission_id) setMissionID(mission_id);
+  // }, []);
+
+  // useEffect(() => {
+  //   const missionVar = window.sessionStorage.getItem("mission");
+  //   if (!missionVar) return;
+  //   const mission_id = JSON.parse(missionVar).mission_id;
+  //   if (mission_id) setMissionID(mission_id);
+  // }, []);
 
   useEffect(() => {
     Axios.get("/basics/" + mission_id).then((response) => {
+      console.log("mission_id", mission_id);
+      
       setBasicsList(response.data);
     });
   }, [mission_id])
@@ -164,7 +173,9 @@ function CreateMission() {
       onChange={(e) => {
         setMissionID(e.target.value);
       }} >
+        <option value="--- " > --- </option>
         {missionDrop.map((data, index) => (
+          
           <option value={data.mission_id} key={index}>{data.mission_id} - {data.name}</option>
         ))}
       </select>

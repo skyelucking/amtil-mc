@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { render } from "react-dom";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 
-const TeamBox = (props) => {
+const TeamList = (props) => {
   const Box = (props) => <div className="box">{props.children} </div>;
   const mission_id = props.mission_id;
 
@@ -27,22 +27,17 @@ const TeamBox = (props) => {
           width: "100%",
           display: "flex",
           margin: "auto",
-          textAlign: "center",
-          justifyContent: "center",
+          textAlign: "left",
+          justifyContent: "left",
         }}
       >
        
         <Row>
+          <b style={{ fontSize: ".9em"}}>Team Roster:</b> <br></br>
           {basicsList.map((data, i) => (
-            <Col s="12" key={i}>
-              <Box>
-                <img
-                  src={data.avatar}
-                  style={{ width: "5em", borderRadius: "75%", margin: "5px" }}
-                ></img><br></br>
-                <p style={{ fontSize: ".75em", margin: "0px", fontWeight: "bold" }}>{data.first_name} {data.last_name}</p> <p style={{ fontSize: ".75em", margin: "0px" }}>{data.title}</p>
-              </Box>
-            </Col>
+          
+              <p key={i} style={{ fontSize: ".9em", marginLeft: "5px", marginBottom: "0px"}}>{data.first_name} {data.last_name} ({data.title}) / </p> 
+            
           ))}
         </Row>
       </Container>
@@ -51,4 +46,4 @@ const TeamBox = (props) => {
 };
 
 
-export default TeamBox;
+export default TeamList;

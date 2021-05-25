@@ -69,6 +69,22 @@ thead{
    
     box-shadow: 10px 10px 5px grey;
 }
+.PanelBox {
+  position: relative;
+     margin: auto;
+     display: flex;
+    flex-direction: column;
+    width: 200px;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin-bottom: 10px;
+   
+    box-shadow: 10px 10px 5px grey;
+}
 
 .panelHead{
   width: 100%;

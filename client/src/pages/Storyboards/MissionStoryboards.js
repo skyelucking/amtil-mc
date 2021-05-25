@@ -3,16 +3,14 @@ import Axios from "axios";
 
 
 function MissionStoryboards({ }) {
-  const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-    .mission_id;
-
+  const [mission_id, setMissionID] = useState(window.sessionStorage.getItem("mission"));
   const [basicsList, setBasicsList] = useState([]);
   const [storyPanels, setStoryPanels] = useState([]);
   var length = storyPanels.length;
 
   useEffect(() => {
     Axios.get("/b_storyboards/" + mission_id).then((response) => {
-      console.log(response.data);
+      console.log("response", response.data);
       setStoryPanels(response.data);
       
     });

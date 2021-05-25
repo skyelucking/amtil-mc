@@ -53,8 +53,9 @@ import MissionDropDown from "./components/MissionDropDown";
 import TeamBox from "./pages/Team/TeamBox"
 
 //CRUD STORYBOARD
-import StoryDetails from "./pages/Storyboards/StoryDetails"
-import MissionStoryboards from "./pages/Storyboards/MissionStoryboards"
+import StoryDetails from "./pages/Storyboards/StoryDetails";
+import MissionStoryboards from "./pages/Storyboards/MissionStoryboards";
+import StoryboardBox from "./pages/Storyboards/StoryboardBox";
 
 //CRUD STEPS
 import StepDetails from "./pages/Steps/StepDetails"
@@ -64,6 +65,7 @@ import AddQuestion from "./pages/Questions/AddQuestion"
 import StepsDD from "./components/MissionDropDown";
 import MissionInfo from "./pages/Mission/MissionInfo";
 import MissionQuestions from "./pages/Questions/MissionQuestions";
+
 
 
 
@@ -133,6 +135,7 @@ function App() {
 {/* CRUD STORYBOARDS*/}  
 <Route path="/storydetails" exact render={(props) => <StoryDetails />} />
 <Route path="/missionstoryboards" exact render={(props) => <MissionStoryboards/>} />
+<Route path="/storyboardbox" exact render={(props) => <StoryboardBox/>} />
 
 {/* CRUD STEPS*/} 
 <Route path="/stepdetails" exact render={(props) => <StepDetails />} />

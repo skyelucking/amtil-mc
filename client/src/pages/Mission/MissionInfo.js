@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Container from "react-bootstrap/Container";
+import { Container, Table } from "react-bootstrap";
 import "../../App.css";
 import Axios from "axios";
 import TeamBox from "../Team/TeamBox";
+import TeamList from "../Team/TeamList";
 import ToolBox from "../Tools/ToolBox";
+import ToolList from "../Tools/ToolList";
+import MissionStoryboards from "../Storyboards/MissionStoryboards";
 
 function MissionInfo() {
   const [mission_id, setMissionID] = useState();
   const [basicsList, setBasicsList] = useState();
+  const [teamList, setTeamList] = useState([]);
   // const [missionDrop, setMissionDrop] = useState([]);
 
   useEffect(() => {
@@ -27,73 +31,98 @@ function MissionInfo() {
   
   return (
     <>
-      <h1
-        className="PageHead"
-        style={{ marginBottom: 15, width: "12em", padding: "5px" }}
-      >
-        View Mission
-      </h1>
       {basicsList ? (
-        <Container style={{ width: "95%" }}>
-       <div>
-              {/* Mission Basics */}
-            <div className="missionBox ">
-                <div className="viewBoxHeader">Mission Basics</div>
-                  {basicsList.cover_img ? <img src={basicsList.cover_img} style={{width: "100%"}}></img> :
-     <div></div>
- }
-              <span
-                style={{
-                  fontSize: ".75em",
-                  opacity: "65%",
-                }}
-              >
-                [ ID#: {basicsList.mission_id} ]
-              </span><br></br>
-              <span style={{ fontSize: ".9em", textAlign: "left" }}>
-                <b >Name:</b> {basicsList.name}{" "}
-                <br></br>
-                <b >Category:</b> {basicsList.category}{" "}
-                <br></br>
-                <b style={{ fontSize: ".9em"}}><a href={basicsList.pm_url} target="_blank">Project Management Link</a></b>{" "}
-                <br></br>
-                <b >Description: </b>
-                <span style={{ fontSize: ".75em" }}>{basicsList.description}</span>
-              
-              <br></br>
-                <b  >Start Date: </b>
-                <span style={{ fontSize: ".5em" }}>{basicsList.start_date}</span>
-             
-              <br></br>
-                <b >Expected End Date: </b>
-                <span style={{ fontSize: ".5em" }}>{basicsList.end_date}</span>
-              </span>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="viewBoxHeader" style={{ color: "white" }}>
+                {basicsList.name}
+              </div>
+              <div className="row">
+                <div
+                  className="col-sm-11"
+                  style={{ backgroundColor: "#caf0ff" }}
+                >
+                  <b>Name:</b> {basicsList.name}
+                </div>
+                <div
+                  className="col-sm-1"
+                  style={{ backgroundColor: "#caf0ff" }}
+                >
+                  <b>ID:</b> {basicsList.mission_id}
+                </div>
+              </div>
+              <div className="row">
+                <div
+                  className="col-sm-12"
+                  style={{ backgroundColor: "#caf0ff" }}
+                >
+                 <span style={{fontSize: ".75em"}}><b>Start Date:</b> {basicsList.start_date} </span> <span style={{marginLeft: "15px", fontSize: ".75em"}}><b>Expected End Date:</b> {basicsList.end_date}</span> 
+                </div>
+                
+              </div>
+              <div className="row">
+                <div
+                  className="col-sm-12"
+                  style={{ backgroundColor: "#caf0ff", fontSize: ".9em" }}
+                >
+                  <b>Description:</b> {basicsList.description}
+                </div>
+              </div>
+              <div className="row">
+                <div
+                  className="col-sm-12"
+                  style={{ backgroundColor: "#caf0ff" }}
+                >
+                  <b style={{ fontSize: ".75em" }}>
+        <a href={basicsList.pm_url} target="_blank">
+        Project Management Link
+        </a>
+        </b>{" "}
+                </div>
+              </div>
+              <div className="row">
+                <div
+                  className="col-sm-12"
+                  style={{ backgroundColor: "#caf0ff" }}
+                >
+                 <TeamList mission_id={basicsList.mission_id}/>
+                 <ToolList mission_id={basicsList.mission_id}/>
+                </div>
+              </div>
+                          
+
+              <div className="row justify-content-center">
+                <div
+                  className="col-sm-12 justify-content-center"
+                  style={{ backgroundColor: "#caf0ff" }}
+                ></div>
+              </div>
             </div>
-            <div > <TeamBox mission_id={basicsList.mission_id} className="viewBox "/></div>
-            <div > <ToolBox mission_id={basicsList.mission_id} className="viewBox "/></div>
-           
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="viewBoxHeader" style={{ color: "white", marginTop: "5px" }}>
+                StoryBoards
+              </div>
+
+              <div className="row justify-content-center">
+                <div
+                  className="col-sm-12 justify-content-center"
+                  style={{ backgroundColor: "#caf0ff" }}
+                >
+                 <MissionStoryboards mission_id={basicsList.mission_id} />
+                </div>
+              </div>
             </div>
-        </Container>
+          </div>
+          
+        </div>
       ) : (
-        <>
-          {/* <div>No Mission Selected</div>
-          <div>
-            <select
-              onChange={(e) => {
-                setMissionID(e.target.value);
-              }}
-            >
-              {missionDrop.map((data, index) => (
-                <option value={data.mission_id} key={index}>
-                  {data.mission_id} - {data.name}
-                </option>
-              ))}
-            </select>
-          </div> */}
-        </>
-      )}
-    </>
-  );
-}
+        <div></div>)}
+  </>)
+  };
+  
+ 
 
 export default MissionInfo;
