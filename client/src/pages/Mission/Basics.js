@@ -66,6 +66,7 @@ export default function Basics() {
             name: response.data.name,
           })
         );
+        
     window.location.href="/createmission"
       }
     });

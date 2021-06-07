@@ -6,21 +6,23 @@ import { Checkbox } from "@material-ui/core";
 import ShowSelectedTools from "../Tools/ShowSelectedTools";
 
 const MissionTools = () => {
-  const [mission_id, setMissionID] = useState(
-    JSON.parse(window.sessionStorage.getItem("mission")).mission_id
-  );
+ 
   const [toolList, setToolList] = useState([]);
   const [tool_box, setToolBox] = useState([]);
  const [basicsList, setBasicsList] = useState([]);
  
+ const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
  //GETS MISSION ID FROM SESSION VARIABLE
-  useEffect(() => {
-    const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-      .mission_id;
+ let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
 
+  useEffect(() => {
+    let missionVar = window.sessionStorage.getItem("mission");
+    console.log("missionVar", missionVar)
     Axios.get("/tooldetails").then((response) => {
       setToolList(response.data);
-      Axios.get("/missiontools/" + mission_id).then((response) => {
+      
+      Axios.get("/missiontools/" + missionVar).then((response) => {
+        
         console.log(response.data);
         let tempArray = [];
         const toolList = [];

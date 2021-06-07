@@ -11,8 +11,7 @@ const ShowSelectedTools = ({
   setToolList,
   toolList,
 }) => {
-  const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-    .mission_id;
+  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
 
   // const [displayDesc, setDisplayDesc] = useState([]);
   const [modalData, setModalData] = useState({});
@@ -24,8 +23,11 @@ const ShowSelectedTools = ({
   };
 
   const delete_tool = (i, mission_id, tool) => {
-    console.log("mission_id", mission_id, "tool_id ", tool.Axiostool_id);
-    Axios.delete("/missiontools/" + mission_id + "/" + tool.tool_id).then(
+    let missionVar = window.sessionStorage.getItem("mission");
+    console.log("missionVar", missionVar)
+    
+    
+    Axios.delete("/missiontools/" + missionVar + "/" + tool.tool_id).then(
       (response) => {
         setBasicsList(basicsList.filter((t) => t.tool_id !== tool.tool_id));
         setToolList([...toolList, tool]);

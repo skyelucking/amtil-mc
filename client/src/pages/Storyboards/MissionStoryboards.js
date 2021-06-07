@@ -3,13 +3,16 @@ import Axios from "axios";
 
 
 function MissionStoryboards({ }) {
-  const [mission_id, setMissionID] = useState(window.sessionStorage.getItem("mission"));
+  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
   const [basicsList, setBasicsList] = useState([]);
   const [storyPanels, setStoryPanels] = useState([]);
   var length = storyPanels.length;
+  let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
 
   useEffect(() => {
-    Axios.get("/b_storyboards/" + mission_id).then((response) => {
+    let missionVar = window.sessionStorage.getItem("mission");
+    console.log("missionVar", missionVar)
+    Axios.get("/b_storyboards/" + missionVar).then((response) => {
       console.log("response", response.data);
       setStoryPanels(response.data);
       

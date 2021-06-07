@@ -6,22 +6,23 @@ import { Container, Table, Card, Button } from "react-bootstrap";
 
 
 const ShowSelectedStage = () => {
-  const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-    .mission_id;
-
+ 
+  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
   const [basicsList, setBasicsList] = useState([]);
   const [stageList, setStageList] = useState([]);
+  const [missionDrop, setMissionDrop] = useState([]);
+  let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
 
   useEffect(() => {
-    Axios.get("/stagedetails/" + mission_id).then((response) => {
+    let missionVar = window.sessionStorage.getItem("mission");
+    console.log("missionVar", missionVar)
+    Axios.get("/stagedetails/" + missionVar).then((response) => {
       console.log(response.data);
       let tempArray = [];
       const stageList = [];
       tempArray = [...response.data.stage_details];
       setBasicsList(tempArray);
-      console.log("basicsList", basicsList);
-      console.log("tempArray", tempArray);
-      console.log("stageList", stageList);
+      
     });
   }, []);
 
@@ -35,6 +36,7 @@ const ShowSelectedStage = () => {
     );
   };
 
+  
   return (
     <>
     <div>

@@ -4,15 +4,18 @@ import Axios from "axios";
 import swal from '@sweetalert/with-react';
 
 function MissionQuestions({ }) {
-  const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-    .mission_id;
+  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
 
   const [basicsList, setBasicsList] = useState([]);
   const [questionList, setQuestionList] = useState([]);
   var length = questionList.length;
 
+  let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
+  
   useEffect(() => {
-    Axios.get("/getquestions/" + mission_id).then((response) => {
+    let missionVar = window.sessionStorage.getItem("mission");
+    console.log("missionVar", missionVar)
+    Axios.get("/getquestions/" + missionVar).then((response) => {
       console.log(response.data);
       setQuestionList(response.data);
       
@@ -22,7 +25,7 @@ function MissionQuestions({ }) {
   
   return (
   <div> {questionList.map((data, index) => (
-      <div className="Panel" key={data.storyboard_id}>
+      <div className="Panel" key={index}>
           <div className="panelHead">Question #{data.q_order} <button style={{justifyContent: "right", marginLeft: "75%", marginBottom: "2px", marginTop: "2px", fontSize: "90%"}}>Edit</button></div>
                  
          <div> <b>Question:</b> {data.q_text}<br></br>

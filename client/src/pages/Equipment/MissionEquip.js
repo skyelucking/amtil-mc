@@ -4,21 +4,19 @@ import { Container, Table } from "react-bootstrap";
 import ShowSelectedEquip from "../Equipment/ShowSelectedEquip";
 
 const MissionEquip = () => {
-  const [mission_id, setMissionID] = useState(
-    JSON.parse(window.sessionStorage.getItem("mission")).mission_id
-  );
+  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
   const [equipList, setEquipList] = useState([]);
   const [equip_box, setEquipBox] = useState([]);
   const [basicsList, setBasicsList] = useState([]);
-
+  let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
+ 
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
-    const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-      .mission_id;
-
+    let missionVar = window.sessionStorage.getItem("mission");
+    console.log("missionVar", missionVar)
     Axios.get("/equipdetails").then((response) => {
       setEquipList(response.data);
-      Axios.get("/missionequip/" + mission_id).then((response) => {
+      Axios.get("/missionequip/" + missionVar).then((response) => {
         console.log(response.data);
         let tempArray = [];
         const equipList = [];

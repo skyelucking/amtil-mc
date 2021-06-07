@@ -4,13 +4,15 @@ import { Container, Table } from "react-bootstrap";
 import StepDetails from "./StepDetails";
 
 function MissionSteps() {
-  const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-    .mission_id;
+  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
 
   const [stepList, setStepList] = useState([]);
-
+ let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
   useEffect(() => {
-    Axios.get("/getsteps/" + mission_id).then((response) => {
+    let missionVar = (window.sessionStorage.getItem("mission"));
+   
+    console.log("missionVar", missionVar)
+    Axios.get("/getsteps/" + missionVar).then((response) => {
       console.log(response.data);
       setStepList(response.data);
     });

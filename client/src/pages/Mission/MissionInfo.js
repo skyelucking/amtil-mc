@@ -6,7 +6,7 @@ import TeamBox from "../Team/TeamBox";
 import TeamList from "../Team/TeamList";
 import ToolBox from "../Tools/ToolBox";
 import ToolList from "../Tools/ToolList";
-import MissionStoryboards from "../Storyboards/MissionStoryboards";
+import StoryboardBox from "../Storyboards/StoryboardBox";
 
 function MissionInfo() {
   const [mission_id, setMissionID] = useState();
@@ -57,7 +57,7 @@ function MissionInfo() {
                   className="col-sm-12"
                   style={{ backgroundColor: "#caf0ff" }}
                 >
-                 <span style={{fontSize: ".75em"}}><b>Start Date:</b> {basicsList.start_date} </span> <span style={{marginLeft: "15px", fontSize: ".75em"}}><b>Expected End Date:</b> {basicsList.end_date}</span> 
+                 <span style={{fontSize: ".9em"}}><b>Start Date:</b> {basicsList.start_date} </span> <span style={{marginLeft: "15px", fontSize: ".9em"}}><b>Expected End Date:</b> {basicsList.end_date}</span> 
                 </div>
                 
               </div>
@@ -103,7 +103,7 @@ function MissionInfo() {
           <div className="row">
             <div className="col-sm-12">
               <div className="viewBoxHeader" style={{ color: "white", marginTop: "5px" }}>
-                StoryBoards
+                StoryBoards (Click For More Information)
               </div>
 
               <div className="row justify-content-center">
@@ -111,7 +111,7 @@ function MissionInfo() {
                   className="col-sm-12 justify-content-center"
                   style={{ backgroundColor: "#caf0ff" }}
                 >
-                 <MissionStoryboards mission_id={basicsList.mission_id} />
+                 <StoryboardBox mission_id={basicsList.mission_id} />
                 </div>
               </div>
             </div>

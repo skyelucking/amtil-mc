@@ -11,11 +11,10 @@ const MissionStage = () => {
   );
   const [stageList, setStageList] = useState([]);
   const [stage_box, setStageBox] = useState([]);
-
+  let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
-    const mission_id = JSON.parse(window.sessionStorage.getItem("mission"))
-      .mission_id;
+    let missionVar = window.sessionStorage.getItem("mission");
 
     Axios.get("/stagedetails").then((response) => {
       setStageList(response.data);

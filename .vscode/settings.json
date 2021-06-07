@@ -1,3 +1,5 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "AmtilTest1/bin/Release/netcoreapp3.1/publish"
 }
