@@ -1,5 +1,5 @@
 import React from "react";
-import ShowBasics from "../Mission/ShowBasics";
+import ViewEditDeleteMissions from "../Mission/ViewEditDeleteMissions";
 
 
 
@@ -11,7 +11,7 @@ function ViewMissions() {
       <div style={{ textAlign: "center", color: "red", margin: 15 }}>
        
       </div>
-      <ShowBasics />
+      <ViewEditDeleteMissions />
       </div>
     
   );

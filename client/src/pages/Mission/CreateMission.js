@@ -15,20 +15,19 @@ import MissionSteps from "../Steps/MissionSteps";
 import AddQuestion from "../Questions/AddQuestion";
 
 function CreateMission() {
-  
-  const [mission_id, setMissionID] = useState(window.sessionStorage.getItem("mission"));
+  useEffect(() => {
+    const missionVar = window.sessionStorage.getItem("mission");
+    if (!missionVar) return;
+    const mission_id = JSON.parse(missionVar).mission_id;
+    if (mission_id) setMissionID(mission_id);
+  }, []);
+
+  const [mission_id, setMissionID] = useState();
   const [basicsList, setBasicsList] = useState();
   const [missionDrop, setMissionDrop] = useState([]);
 
-    // useEffect(() => {
-    // mission_id = window.sessionStorage.getItem("mission");
-    // if (!missionVar) return;
-    // const mission_id = JSON.parse(missionVar).mission_id;
-    // if (mission_id) setMissionID(mission_id);
-  // }, []);
-
-  // useEffect(() => {
-  //   const missionVar = window.sessionStorage.getItem("mission");
+  //   useEffect(() => {
+  //   mission_id = window.sessionStorage.getItem("mission");
   //   if (!missionVar) return;
   //   const mission_id = JSON.parse(missionVar).mission_id;
   //   if (mission_id) setMissionID(mission_id);
@@ -36,23 +35,20 @@ function CreateMission() {
 
   useEffect(() => {
     Axios.get("/basics/" + mission_id).then((response) => {
-      console.log("mission_id", mission_id);
-      
       setBasicsList(response.data);
     });
-  }, [mission_id])
+  }, [mission_id]);
 
   useEffect((missionDrop) => {
     Axios.get("/basics/").then((response) => {
       let tempArray = [];
       const missionDrop = [];
-      tempArray = [...response.data]
+      tempArray = [...response.data];
       setMissionDrop([...response.data]);
       console.log("tempArray", tempArray);
       console.log(missionDrop);
     });
-  }, [])
-
+  }, []);
 
   return (
     <>
@@ -63,12 +59,21 @@ function CreateMission() {
         Build your Mission!
       </h1>
       {basicsList ? (
-        <Container style={{ width: "95%", display: "flex", textAlign: "center", justifyContent: "center", margin: "auto" }}>
+        <Container
+          style={{
+            width: "95%",
+            display: "flex",
+            textAlign: "center",
+            justifyContent: "center",
+            margin: "auto",
+          }}
+        >
           <div>
-          <div>
+            <div>
               {/* Mission Basics */}
-            <div className="missionBox ">
-                <div style={{
+              <div className="missionBox ">
+                <div
+                  style={{
                     fontSize: "1.2rem",
                     fontWeight: "bold",
                     width: "100%",
@@ -77,40 +82,53 @@ function CreateMission() {
                     textAlign: "center",
                     verticalAlign: "middle",
                     marginBottom: "5px",
-                    padding: "5px"
-                  }}>Mission Basics</div>
-                  {basicsList.cover_img ? <img src={basicsList.cover_img} style={{width: "100%"}}></img> :
-     <div></div>
- }
-              <span
-                style={{
-                  fontSize: ".75em",
-                  opacity: "65%",
-                }}
-              >
-                [ ID#:{basicsList.mission_id} ]
-              </span><br></br>
-              <span style={{ fontSize: ".9em", textAlign: "left" }}>
-                <b >Name:</b> {basicsList.name}{" "}
+                    padding: "5px",
+                  }}
+                >
+                  Mission Basics
+                </div>
+                {basicsList.cover_img ? (
+                  <img
+                    src={basicsList.cover_img}
+                    style={{ width: "100%" }}
+                  ></img>
+                ) : (
+                  <div></div>
+                )}
+                <span
+                  style={{
+                    fontSize: ".75em",
+                    opacity: "65%",
+                  }}
+                >
+                  [ ID#:{basicsList.mission_id} ]
+                </span>
                 <br></br>
-                <b >Category:</b> {basicsList.category}{" "}
-                <br></br>
-                <b style={{ fontSize: ".9em"}}><a href={basicsList.pm_url} target="_blank">Project Management Link</a></b>{" "}
-                <br></br>
-                <b >Description: </b>
-                <span style={{ fontSize: ".75em" }}>{basicsList.description}</span>
-              
-              <br></br>
-                <b  >Start Date: </b>
-                <span style={{ fontSize: "1em" }}>{basicsList.start_date}</span>
-             
-              <br></br>
-                <b >Expected End Date: </b>
-                <span style={{ fontSize: "1em" }}>{basicsList.end_date}</span>
-              </span>
+                <span style={{ fontSize: ".9em", textAlign: "left" }}>
+                  <b>Name:</b> {basicsList.name} <br></br>
+                  <b>Category:</b> {basicsList.category} <br></br>
+                  <b style={{ fontSize: ".9em" }}>
+                    <a href={basicsList.pm_url} target="_blank">
+                      Project Management Link
+                    </a>
+                  </b>{" "}
+                  <br></br>
+                  <b>Description: </b>
+                  <span style={{ fontSize: ".75em" }}>
+                    {basicsList.description}
+                  </span>
+                  <br></br>
+                  <b>Start Date: </b>
+                  <span style={{ fontSize: "1em" }}>
+                    {basicsList.start_date}
+                  </span>
+                  <br></br>
+                  <b>Expected End Date: </b>
+                  <span style={{ fontSize: "1em" }}>{basicsList.end_date}</span>
+                </span>
+              </div>
+              {/* <ShowSelectedTeam id={basicsList.mission_id} /> */}
             </div>
-            {/* <ShowSelectedTeam id={basicsList.mission_id} /> */}
-          </div>
             <Tabs>
               <div label="Welcome" className="textBlock">
                 <img
@@ -161,28 +179,38 @@ function CreateMission() {
               <div label="Quiz Questions">
                 <AddQuestion />{" "}
               </div>
-              {/* <div label="References Docs">References Docs</div> */}
+              <div label="References Docs">References Docs</div>
             </Tabs>
           </div>
         </Container>
       ) : (
         <>
-        <div>No Mission Selected</div>
-        <div>
-      <select
-      onChange={(e) => {
-        setMissionID(e.target.value);
-      }} >
-        <option value="--- " > --- </option>
-        {missionDrop.map((data, index) => (
-          
-          <option value={data.mission_id} key={index}>{data.mission_id} - {data.name}</option>
-        ))}
-      </select>
-    </div>
-    </>
-
+          <div>No Mission Selected</div>
+          <div>
+            <select
+              onChange={(e) => {
+                window.sessionStorage.setItem(
+                  "mission",
+                  JSON.stringify({
+                    mission_id: e.target.value,
+                    })
+                );
+                
+                setMissionID(e.target.value);
+               
+              }}
+            >
+              <option value="--- "> --- </option>
+              {missionDrop.map((data, index) => (
+                <option value={data.mission_id} dta-name={data.name} key={index}>
+                  {data.mission_id} - {data.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </>
       )}
+      )
     </>
   );
 }
