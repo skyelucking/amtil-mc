@@ -11,7 +11,7 @@ const MissionStage = () => {
   );
   const [stageList, setStageList] = useState([]);
   const [stage_box, setStageBox] = useState([]);
-  let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
+  // let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
   //GETS MISSION ID FROM SESSION VARIABLE
   useEffect(() => {
     let missionVar = window.sessionStorage.getItem("mission");
@@ -53,7 +53,7 @@ const MissionStage = () => {
           </thead>
           <tbody>
             {stageList.map((data, index) => (
-              <tr key={data.stage_id}>
+              <tr key={index}>
                 <td>
                   <button
                     className="button"

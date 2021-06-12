@@ -10,10 +10,10 @@ function MissionQuestions({ }) {
   const [questionList, setQuestionList] = useState([]);
   var length = questionList.length;
 
-  let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
+ 
   
   useEffect(() => {
-    let missionVar = window.sessionStorage.getItem("mission");
+    let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
     console.log("missionVar", missionVar)
     Axios.get("/getquestions/" + missionVar).then((response) => {
       console.log(response.data);

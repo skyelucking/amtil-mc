@@ -97,7 +97,7 @@ export default function Basics() {
           {"       "}
           <label style={{ marginRight: "5px", marginLeft: "10px" }}>
             {" "}
-            End Date: {"     "}
+            Target End Date: {"     "}
           </label>
           <DatePicker
             onChange={(date) => {
@@ -106,7 +106,11 @@ export default function Basics() {
             value={end_date}
           />
         </div>
-
+        <div>
+        <label style={{ marginRight: "5px", marginLeft: "10px" }}>
+            {" "}
+            Status: 
+          </label>
         <select
           id="Status"
           onChange={(e) => { setStatus(e.target.value);
@@ -124,17 +128,37 @@ export default function Basics() {
           <option value="Upgrading">Upgrading</option>
           <option value="Other">Other</option>
         </select>
-
-               <input
+        </div>
+        <div>
+        <label style={{ marginRight: "5px", marginLeft: "10px" }}>
+            {" "}
+            Subject Category: 
+          </label>
+        <select
+          id="Category"
+          onChange={(e) => { setCategory(e.target.value);
+          }}>
+        <option value="---">---</option>
+          <option value="Basic Electricity">Basic Electricity</option>
+          <option value="Fluid Lines">Fluid Lines</option>
+          <option value="Ground Operations">Ground Operations</option>
+          <option value="Precision Measuring">Precision Measuring</option>
+          <option value="Weights and Balance">Weights and Balance</option>
+          <option value="Tools">Tools</option>
+          <option value="Safety Protocols">Safety Protocols</option>
+          <option value="Other">Other</option>
+        </select>
+</div>
+               {/* <input
           placeholder="Category"
           style={{ margin: 5 }}
           type="text"
           onChange={(e) => {
             setCategory(e.target.value);
           }}
-        />
+        /> */}
         <textarea
-          placeholder="Short Description"
+          placeholder="Short Description (2 or 3 sentences)"
           style={{ height: "150px", width: "300px", padding: "5px" }}
           type="text"
           onChange={(e) => {
@@ -143,7 +167,7 @@ export default function Basics() {
         />
         {/* <label>summary</label> */}
         <textarea
-          placeholder="Summary"
+          placeholder="Summary (abstract of mission purpose)"
           style={{
             height: "150px",
             width: "300px",

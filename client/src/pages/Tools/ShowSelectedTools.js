@@ -23,7 +23,7 @@ const ShowSelectedTools = ({
   };
 
   const delete_tool = (i, mission_id, tool) => {
-    let missionVar = window.sessionStorage.getItem("mission");
+    let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
     console.log("missionVar", missionVar)
     
     

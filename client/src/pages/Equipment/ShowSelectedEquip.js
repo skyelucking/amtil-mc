@@ -5,7 +5,7 @@ import { Container, Card, Button, Modal } from "react-bootstrap";
 import InfoIcon from "@material-ui/icons/Info";
 
 const ShowSelectedEquip = ({ basicsList, setBasicsList }) => {
-  const [mission_id, setMissionID] = useState(window.sessionStorage.getItem("mission"));
+  const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
 
   // const [equipList, setEquipList] = useState([]);
   const [modalData, setModalData] = useState({});

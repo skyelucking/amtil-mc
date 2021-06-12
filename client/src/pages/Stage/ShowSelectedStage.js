@@ -14,7 +14,7 @@ const ShowSelectedStage = () => {
   let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
 
   useEffect(() => {
-    let missionVar = window.sessionStorage.getItem("mission");
+    let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
     console.log("missionVar", missionVar)
     Axios.get("/stagedetails/" + missionVar).then((response) => {
       console.log(response.data);

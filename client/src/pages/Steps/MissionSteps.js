@@ -7,9 +7,9 @@ function MissionSteps() {
   const [mission_id, setMissionID] = useState(JSON.parse(window.sessionStorage.getItem("mission")).mission_id);
 
   const [stepList, setStepList] = useState([]);
- let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
+ 
   useEffect(() => {
-    let missionVar = (window.sessionStorage.getItem("mission"));
+    let missionVar = JSON.parse(window.sessionStorage.getItem("mission")).mission_id;
    
     console.log("missionVar", missionVar)
     Axios.get("/getsteps/" + missionVar).then((response) => {
@@ -37,7 +37,7 @@ function MissionSteps() {
           </thead>
           <tbody>
             {stepList.map((data, index) => (
-              <tr key={data.step_id}>
+              <tr key={index}>
                 <td>
                   <button
                     className="button"

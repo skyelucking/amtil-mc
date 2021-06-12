@@ -298,7 +298,7 @@ export default function AddQuestion() {
         }}
       >
         {stepList.map((data, index) => (
-          <option value={data.step_text}>#{data.step_order} {data.step_text}</option>
+          <option key={index} value={data.step_text}>#{data.step_order} {data.step_text} </option>
         ))}
       </select>
    
