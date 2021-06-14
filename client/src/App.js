@@ -69,6 +69,8 @@ import MissionInfo from "./pages/Mission/MissionInfo";
 import MissionQuestions from "./pages/Questions/MissionQuestions";
 
 
+//DEFINITIONS
+import GeneralDefinition from "./pages/Definitions/DefinitionsList";
 
 
 
@@ -150,6 +152,9 @@ function App() {
 
 {/* VIEW AND EDIT */}
 <Route path="/missioninfo" exact render={(props) => <MissionInfo/>} />
+
+{/* VIEW AND EDIT */}
+<Route path="/generaldefinitions" exact render={(props) => <GeneralDefinition />} />
 
       
     </Router>

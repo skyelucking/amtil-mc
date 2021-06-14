@@ -44,6 +44,7 @@ require("./routes/storyboard-routes")(app);
 require("./routes/step-routes")(app);
 require("./routes/question-routes")(app);
 require("./routes/ticket-routes")(app);
+require("./routes/definition-routes")(app);
 
 if(process.env.NODE_ENV === "production"){
   app.get("*", function(req, res) {
