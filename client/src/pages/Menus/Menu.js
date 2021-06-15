@@ -57,6 +57,10 @@ export default function Menu() {
             <button className="MainMenuBtn">Give Feedback</button>
           </Link>
           <br></br>
+          <Link to="/generaldefinitions">
+            <button className="MainMenuBtn">Definitions List</button>
+          </Link>
+          <br></br>
         </div>
       </div>
     </>

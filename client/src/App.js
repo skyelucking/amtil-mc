@@ -153,7 +153,7 @@ function App() {
 {/* VIEW AND EDIT */}
 <Route path="/missioninfo" exact render={(props) => <MissionInfo/>} />
 
-{/* VIEW AND EDIT */}
+{/* Definitions*/}
 <Route path="/generaldefinitions" exact render={(props) => <GeneralDefinition />} />
 
       
