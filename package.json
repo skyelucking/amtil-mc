@@ -2,6 +2,10 @@
   "name": "amtil-auth",
   "version": "1.0.0",
   "main": "server.js",
+  "engines": {
+    "node": ">=14.15.x"
+},
+
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +13,7 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "Pedro Henrique Machado",
+  "author": "Skye Lucking",
   "license": "ISC",
   "dependencies": {
     "@rpldy/upload-button": "^0.11.4",
