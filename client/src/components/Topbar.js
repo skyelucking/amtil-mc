@@ -11,6 +11,7 @@ import RadioIcon from '@material-ui/icons/Radio';
 import BuildIcon from '@material-ui/icons/Build';
 import WallpaperIcon from '@material-ui/icons/Wallpaper';
 import PeopleIcon from '@material-ui/icons/People';
+import MenuIcon from '@material-ui/icons/Menu';
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 export default function Topbar() {
@@ -31,10 +32,12 @@ export default function Topbar() {
              <Navbar collapseOnSelect expand="lg" style={{backgroundColor: "#4AB8DF", fontSize: "1.2em", color: "black", maxHeight: "45px", marginBottom: "5px"}} >
       
             
-            <Navbar.Brand ><SentimentVerySatisfiedIcon style={{fontSize: "1em", padding: "0px", marginRight: "5px"}}/>Hello, {user && user.userfName} ! </Navbar.Brand>
+            <Navbar.Brand ><Link to="/webglsandbox"><SentimentVerySatisfiedIcon style={{fontSize: "1em", padding: "0px", marginRight: "5px"}}/></Link>Hello, {user && user.userfName} ! </Navbar.Brand>
       
             <NavDropdown title="Mission Menu" id="collasible-nav-dropdown" >
-                <NavDropdown.Item ><Link to="/basics"><AssistantIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/> 
+            <NavDropdown.Item ><Link to="/menu"><MenuIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/> 
+            Menu Page
+          </Link></NavDropdown.Item><NavDropdown.Item ><Link to="/basics"><AssistantIcon  style={{fontSize: "1.2em", padding: "0px", marginRight: "15px"}}/> 
             Create A Mission
           </Link></NavDropdown.Item>
                 <NavDropdown.Item ><Link to="/viewmissions">

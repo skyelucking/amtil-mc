@@ -72,6 +72,9 @@ import MissionQuestions from "./pages/Questions/MissionQuestions";
 //DEFINITIONS
 import GeneralDefinition from "./pages/Definitions/DefinitionsList";
 
+//WebGLSandbox
+import WebGLSandbox from "./pages/WebGL/WebGLSandbox";
+
 
 
 
@@ -156,6 +159,8 @@ function App() {
 {/* Definitions*/}
 <Route path="/generaldefinitions" exact render={(props) => <GeneralDefinition />} />
 
+{/* WebGL*/}
+<Route path="/webglsandbox" exact render={(props) => <WebGLSandbox />} />
       
     </Router>
   );

@@ -71,6 +71,7 @@ module.exports = function (app) {
     });
   });
 
+  
  // POSTS STAGE DETAILS INTO CATALOG //
   // app.post("/stagedetails", (req, res) => {
   //   db.stage_details
