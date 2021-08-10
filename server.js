@@ -65,12 +65,17 @@ if(process.env.NODE_ENV === "production"){
 // app.get("*", function(req, res) {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // });
-
+const db = mysql.createConnection({
+  user: "root",
+  host: "localhost",
+  password: "NewLife2021!",
+  database: "missions_db",
+});
 
 const PORT = process.env.PORT || 3001
 db2.sequelize.sync().then(() => {
   app.listen(PORT, () => {
-  console.log("The server is running ");
+  console.log("Boom, chicka, chicka, boom! The server is running on " + PORT);
 });
 })
 
